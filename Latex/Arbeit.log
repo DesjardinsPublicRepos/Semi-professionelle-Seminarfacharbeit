@@ -1,0 +1,260 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=latex 2020.5.25)  27 MAY 2020 17:26
+entering extended mode
+ restricted \write18 enabled.
+ Source specials enabled.
+ %&-line parsing enabled.
+**Arbeit.tex
+(./Arbeit.tex
+LaTeX2e <2019-10-01> patch level 1
+(/usr/share/texmf-dist/tex/latex/koma-script/scrartcl.cls
+Document Class: scrartcl 2019/10/12 v3.27 KOMA-Script document class (article)
+(/usr/share/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2019/10/12 v3.27 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(/usr/share/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2019/10/12 v3.27 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2019/10/12 v3.27 KOMA-Script package (loading files)
+)))
+(/usr/share/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2019/10/12 v3.27 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip41
+\scr@dte@tocline@numbox=\box27
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 137.
+Package scrartcl Info: You've used standard option `10pt'.
+(scrartcl)             This is correct!
+(scrartcl)             Internally I'm using `fontsize=10pt'.
+(scrartcl)             If you'd like to set the option with \KOMAoptions,
+(scrartcl)             you'd have to use `fontsize=10pt' there
+(scrartcl)             instead of `10pt', too.
+Class scrartcl Info: File `scrsize10pt.clo' used to setup font sizes on input l
+ine 2208.
+
+(/usr/share/texmf-dist/tex/latex/koma-script/scrsize10pt.clo
+File: scrsize10pt.clo 2019/10/12 v3.27 KOMA-Script font size class option (10pt
+)
+)
+(/usr/share/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2019/10/12 v3.27 KOMA-Script package (type area)
+\ta@bcor=\skip42
+\ta@div=\count80
+Package typearea Info: You've used standard option `a4paper'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `paper=a4'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `paper=a4' there
+(typearea)             instead of `a4paper', too.
+\ta@hblk=\skip43
+\ta@vblk=\skip44
+\ta@temp=\skip45
+\footheight=\skip46
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 8
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 373.44246pt
+(typearea)              DIV departure   = -4%
+(typearea)              \evensidemargin = 39.76274pt
+(typearea)              \oddsidemargin  = 39.76274pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 538.0pt
+(typearea)              \topmargin      = 0.36087pt
+(typearea)              \headheight     = 15.0pt
+(typearea)              \headsep        = 18.0pt
+(typearea)              \topskip        = 10.0pt
+(typearea)              \footskip       = 42.0pt
+(typearea)              \baselineskip   = 12.0pt
+(typearea)              on input line 1716.
+)
+\c@part=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\scr@dte@section@maxnumwidth=\skip47
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\section on input line 4702.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\section on input line 4702.
+\scr@dte@part@maxnumwidth=\skip48
+Class scrartcl Info: using compatibility default `afterindent=false'
+(scrartcl)           for `\part on input line 4710.
+\scr@dte@subsection@maxnumwidth=\skip49
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\subsection on input line 4720.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\subsection on input line 4720.
+\scr@dte@subsubsection@maxnumwidth=\skip50
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\subsubsection on input line 4730.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\subsubsection on input line 4730.
+\scr@dte@paragraph@maxnumwidth=\skip51
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\paragraph on input line 4740.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\paragraph on input line 4740.
+\scr@dte@subparagraph@maxnumwidth=\skip52
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\subparagraph on input line 4750.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\subparagraph on input line 4750.
+\abovecaptionskip=\skip53
+\belowcaptionskip=\skip54
+\c@pti@nb@sid@b@x=\box28
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 5969.
+\scr@dte@figure@maxnumwidth=\skip55
+\c@figure=\count87
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 5981.
+\scr@dte@table@maxnumwidth=\skip56
+\c@table=\count88
+Class scrartcl Info: Redefining `\numberline' on input line 6145.
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2019/10/15 3.35 The Babel package
+
+(/usr/share/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2019/10/15 3.35 Babel switching mechanism
+)
+(/usr/share/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 2018/12/08 v2.11 German support for babel (post-1996 orthogra
+phy)
+
+(/usr/share/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2018/12/08 v2.11 German support for babel (post-1996 orthogr
+aphy)
+
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2019/10/15 3.35 Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen103
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count90
+)
+Package babel Info: Making " an active character on input line 121.
+)))
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+(/usr/share/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2019/04/01 v2.17c AMS math features
+\@mathmargin=\skip57
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen104
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks18
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks19
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks20
+\multlinegap=\skip58
+\multlinetaggap=\skip59
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2855.
+LaTeX Info: Redefining \] on input line 2856.
+) (./Arbeit.aux)
+\openout1 = `Arbeit.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
+5.
+
+(/usr/share/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) (./Arbeit.toc)
+\tf@toc=\write3
+\openout3 = `Arbeit.toc'.
+
+ [1
+
+
+]
+(./Arbeit.aux) ) 
+Here is how much of TeX's memory you used:
+ 4282 strings out of 492168
+ 78674 string characters out of 6131584
+ 264096 words of memory out of 5000000
+ 8650 multiletter control sequences out of 15000+600000
+ 10599 words of font info for 27 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 45i,8n,56p,10065b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on Arbeit.dvi (1 page, 1540 bytes).
