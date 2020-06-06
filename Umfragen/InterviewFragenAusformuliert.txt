@@ -1,25 +1,58 @@
 Befragen von Passanten
 
-	Erläutern sie ihre Kaufgewohnheiten und begründen sie, haben sich ihre Gewohnheiten in den 	letzten Jahren erwähnenswert geändert?
+	Erläutern sie ihre Kaufgewohnheiten und begründen sie; haben sich ihre Gewohnheiten in den 	letzten Jahren erwähnenswert geändert?
 	Haben sie schon einmal Onlinehandel ausprobiert? Wenn ja für was?
 	Welche Erfahrungen haben sie mit Onlinehandel gemacht?
-	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden sie sich in 	Geschäften vor Ort wünschen?
-	Wie schätzen sie die Bedeutung des Onlinehandels ein, sehen sie Probleme; insbesondere auf 	das Verdrängen lokaler Händler durch den Onlinehandel bezogen?
+	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden sie sich in Geschäften vor Ort wünschen?
+	Wie schätzen sie die Bedeutung des Onlinehandels ein, sehen sie Probleme; insbesondere auf das Verdrängen lokaler Händler durch den Onlinehandel bezogen?
 
 Schülerumfrage 
+
+    • Benutzen Sie den Service des Onlinehandels?
+        Ja 
+        Nein
+
+    • Welche Erfahrungen haben Sie mit Onlinehandel gemacht?
+        Gute
+        Schlechte
+        Keine
+
+    • Ist das Kaufangebot in Schleusingen ausreichend?
+        Ja
+        Nein, evtl. warum?
+
+    • Was für Kaufmöglichkeiten wünschen Sie sich für Onlinehandel?
+
+    • Was für Kaufmöglichkeiten wünschen Sie sich für die Stadt?
+
+    • Sehen Sie irgendwelche Probleme mit Onlinehandel?
+
+    • Für was Nutzen Sie Onlinehandel am meisten?
+        Nahrung 
+        Technik
+        Anderes, was?
+
+    • Kaufen Sie noch selber ein?
+
+    • Weichen Sie beim Einkaufen aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
+        Ja, wohin? 
+        Nein
 
 	
 Interview mit Ladenbesitzern
 
-	Denken sie, dass ihr Geschäft eine sinkende Nachfrage durch Onlinhandel erfährt? Wenn ja, 	wie schätzen sie die Auswirkungen ein?
-	Haben sie einen Onlineshop? Falls ja, wie hat sich ihr Geschäft dadurch verändert? Sind sie 	zufrieden? Lohnt es sich finanziell bedeutend mehr? Wurde ihre Relevanz auf dem Markt 	dadurch erhöht? Gab es erwähnenswerte Probleme? Wie versenden sie ihre Produkte?
+	Denken sie, dass ihr Geschäft eine sinkende Nachfrage durch Onlinhandel erfährt? Wenn ja, wie schätzen sie die Auswirkungen ein? Wie schätzen sie ihre Zielgruppe ein?
 	Was haben/ werden sie unternehmen, um die Nachfrage bzgl. Des Onlinehandels zu erhöhen? 
 	Mussten sie evt. Ihre Produktion senken? Wie schätzen sie ihre wirtschaftl. Zukunft ein?
-	Wie hoch schätzen sie die Kosten eines Onlineshops in ihrem Fall ein?
+	Haben sie einen Onlineshop? Falls ja, wie hat sich ihr Geschäft dadurch verändert? Sind sie zufrieden? Lohnt es sich finanziell bedeutend mehr? Wurde ihre Relevanz auf dem Markt dadurch erhöht? Gab es erwähnenswerte Probleme? Wie versenden sie ihre Produkte?
+	Wie hoch schätzen sie die Kosten eines Onlineshops in ihrem Fall ein? Ist ein Onlineshop in ihrer Branche die Normalität? 
+	
+Interviews mit Onlinehändlern ???
+    bzgl. Mietspreise, erhöhtem Gewinn, Branche ...
 	
 
 Interview mit ehemaligen Ladenbesitzern
 
 	(+ Fragen von Ladenbesitzern)
-	Welche Gründe hatte die Schließung, wordurch wurden sie verursacht? 
+	Welche Gründe hatte die Schließung ihrer Meinung nach? Hätte ein Onlinegeschäft helfen können? Macht das in ihrem Bereich überhaupt Sinn? 
 	 
