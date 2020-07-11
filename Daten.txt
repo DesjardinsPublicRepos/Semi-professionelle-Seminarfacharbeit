@@ -1,4 +1,8 @@
-DD / MM / JJJJ  NAME
+DD / MM  NAME
 
-08 / 07 / 2020  Konsultation
+        < 5 Treffen bei Toni 
+
+13 / 05 Enrichtung LaTeX-Editoren
+24 / 05 Einrichting GitHub
+08 / 07 Konsultation
 
