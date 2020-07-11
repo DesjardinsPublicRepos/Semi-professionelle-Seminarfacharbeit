@@ -1,15 +1,15 @@
 Befragen von Passanten
 
 	Erläutern sie ihre Kaufgewohnheiten und begründen sie; haben sich ihre Gewohnheiten in den 	letzten Jahren erwähnenswert geändert?
-	Haben sie schon einmal Onlinehandel ausprobiert? Wenn ja für was?
+	Haben sie schon einmal Onlinehandel ausprobiert? Wenn ja für was? Kaufen sie noch selber ein?
 	Welche Erfahrungen haben sie mit Onlinehandel gemacht?
 	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden sie sich in Geschäften vor Ort wünschen?
 	Wie schätzen sie die Bedeutung des Onlinehandels ein, sehen sie Probleme; insbesondere auf das Verdrängen lokaler Händler durch den Onlinehandel bezogen?
 
 Schülerumfrage 
 
-    • Benutzen Sie den Service des Onlinehandels?
-        Ja 
+    • Benutzen Sie den Service des Onlinehandels, wenn ja für was?
+        Ja, ...
         Nein
 
     • Welche Erfahrungen haben Sie mit Onlinehandel gemacht?
@@ -25,14 +25,12 @@ Schülerumfrage
 
     • Was für Kaufmöglichkeiten wünschen Sie sich für die Stadt?
 
-    • Sehen Sie irgendwelche Probleme mit Onlinehandel?
+    • Sehen Sie Probleme mit Onlinehandel?
 
     • Für was Nutzen Sie Onlinehandel am meisten?
         Nahrung 
         Technik
         Anderes, was?
-
-    • Kaufen Sie noch selber ein?
 
     • Weichen Sie beim Einkaufen aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
         Ja, wohin? 
