@@ -1,9 +1,9 @@
-DD / MM  NAME
+DD / MM / JJJJ  NAME
 
-        < 5 Treffen bei Toni 
+                < 5 Treffen bei Toni 
 
-13 / 05 Enrichtung LaTeX-Editoren
-24 / 05 Einrichting GitHub
-27 / 05 Enrichtung LaTeX-Editoren Episode 2
-08 / 07 Konsultation
+13 / 05 / 2020  Einrichtung LaTeX-Editoren
+24 / 05 / 2020  Einrichting GitHub
+27 / 05 / 2020  Einrichtung LaTeX-Editoren Episode 2
+08 / 07 / 2020  Konsultation
 
