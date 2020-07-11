@@ -4,5 +4,6 @@ DD / MM  NAME
 
 13 / 05 Enrichtung LaTeX-Editoren
 24 / 05 Einrichting GitHub
+27 / 05 Enrichtung LaTeX-Editoren Episode 2
 08 / 07 Konsultation
 
