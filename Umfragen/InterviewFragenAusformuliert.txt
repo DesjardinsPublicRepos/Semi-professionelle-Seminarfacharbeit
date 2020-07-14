@@ -1,15 +1,15 @@
 Befragen von Passanten
 
-	Erläutern sie ihre Kaufgewohnheiten und begründen sie; haben sich ihre Gewohnheiten in den 	letzten Jahren erwähnenswert geändert?
-	Haben sie schon einmal Onlinehandel ausprobiert? Wenn ja für was?
-	Welche Erfahrungen haben sie mit Onlinehandel gemacht?
-	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden sie sich in Geschäften vor Ort wünschen?
-	Wie schätzen sie die Bedeutung des Onlinehandels ein, sehen sie Probleme; insbesondere auf das Verdrängen lokaler Händler durch den Onlinehandel bezogen?
+	Erläutern Sie ihre Kaufgewohnheiten und begründen Sie; haben sich ihre Gewohnheiten in den letzten Jahren erwähnenswert geändert?
+	Haben Sie schon einmal Onlinehandel ausprobiert? Wenn ja für was? Kaufen Sie noch selber ein?
+	Welche Erfahrungen haben Sie mit Onlinehandel gemacht?
+	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden Sie sich in Geschäften vor Ort wünschen?
+	Wie schätzen Sie die Bedeutung des Onlinehandels ein, sehen sie Probleme; insbesondere auf das Verdrängen lokaler Händler durch den Onlinehandel bezogen?
 
 Schülerumfrage 
 
-    • Benutzen Sie den Service des Onlinehandels?
-        Ja 
+    • Benutzen Sie den Service des Onlinehandels, wenn ja für was?
+        Ja, ...
         Nein
 
     • Welche Erfahrungen haben Sie mit Onlinehandel gemacht?
@@ -25,23 +25,31 @@ Schülerumfrage
 
     • Was für Kaufmöglichkeiten wünschen Sie sich für die Stadt?
 
-    • Sehen Sie irgendwelche Probleme mit Onlinehandel?
+    • Sehen Sie Probleme mit Onlinehandel?
 
     • Für was Nutzen Sie Onlinehandel am meisten?
         Nahrung 
         Technik
         Anderes, was?
 
-    • Kaufen Sie noch selber ein?
-
-    • Weichen Sie beim Einkaufen aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
+    • Weichen Sie und ihre Familien beim Einkaufen aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
         Ja, wohin? 
         Nein
+    
+    - Welche Onlineplattform benutzen Sie am meisten zum Onlineshoppen?
+        Amazon
+        E-Bay
+        Andere, welche?
+
+    - Kaufen Sie und ihre Familie Gebrauchsgegenstände neu oder gebraucht?
+      neu
+      gebraucht
+          
 
 	
 Interview mit Ladenbesitzern
 
-	Denken sie, dass ihr Geschäft eine sinkende Nachfrage durch Onlinhandel erfährt? Wenn ja, wie schätzen sie die Auswirkungen ein? Wie schätzen sie ihre Zielgruppe ein?
+	Denken Sie, dass ihr Geschäft eine sinkende Nachfrage durch Onlinhandel erfährt? Wenn ja, wie schätzen sie die Auswirkungen ein? Wie schätzen sie ihre Zielgruppe ein?
 	Was haben/ werden sie unternehmen, um die Nachfrage bzgl. Des Onlinehandels zu erhöhen? 
 	Mussten sie evt. Ihre Produktion senken? Wie schätzen sie ihre wirtschaftl. Zukunft ein?
 	Haben sie einen Onlineshop? Falls ja, wie hat sich ihr Geschäft dadurch verändert? Sind sie zufrieden? Lohnt es sich finanziell bedeutend mehr? Wurde ihre Relevanz auf dem Markt dadurch erhöht? Gab es erwähnenswerte Probleme? Wie versenden sie ihre Produkte?
