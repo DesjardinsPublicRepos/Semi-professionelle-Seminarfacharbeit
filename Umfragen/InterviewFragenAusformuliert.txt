@@ -36,16 +36,24 @@ Schülerumfrage
         Ja, wohin? 
         Nein
     
-    - Welche Onlineplattform benutzen Sie am meisten zum Onlineshoppen?
+    • Welche Onlineplattform benutzen Sie am meisten zum Onlineshoppen?
         Amazon
         E-Bay
         Andere, welche?
 
-    - Kaufen Sie und ihre Familie Gebrauchsgegenstände neu oder gebraucht?
-      neu
-      gebraucht
+    • Kaufen Sie und ihre Familie Gebrauchsgegenstände neu oder gebraucht?
+        neu
+        gebraucht
           
+    • Denken Sie, dass der Onlinehandel den lokalen Handel ersetzen könnte?
+        ja
+        nein
 
+    • Was ist für sie relevanter? Der Onlinehandel oder der lokale Einzelhandel?
+        Onlinehandel
+        lokaler Handel
+
+    
 	
 Interview mit Ladenbesitzern
 
