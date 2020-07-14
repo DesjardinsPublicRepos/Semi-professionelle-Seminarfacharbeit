@@ -1,6 +1,6 @@
 Befragen von Passanten
 
-	Erläutern sie ihre Kaufgewohnheiten und begründen Sie; haben sich ihre Gewohnheiten in den 	letzten Jahren erwähnenswert geändert?
+	Erläutern sie ihre Kaufgewohnheiten und begründen Sie; haben sich ihre Gewohnheiten in den letzten Jahren erwähnenswert geändert?
 	Haben sie schon einmal Onlinehandel ausprobiert? Wenn ja für was? Kaufen sie noch selber ein?
 	Welche Erfahrungen haben sie mit Onlinehandel gemacht?
 	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden sie sich in Geschäften vor Ort wünschen?
@@ -32,9 +32,19 @@ Schülerumfrage
         Technik
         Anderes, was?
 
-    • Weichen Sie beim Einkaufen aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
+    • Weichen Sie und ihre Familien beim Einkaufen aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
         Ja, wohin? 
         Nein
+    
+    - Welche Onlineplattform benutzen Sie am meisten zum Onlineshoppen?
+        Amazon
+        E-Bay
+        Andere, welche?
+
+    - Kaufen Sie und ihre Familie Gebrauchsgegenstände neu oder gebraucht?
+      neu
+      gebraucht
+          
 
 	
 Interview mit Ladenbesitzern
