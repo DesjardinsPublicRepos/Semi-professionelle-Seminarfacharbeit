@@ -30,3 +30,4 @@
 \contentsline {subsection}{\numberline {9.1}Marketing}{5}% 
 \contentsline {subsection}{\numberline {9.2}Bezahlvorgänge}{5}% 
 \contentsline {subsection}{\numberline {9.3}Kryptowährungen(?)}{5}% 
+\contentsline {section}{\numberline {10}Literaturverzeichnis}{5}% 
