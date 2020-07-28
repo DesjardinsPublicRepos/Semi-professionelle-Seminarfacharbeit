@@ -35,6 +35,22 @@ anfänge amazon},
   groups  = {Fabian},
 }
 
+@Article{ChannelAdvisor,
+  author   = {Unbekannt},
+  title    = {From Bookstore to Superstore: The Evolution of Amazon},
+  year     = {2018},
+  abstract = {https://www.channeladvisor.com/blog/industry-trends/from-bookstore-to-superstore-the-evolution-of-amazon-com/},
+  groups   = {Fabian},
+}
+
+@Article{Sherman,
+  author  = {Lydia DePillis and Ivory Sherman},
+  title   = {Amazon's extraordinary 25-year evolution},
+  year    = {2019},
+  comment = {https://edition.cnn.com/interactive/2018/10/business/amazon-history-timeline/index.html},
+  groups  = {Fabian},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
