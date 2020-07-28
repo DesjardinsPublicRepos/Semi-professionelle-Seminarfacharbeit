@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.15)  26 JUL 2020 20:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.15)  28 JUL 2020 10:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -329,11 +329,11 @@ File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 (./exports/Fabian/Amazon-OnlinehandelAlsKonkurrenz.tex) [6] [7] (./Arbeit.bbl)
 [8] (./Arbeit.aux) ) 
 Here is how much of TeX's memory you used:
- 6301 strings out of 480478
- 111007 string characters out of 5905959
- 486096 words of memory out of 5000000
- 22249 multiletter control sequences out of 15000+600000
- 539297 words of font info for 37 fonts, out of 8000000 for 9000
+ 6308 strings out of 480478
+ 111087 string characters out of 5905959
+ 486100 words of memory out of 5000000
+ 22255 multiletter control sequences out of 15000+600000
+ 539983 words of font info for 38 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  45i,8n,56p,10101b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1
@@ -344,11 +344,12 @@ c/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf-dis
 t/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/cm-super/sfsx2074.pfb>
-Output written on Arbeit.pdf (8 pages, 154541 bytes).
+ublic/cm-super/sfsx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
+sfti1000.pfb>
+Output written on Arbeit.pdf (8 pages, 176389 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

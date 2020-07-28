@@ -16,6 +16,25 @@
   groups  = {Fabian},
 }
 
+@Book{Graf,
+  author    = {Alexander Graf and Holger Schneider},
+  publisher = {Deutscher Fachverlag GmbH, Frankfurt am Main},
+  title     = {Das E-Commerce-Buch: Marktanalysen - Geschäftsmodelle - Strategien, 3. Auflage},
+  year      = {2019},
+  comment   = {https://books.google.de/books?hl=de&lr=&id=PjbADwAAQBAJ&oi=fnd&pg=PT7&dq=anf%C3%A4nge+strategie+amazon&ots=GUUyErPvvg&sig=0r5GryhIkwdcp_13csAqhuQ0yRg#v=onepage&q=anf%C3%A4nge%20strategie%20amazon&f=false
+
+anfänge amazon},
+  groups    = {Fabian},
+}
+
+@Article{Rosoff,
+  author  = {Matt Rosoff},
+  title   = {One simple chart that shows Amazon's relentless focus on long-term growth},
+  year    = {2016},
+  comment = {https://www.businessinsider.com/amazon-revenue-vs-profit-2016-1?r=DE&IR=T},
+  groups  = {Fabian},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:

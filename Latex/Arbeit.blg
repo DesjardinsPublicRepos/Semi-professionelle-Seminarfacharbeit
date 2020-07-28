@@ -5,45 +5,45 @@ The style file: unsrt.bst
 Database file #1: Literaturverzeichnis.bib
 Warning--empty journal in EuroCommerce
 Warning--empty journal in Haendlerbund
-You've used 2 entries,
+You've used 3 entries,
             1791 wiz_defined-function locations,
-            453 strings with 3694 characters,
-and the built_in function-call counts, 276 in all, are:
-= -- 20
-> -- 8
+            459 strings with 3861 characters,
+and the built_in function-call counts, 422 in all, are:
+= -- 32
+> -- 12
 < -- 0
-+ -- 4
-- -- 2
-* -- 8
-:= -- 55
-add.period$ -- 6
-call.type$ -- 2
++ -- 6
+- -- 3
+* -- 11
+:= -- 78
+add.period$ -- 9
+call.type$ -- 3
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 16
-empty$ -- 29
-format.name$ -- 2
-if$ -- 55
+cite$ -- 5
+duplicate$ -- 26
+empty$ -- 48
+format.name$ -- 3
+if$ -- 90
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 2
-newline$ -- 13
-num.names$ -- 2
-pop$ -- 10
+int.to.str$ -- 3
+missing$ -- 4
+newline$ -- 18
+num.names$ -- 3
+pop$ -- 17
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 6
+skip$ -- 8
 stack$ -- 0
 substring$ -- 0
-swap$ -- 0
+swap$ -- 1
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 2
-width$ -- 3
-write$ -- 20
+while$ -- 3
+width$ -- 4
+write$ -- 30
 (There were 2 warnings)
