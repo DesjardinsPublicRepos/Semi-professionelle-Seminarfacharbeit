@@ -10,23 +10,23 @@
 \contentsline {subsection}{\numberline {3.3}Einfluss auf die Gesellschaft}{4}%
 \contentsline {section}{\numberline {4}Konsumverhalten}{4}%
 \contentsline {subsection}{\numberline {4.1}Veränderungen im Konsumverhalten über die Zeit}{4}%
-\contentsline {subsection}{\numberline {4.2}Einfluss des Onlinehandels}{5}%
-\contentsline {subsection}{\numberline {4.3}Mögliche Probleme und Folgen}{5}%
-\contentsline {section}{\numberline {5}Auswirkungen des Oninehandels auf die Infrastruktur}{5}%
-\contentsline {subsection}{\numberline {5.1}Vergangene Änderungen und Entwicklungen}{5}%
-\contentsline {subsection}{\numberline {5.2}Mögliche Entwicklungen in der Zukunft}{5}%
-\contentsline {subsection}{\numberline {5.3}Probleme mit dem Einfluss des Onlinehandles}{5}%
-\contentsline {section}{\numberline {6}Globaler Vergleich des Einflusses und der Entwicklung des Onlinehandels}{5}%
+\contentsline {subsection}{\numberline {4.2}Einfluss des Onlinehandels}{4}%
+\contentsline {subsection}{\numberline {4.3}Mögliche Probleme und Folgen}{4}%
+\contentsline {section}{\numberline {5}Auswirkungen des Oninehandels auf die Infrastruktur}{4}%
+\contentsline {subsection}{\numberline {5.1}Vergangene Änderungen und Entwicklungen}{4}%
+\contentsline {subsection}{\numberline {5.2}Mögliche Entwicklungen in der Zukunft}{4}%
+\contentsline {subsection}{\numberline {5.3}Probleme mit dem Einfluss des Onlinehandles}{4}%
+\contentsline {section}{\numberline {6}Globaler Vergleich des Einflusses und der Entwicklung des Onlinehandels}{4}%
 \contentsline {section}{\numberline {7}Onlineversandhändeler am Beispiel Amazon}{5}%
 \contentsline {subsection}{\numberline {7.1}Entstehung und Entwicklung}{5}%
 \contentsline {subsection}{\numberline {7.2}Einfluss auf Konsumverhalten}{6}%
 \contentsline {subsection}{\numberline {7.3}Onlinehändler als Konkurrenten zu lokalen Händlern}{6}%
-\contentsline {section}{\numberline {8}Wirtschaft}{7}%
-\contentsline {subsection}{\numberline {8.1}Entwicklung der Wirtschaft}{7}%
-\contentsline {subsection}{\numberline {8.2}Auswirkungen auf Konzerne und Umwelt}{7}%
-\contentsline {subsection}{\numberline {8.3}Auswirkungen auf Paketdienste}{7}%
-\contentsline {subsection}{\numberline {8.4}Folgeänderungen von Import / Export}{7}%
-\contentsline {section}{\numberline {9}Handeln im Internet}{7}%
-\contentsline {subsection}{\numberline {9.1}Marketing}{7}%
-\contentsline {subsection}{\numberline {9.2}Bezahlvorgänge}{7}%
-\contentsline {subsection}{\numberline {9.3}Kryptowährungen(?)}{7}%
+\contentsline {section}{\numberline {8}Wirtschaft}{6}%
+\contentsline {subsection}{\numberline {8.1}Entwicklung der Wirtschaft}{6}%
+\contentsline {subsection}{\numberline {8.2}Auswirkungen auf Konzerne und Umwelt}{6}%
+\contentsline {subsection}{\numberline {8.3}Auswirkungen auf Paketdienste}{6}%
+\contentsline {subsection}{\numberline {8.4}Folgeänderungen von Import / Export}{6}%
+\contentsline {section}{\numberline {9}Handeln im Internet}{6}%
+\contentsline {subsection}{\numberline {9.1}Marketing}{6}%
+\contentsline {subsection}{\numberline {9.2}Bezahlvorgänge}{6}%
+\contentsline {subsection}{\numberline {9.3}Kryptowährungen(?)}{6}%

@@ -1,49 +1,51 @@
 This is BibTeX, Version 0.99d (TeX Live 2020/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Arbeit.aux
-The style file: unsrt.bst
+The style file: alphadin.bst
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: Literaturverzeichnis.bib
-Warning--empty journal in EuroCommerce
-Warning--empty journal in Haendlerbund
-You've used 3 entries,
-            1791 wiz_defined-function locations,
-            459 strings with 3861 characters,
-and the built_in function-call counts, 422 in all, are:
-= -- 32
-> -- 12
-< -- 0
-+ -- 6
-- -- 3
-* -- 11
-:= -- 78
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 2
-chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 26
-empty$ -- 48
-format.name$ -- 3
-if$ -- 90
-int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 4
-newline$ -- 18
-num.names$ -- 3
-pop$ -- 17
+You've used 4 entries,
+            4793 wiz_defined-function locations,
+            908 strings with 6702 characters,
+and the built_in function-call counts, 1731 in all, are:
+= -- 169
+> -- 43
+< -- 30
++ -- 36
+- -- 12
+* -- 88
+:= -- 308
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 17
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 65
+empty$ -- 146
+format.name$ -- 29
+if$ -- 354
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 13
+newline$ -- 30
+num.names$ -- 12
+pop$ -- 32
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 25
 quote$ -- 0
-skip$ -- 8
+skip$ -- 106
 stack$ -- 0
-substring$ -- 0
-swap$ -- 1
-text.length$ -- 0
-text.prefix$ -- 0
+substring$ -- 72
+swap$ -- 6
+text.length$ -- 8
+text.prefix$ -- 3
 top$ -- 0
-type$ -- 0
-warning$ -- 2
-while$ -- 3
-width$ -- 4
-write$ -- 30
-(There were 2 warnings)
+type$ -- 36
+warning$ -- 0
+while$ -- 14
+width$ -- 5
+write$ -- 54

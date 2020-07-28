@@ -17,7 +17,7 @@
 }
 
 @Book{Graf,
-  author    = {Alexander Graf, Holger Schneider},
+  author    = {Alexander Graf and Holger Schneider},
   publisher = {Deutscher Fachverlag GmbH, Frankfurt am Main},
   title     = {Das E-Commerce-Buch: Marktanalysen - Geschäftsmodelle - Strategien, 3. Auflage},
   year      = {2019},
