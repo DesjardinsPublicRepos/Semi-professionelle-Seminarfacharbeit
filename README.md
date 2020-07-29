@@ -1,3 +1,5 @@
 # Semi-professionelle-Seminarfacharbeit
 
-unsere Seminarfacharbeit mit Changelog
+Pdf-Datei: Latex/Arbeit.pdf
+
+Literaturverzeichnis: Latex/Literaturverzeichnis.bib
