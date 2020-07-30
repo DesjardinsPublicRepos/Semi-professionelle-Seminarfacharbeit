@@ -9,6 +9,8 @@
 \usepackage[left=3cm, right=4cm, top=3cm, bottom=2.5cm]{geometry}
 \usepackage[numbers, round]{natbib}
 \usepackage[onehalfspacing]{setspace}
+%Abkürzungsverzeichnis
+\usepackage[printonlyused]{acronym}
 \bibliographystyle{alphadin}
 
 \hyphenation{Schleu-sing-en}
@@ -77,14 +79,21 @@
         \subsection{Entwicklung der Wirtschaft}
         \subsection{Auswirkungen auf Konzerne und Umwelt}
         \subsection{Auswirkungen auf Paketdienste}
-        \subsection{Folgeänderungen von Import / Export}
+        \subsection{Folgeänderungen von Import/ Export}
         
     \section{Handeln im Internet}
         \subsection{Marketing}
+            \input{exports/Fabian/Handeln-Marketing.tex}
         \subsection{Bezahlvorgänge}
-        \subsection{Kryptowährungen(?)}
+            \input{exports/Fabian/Handeln-Bezahlvorgänge.tex}
         \newpage
 
     \bibliography{Literaturverzeichnis}
+    \newpage
+    \listoffigures
+    \newpage
+    \listoftables
+    \newpage
+    \input{exports/Abkürzungsverzeichnis.tex}
 
 \end{document}
