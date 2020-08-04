@@ -1,12 +1,28 @@
-Befragen von Passanten
-
+ Befragen von Passanten
+    /*
 	Erläutern Sie ihre Kaufgewohnheiten und begründen Sie; haben sich ihre Gewohnheiten in den letzten Jahren erwähnenswert geändert?
 	Haben Sie schon einmal Onlinehandel ausprobiert? Wenn ja für was? Kaufen Sie noch selber ein?
 	Welche Erfahrungen haben Sie mit Onlinehandel gemacht?
 	Reicht die Auswahl ohne Onlinehandel? Wenn nein, welche Waren würden Sie sich in Geschäften vor Ort wünschen?
 	Wie schätzen Sie die Bedeutung des Onlinehandels ein, sehen Sie Probleme; insbesondere auf das Verdrängen lokaler Händler durch den Onlinehandel bezogen?
+    */
+
+    Kaufen sie online ein? Wenn ja welche Produkte? Auf welcher/n Plattform(en)? wieso nicht stationär?
+    Haben sich ihre Kaufgewohnheiten in den letzten Jahren geändert?
+        mehr Online/stationäre
+        monotoner/diverser
+    Wählen sie beim Einkaufen erst einen Anbieter und suchen dann ein Produkt oder andersherum?
+    Recherchieren sie manchmal vorher Im Internet, bevor sie ein Produkt lokal kaufen?
+    Ist das Angebot in Schleusingen ausreichend? Wenn nein:
+        was würden sie sich wünschen?
+        Weichen sie oder Familienmitglieder aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?
+    Denken Sie, dass der Onlinehandel den lokalen ersetzen kann?
+    Sehen sie Probleme bzgl. des Onlinhandels?
+
 
 Schülerumfrage 
+
+    Liste von Produktklassen: besser Onlinie/stationär ankreuzen 
 
     • Benutzen Sie den Service des Onlinehandels, wenn ja für was?
         Ja, ...
