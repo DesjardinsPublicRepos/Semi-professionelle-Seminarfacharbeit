@@ -23,7 +23,12 @@
 \newcommand*{\bildquelle}{%
   \footnotesize Quelle:
 }
-
+\usepackage[absolute,showboxes]{textpos}% showboxes zu Debugzwecken (siehe Anleitung!)
+\usepackage{selinput}
+\SelectInputMappings{
+  adieresis={ä},
+  germandbls={ß},
+}
 
 \hyphenation{Schleu-sing-en Haupt-ein-kaufs-mö-glich-keit Nie-drig-preis-po-li-tik}
 
@@ -32,8 +37,8 @@
 \date{27. Mai 2020}
 
 \begin{document}
-    
-    \maketitle \newpage
+    \input{exports/Deckblatt.tex}
+
     \tableofcontents \newpage
     \input{exports/Abkürzungsverzeichnis.tex} \newpage
 
@@ -45,11 +50,13 @@
         \subsection{Entstehung}
         \subsection{Entwicklung mit Blick auf Großfirmen wie PayPal}
         \subsection{Beeinflussung der Sozialstrukturen}
+        \newpage
         
     \section{PayPal}
         \subsection{Entstehung und grobe Funktionsweise}
         \subsection{Entwicklung}
         \subsection{Einfluss auf die Gesellschaft}
+        \newpage
         
     \section{Konsumverhalten}
             \input{exports/Fabian/Konsum/Allgemein.tex}
@@ -61,6 +68,7 @@
             
         \subsection{Mögliche Probleme und Folgen}
             \input{exports/Fabian/Konsum/ProblemeUndFolgen.tex}
+        \newpage
             
         
     \section{Auswirkungen des Oninehandels auf die Infrastruktur}
@@ -76,6 +84,7 @@
         
     \section{Globaler Vergleich des Einflusses und der Entwicklung des Onlinehandels}
             \input{exports/Fabian/GlobalerVergleich-EinflussUndEntwicklung.tex}
+        \newpage
             
     
     \section{Onlineversandhändeler am Beispiel Amazon} 
@@ -88,6 +97,7 @@
             
         \subsection{Onlinehändler als Konkurrenten zu lokalen Händlern}
             \input{exports/Fabian/Amazon/OnlinehandelAlsKonkurrenz.tex}
+        \newpage
             
         
     \section{Wirtschaft} %mit blick auf anbieter: sonst überschneidung mit konsumverhalten
@@ -95,6 +105,7 @@
         \subsection{Auswirkungen auf Konzerne und Umwelt}
         \subsection{Auswirkungen auf Paketdienste}
         \subsection{Folgeänderungen von Import/ Export}
+        \newpage
         
     \section{Handeln im Internet}
         \subsection{Marketing}
