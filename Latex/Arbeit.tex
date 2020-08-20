@@ -14,7 +14,7 @@
 %spacing
 \usepackage[onehalfspacing]{setspace}
 %Abkürzungsverzeichnis
-\usepackage[printonlyused]{acronym}
+\usepackage[printonlyused, footnote]{acronym}
 %Anzeigen der restlichen Verzeichnisse
 \usepackage{tocbibind}
 %Literaturverzeichnis
@@ -23,13 +23,6 @@
 \newcommand*{\bildquelle}{%
   \footnotesize Quelle:
 }
-\usepackage[absolute,showboxes]{textpos}% showboxes zu Debugzwecken (siehe Anleitung!)
-\usepackage{selinput}
-\SelectInputMappings{
-  adieresis={ä},
-  germandbls={ß},
-}
-
 \hyphenation{Schleu-sing-en Haupt-ein-kaufs-mö-glich-keit Nie-drig-preis-po-li-tik}
 
 \title{Seminarfacharbeit}
@@ -38,9 +31,10 @@
 
 \begin{document}
     \input{exports/Deckblatt.tex}
+    \input{exports/Fabian-Eidesstattlicheerklärung.tex}
 
-    \tableofcontents \newpage
-    \input{exports/Abkürzungsverzeichnis.tex} \newpage
+    \tableofcontents 
+        \newpage
 
     \section{Einleitung}
         \input{exports/Einleitung.tex}
@@ -114,9 +108,11 @@
             \input{exports/Fabian/Handeln-Bezahlvorgänge.tex}
         \newpage
     \bibliography{Literaturverzeichnis}
-    \newpage
+        \newpage
     \listoffigures
-    \newpage
+        \newpage
+    \input{exports/Abkürzungsverzeichnis.tex}
+        \newpage
     \listoftables
 
 \end{document}
