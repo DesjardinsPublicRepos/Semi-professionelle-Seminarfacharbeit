@@ -19,10 +19,17 @@
 \usepackage{tocbibind}
 %Literaturverzeichnis
 \bibliographystyle{alphadin}
-
+%größere Schriftgrößen als 17pt
+\usepackage{lmodern}
+%bessere umbrüche
+\usepackage{microtype}
+%Bildquellen
 \newcommand*{\bildquelle}{%
   \footnotesize Quelle:
 }
+%römische zahlen
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}}
+
 \hyphenation{Schleu-sing-en Haupt-ein-kaufs-mö-glich-keit Nie-drig-preis-po-li-tik}
 
 \title{Seminarfacharbeit}
@@ -32,6 +39,7 @@
 \begin{document}
     \input{exports/Deckblatt.tex}
     \input{exports/Fabian-Eidesstattlicheerklärung.tex}
+    \input{exports/Danksagung.tex}
 
     \tableofcontents 
         \newpage
@@ -112,7 +120,6 @@
     \listoffigures
         \newpage
     \input{exports/Abkürzungsverzeichnis.tex}
-        \newpage
     \listoftables
 
 \end{document}
@@ -121,3 +128,4 @@
 %ergenisse: nischenwaren mit onlineversand
     %viele einzelhandelsflächen ini der stadt durch insolvenzen
     %mglich: hersteller-fabrik einige km von stadtzentrum, laden in der stad, mit onlineshop
+    %stärkere, individiuelle bedürfnisse
