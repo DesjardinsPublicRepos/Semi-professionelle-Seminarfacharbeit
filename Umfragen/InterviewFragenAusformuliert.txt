@@ -24,6 +24,7 @@
 Schülerumfrage 
 
     Liste von Produktklassen: besser Onlinie/stationär ankreuzen 
+    gibt es artikel, die sie nicht online bestellen würden?
 
     • Benutzen Sie den Service des Onlinehandels, wenn ja für was?
         Ja, ...

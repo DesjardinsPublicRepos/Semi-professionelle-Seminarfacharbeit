@@ -29,7 +29,9 @@
 }
 %römische zahlen
 \newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}}
-
+\makeatletter
+\newenvironment{folding}{\endgroup}{\begingroup \def \@currenvir{folding}\edef \@currenvline{\on@line}}
+\makeatother
 \hyphenation{Schleu-sing-en Haupt-ein-kaufs-mö-glich-keit Nie-drig-preis-po-li-tik}
 
 \title{Seminarfacharbeit}
