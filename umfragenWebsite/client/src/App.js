@@ -5,10 +5,11 @@ import './App.css';
 import landingPage from './pages/landingPage';
 import schuelerumfrage from './pages/schuelerumfrage';
 import allgemeineUmfrage from './pages/allgemeineUmfrage';
+import Bottom from './components/bottom';
 
 export default () => {
   return (
-    <div className="App">
+    <div className="App" style={{ "margin": "3%", "bottom": "0" }}>
       <Router>
         <Switch>
           <Route exact path="/" component={landingPage}/>
