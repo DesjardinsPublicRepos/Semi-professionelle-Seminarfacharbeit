@@ -99,8 +99,7 @@ export default () => {
     }
 
     const submit = () => {
-        console.error(reqBody)
-        axios.get('/submit', reqBody)
+        axios.post('/submit', reqBody)
         .then(res => {
             console.error(res);
         })
