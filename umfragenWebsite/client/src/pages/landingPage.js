@@ -1,21 +1,20 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Button, Card, Typography, CardContent } from '@material-ui/core';
 import Bottom from '../components/bottom';
 
-class LandingPage extends Component {
-    render() {
-        return (
-            <Fragment>
-                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "10vh", "flexDirection": "column" }}>
-                    <Typography variant="h4">
-                        Onlinehandel-Umfragen
-                    </Typography>
+export default () => {
+    return (
+        <Fragment>
+            <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "10vh", "flexDirection": "column" }}>
+                <Typography variant="h4">
+                    Onlinehandel-Umfragen
+                </Typography>
 
-                    <div style={{ "height": "10vh" }}/>
+                <div style={{ "height": "10vh" }}/>
 
-                    <Card>
-                        <CardContent>
-                            <div style={{ "width": "80vw", "maxWidth": "600px"}}/>
+                <Card>
+                    <CardContent>
+                        <div style={{ "width": "80vw", "maxWidth": "600px"}}/>
                         <Typography variant="h5">
                             Schülerumfrage
                         </Typography>
@@ -26,17 +25,17 @@ class LandingPage extends Component {
 
                             <div style={{ "height": "3vh" }}/>
 
-                        <Button variant="contained" color="primary" onClick={ () => window.location.href = '/schuelerumfrage'}>
+                        <Button variant="contained" color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
                             Teilehmen
                         </Button>
-                        </CardContent>
-                    </Card>
+                    </CardContent>
+                </Card>
 
-                    <div style={{ "height": "10vh" }}/>
+                <div style={{ "height": "10vh" }}/>
 
-                    <Card>
-                        <CardContent>
-                            <div style={{ "width": "80vw", "maxWidth": "600px"}}/>
+                <Card>
+                    <CardContent>
+                        <div style={{ "width": "80vw", "maxWidth": "600px"}}/>
                         <Typography variant="h5">
                             Allgemeine Umfrage
                         </Typography>
@@ -47,17 +46,14 @@ class LandingPage extends Component {
 
                             <div style={{ "height": "3vh" }}/>
 
-                        <Button variant="contained" color="primary" onClick={ () => window.location.href = '/allgemeineUmfrage'}>
+                        <Button variant="contained" color="primary" onClick={() => window.location.href = '/allgemeineUmfrage'}>
                             Teilehmen
                         </Button>
-                        </CardContent>
-                    </Card>
-                </div>
-                <div style={{ "height": "15vh" }}/>
-                <Bottom/>
-            </Fragment>
-        )
-    }
-}
-
-export default LandingPage;
+                    </CardContent>
+                </Card>
+            </div>
+            <div style={{ "height": "15vh" }}/>
+            <Bottom/>
+        </Fragment>
+    );
+};

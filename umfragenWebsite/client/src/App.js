@@ -5,7 +5,9 @@ import './App.css';
 import landingPage from './pages/landingPage';
 import schuelerumfrage from './pages/schuelerumfrage';
 import allgemeineUmfrage from './pages/allgemeineUmfrage';
-import Bottom from './components/bottom';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://us-central1-semi-umfrage.cloudfunctions.net/api'; // LLERZEICHEN!
 
 export default () => {
   return (

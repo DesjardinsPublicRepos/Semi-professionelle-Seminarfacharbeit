@@ -2,7 +2,6 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
-
 const getEntries = (collection, req, res) => {
 	admin.firestore().collection(collection).get()
 		.then(data => {
@@ -23,8 +22,6 @@ exports.getAllEntries2 = functions.https.onRequest((req, res) => {
 	getEntries('allgemeineUmfrage', req, res);
 });
 
-//https://ifconfig.co/ip
-
 exports.getIp = functions.https.onRequest((req, res) => { 
 	return res.json({ "ip": req.ip, "ips": req.ips });
 });
@@ -35,16 +32,13 @@ exports.submit = functions.https.onRequest((req, res) => {
 		ips: req.ips,
 		date: admin.firestore.Timestamp.fromDate(new Date()),
 
-		q11: req.q11,
-		q12: req.q12,
-		q13: req.q11,
-		q14: req.q13,
-		q15: req.q14,
-		q16: req.q15,
-		q17: req.q16,
-
-		q2: req.q2,
-		q2text: req.q2text
+		q1: req.body.q1,
+		q2: req.body.q2,
+		q3: req.body.q1,
+		q4: req.body.q3,
+		q5: req.body.q4,
+		q6: req.body.q5,
+		q7: req.body.q6,
 	};
 
 	admin.firestore().collection('schuelerumfrage').add(data)
@@ -55,4 +49,4 @@ exports.submit = functions.https.onRequest((req, res) => {
 			res.status(500).json({ err: err });
 			console.error(err);
 		});
-})
+});
