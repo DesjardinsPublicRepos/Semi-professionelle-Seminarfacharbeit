@@ -7,7 +7,7 @@ import schuelerumfrage from './pages/schuelerumfrage';
 import allgemeineUmfrage from './pages/allgemeineUmfrage';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://us-central1-semi-umfrage.cloudfunctions.net/api'; // LLERZEICHEN!
+axios.defaults.baseURL = 'https://europe-west1-semi-umfrage.cloudfunctions.net/api'; // LLERZEICHEN!
 
 export default () => {
   return (

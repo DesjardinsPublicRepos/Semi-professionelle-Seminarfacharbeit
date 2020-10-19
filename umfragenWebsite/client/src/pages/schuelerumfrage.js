@@ -99,7 +99,8 @@ export default () => {
     }
 
     const submit = () => {
-        axios.post('https://us-central1-semi-umfrage.cloudfunctions.net/api/submit', reqBody)
+        console.error(reqBody)
+        axios.get('/submit', reqBody)
         .then(res => {
             console.error(res);
         })
