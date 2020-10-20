@@ -49,8 +49,9 @@ export default () => {
     const [ q92, setq92 ] = useState('');
 
     const [ t, sett ] = useState(false);
-
-    const teilnahmebedingungen = "Die Umfrage findet anonym statt. Bei Teilnahme werden, um mehrfache Abgaben zu verhindern, kurzfristig ipv4- und ipv6-Adressen gespeichert, jedoch ist aus diesen nicht ohne einen bedeutend großen Mehraufwand eine Rückverfolgung möglich.\nDie erhobenen Daten werden ausschließlich schulisch und im Rahmen unserer Seminarfacharbeit verwendet und anschließend gelöscht.\nZur Teilnahme von Minderjährigen ist die Zustimmung der Erziehungsberechtigten erforderlich."
+    const [ submitText, setSubmitText ] = useState('Umfrage einreichen');
+    const [ submitEnabled, setSubmitEnabled ] = useState(true);
+    const teilnahmebedingungen = "Die Umfrage findet anonym statt. Bei Teilnahme werden, um mehrfache Abgaben zu verhindern, kurzfristig ipv4- und ipv6-Adressen gespeichert, jedoch ist aus diesen nicht ohne einen bedeutend großen Mehraufwand eine Rückverfolgung möglich. Alle gesammelten Daten sind jederzeit unter https://europe-west1-semi-umfrage.cloudfunctions.net/api/getEntries1 auslesbar.\nDie erhobenen Daten werden ausschließlich schulisch und im Rahmen unserer Seminarfacharbeit verwendet und anschließend gelöscht.\nZur Teilnahme von Minderjährigen ist die Zustimmung der Erziehungsberechtigten erforderlich."
     
     const reqBody = {
         q1: q1,
@@ -102,6 +103,11 @@ export default () => {
         axios.post('/submit', reqBody)
         .then(res => {
             console.error(res);
+            if(res.status == 200) {
+                setSubmitText('erfolgreich teilgenommen');
+                setSubmitEnabled(false);
+            }
+            res.status == 200 ? setSubmitText('erfolgreich teilgenommen') : setSubmitText('fehler')
         })
         .catch(e => {
             console.error(e);
@@ -330,7 +336,7 @@ export default () => {
                         <div style={{ "width": "80vw", "maxWidth": "600px"}}/>
                         
                         <Typography variant="h6" style={{ "maxWidth": "600px"}}>
-                            Kaufen Sie und ihre Familie Gebrauchsgegenstände(mehrfach verwendbare, z. B. Autos, Fernseher usw.) größtenteils neu oder gebraucht?
+                            Kaufen Sie und ihre Familie Gebrauchsgegenstände (mehrfach verwendbare, z. B. Autos, Fernseher usw.) größtenteils neu oder gebraucht?
                         </Typography>
 
                         <FormControlLabel control={<Checkbox color="primary" checked={q80} onChange={() => setq80(!q80)}/>} 
@@ -372,9 +378,15 @@ export default () => {
                 <div style={{ "height": "20px" }}/>
 
                 <div style={{ "height": "3vh" }}/>
-                <Button variant="contained" color="primary" onClick={submit}>
-                    Umfrage einreichen
-                </Button>
+                { submitEnabled ? 
+                    <Button variant="contained" color="primary" onClick={submit}>
+                        {submitText}
+                    </Button>
+                :
+                    <Button variant="contained" color="primary" onClick={submit} disabled>
+                        {submitText}
+                    </Button>
+                }
                 <div style={{ "height": "10vh" }}/>
             </div>
             <Bottom/>
