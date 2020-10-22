@@ -1,8 +1,30 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Button, Card, Typography, CardContent } from '@material-ui/core';
 import Bottom from '../components/bottom';
+import axios from 'axios';
 
 export default () => {
+
+    const [ text1, setText1 ] = useState('teilnahme überprüfen...');
+    const [ enabled1, setEnabled1 ] = useState(false);
+
+    useEffect(() => {
+        checkParticipation();
+    }, []);
+
+    const checkParticipation = () => {
+        axios.post('/checkParticipation1', {})
+            .then(res => {
+                if(res.status == 200) {
+                    setEnabled1(true);
+                    setText1('teilnehmen');
+                }
+            })
+            .catch(e => {
+                setText1('umfrage bereits eingereicht'); 
+            });
+    }
+
     return (
         <Fragment>
             <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "10vh", "flexDirection": "column" }}>
@@ -25,9 +47,15 @@ export default () => {
 
                             <div style={{ "height": "3vh" }}/>
 
-                        <Button variant="contained" color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
-                            Teilehmen
-                        </Button>
+                        {enabled1 ?
+                            <Button variant="contained" color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
+                                {text1}
+                            </Button>
+                        :
+                            <Button disabled variant="contained" color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
+                                {text1}
+                            </Button>
+                        }
                     </CardContent>
                 </Card>
 

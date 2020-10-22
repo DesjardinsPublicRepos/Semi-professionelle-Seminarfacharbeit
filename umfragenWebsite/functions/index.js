@@ -31,10 +31,24 @@ app.get('/getEntries1', (req, res) => {
 app.post('/checkParticipation1', (req, res) => {
 	admin.firestore().collection('schuelerumfrage').where('ip', '==', require('request-ip').getClientIp(req)).get()
 		.then(data => {
+			data.forEach(() => {
+				return res.status(403).json('already participated');
+			});
+			return res.status(200).json('participation allowed');
+		})
+		.catch(err => {
+			console.error(err);
+			res.status(500).json({ err: err });
+		});
+});
+
+app.post('/getParticipation1', (req, res) => {
+	admin.firestore().collection('schuelerumfrage').where('ip', '==', require('request-ip').getClientIp(req)).get()
+		.then(data => {
 			entries = [];
 			let i = 0;
 			data.forEach(doc => {
-				return res.status(403).json('already participated, entries are ' + doc);
+				return res.status(205).json(doc.data());
 			});
 			return res.status(200).json('participation allowed');
 		})
@@ -51,11 +65,11 @@ app.post('/submit', (req, res) => {
 
 		q1: req.body.q1,
 		q2: req.body.q2,
-		q3: req.body.q1,
-		q4: req.body.q3,
-		q5: req.body.q4,
-		q6: req.body.q5,
-		q7: req.body.q6,
+		q3: req.body.q3,
+		q4: req.body.q4,
+		q5: req.body.q5,
+		q6: req.body.q6,
+		q7: req.body.q7,
 
         q1b: req.body.q1b,
         q2b: req.body.q2b,
@@ -91,7 +105,14 @@ app.post('/submit', (req, res) => {
 
         q90: req.body.q90,
         q91: req.body.q91,
-        q92: req.body.q92
+		
+		q100: req.body.q100,
+		q101: req.body.q101,
+
+		q110: req.body.q110,
+		q111: req.body.q111,
+
+		q121: req.body.q121
 	};
 
 	admin.firestore().collection('schuelerumfrage').add(data)
