@@ -4,6 +4,26 @@
 \usepackage[english, ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+
+%trassktript
+\usepackage{xparse}
+\usepackage{enumitem}
+\setlist[description]{
+  font={\sffamily\bfseries},
+  labelsep=0pt,
+  labelwidth=\transcriptlen,
+  leftmargin=\transcriptlen,
+}
+\newlength{\transcriptlen}
+\NewDocumentCommand {\setspeaker} { mo } {%
+  \IfNoValueTF{#2}
+  {\expandafter\newcommand\csname#1\endcsname{\item[#1:]}}%
+  {\expandafter\newcommand\csname#1\endcsname{\item[#2:]}}%
+  \IfNoValueTF{#2}
+  {\settowidth{\transcriptlen}{#1}}%
+  {\settowidth{\transcriptlen}{#2}}%
+}
+
 %für Bilder
 \usepackage{graphicx}
 %deutsche anführungszeichen
@@ -127,6 +147,9 @@
     \input{exports/Abkürzungsverzeichnis.tex}
     
     \listoftables
+        \newpage
+    
+    \input{exports/transskript.tex}
 
 \end{document}
 
