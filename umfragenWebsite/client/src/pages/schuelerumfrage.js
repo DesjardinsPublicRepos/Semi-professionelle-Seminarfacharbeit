@@ -129,8 +129,8 @@ export default () => {
         q121: q121
     };
 
-    const validate = () => {
-        if(
+    const val = [
+        () => !(
             q1 + q1b !== 1 || 
             q2 + q2b !== 1 ||
             q3 + q3b !== 1 ||
@@ -138,44 +138,51 @@ export default () => {
             q5 + q5b !== 1 ||
             q6 + q6b !== 1 ||
             q7 + q7b !== 1
-        ) return false;
+        ),
+        () => (q20 || q21.length > 0),
+        () => !(q30 + q31 + q32 !== 1),
+        () => (q40 || q41.length > 0),
+        () => (q50 || q51.length > 0),
+        () => !(q80 + q81 !== 1),
+        () => !(q90 + q91 !== 1),
+        () => !(q100 + (q101.length > 0) !== 1),
+        () => !(q110 + q111 !== 1)
+    ];
 
-        if(!(q20 || q21.length > 0)) return false;
-        if(q30 + q31 + q32 !== 1) return false;
-        if(!(q40 || q41.length > 0)) return false;
-        if(!(q50 || q51.length > 0)) return false;
-        if(q80 + q81 !== 1) return false;
-        if(q90 + q91 !== 1) return false;
-        if(q100 + (q101.length > 0) !== 1) return false;
-        if(q110 + q111 !== 1) return false;
-
-        if(!t) return false;
-        return true;
-    };
+    const validate = () => !((val[0]() + val[1]() + val[2]() + val[3]() + val[4]() + val[5]() + val[6]() + val[7]() + val[8]() + t) < 10);
 
     const submit = () => {
         setServerRes('');
+        setSubmitEnabled(false);
+        setSubmitText('loading...');
+        
         if(validate()) {
             let status;
 
             axios.post('/submit', reqBody)
-            .then(res => {
-                console.error(res);
-                status = res.status;
+                .then(res => {
+                    console.error(res);
+                    status = res.status;
 
-                if(status == 200) {
-                    setSubmitText('erfolgreich teilgenommen');
-                    setSubmitEnabled(false);
-                    setServerRes(`Server response: ${status} OK -- Vielen Dank für deine Teilnahme!`);
-                }
-                status == 200 ? setSubmitText('erfolgreich teilgenommen') : setSubmitText('fehler')
-            })
-            .catch(e => {
-                console.error(e);
-                setServerRes(`Server response: Err ${status}`);
-            });
+                    if(status == 200) {
+                        setSubmitText('erfolgreich teilgenommen');
+                        setServerRes(`Server response: ${status} OK -- Vielen Dank für deine Teilnahme!`);
+                    } else {
+                        setSubmitText('fehler');
+                        setServerRes(`Server response: Err ${status}`);
+                        setSubmitEnabled(true);
+                    }
+                })
+                .catch(e => {
+                    console.error(e);
+                    setServerRes(`Server response: Err ${status}`);
+                    setSubmitText('umfrage einreichen');
+                    setSubmitEnabled(true);
+                });
         } else {
-            setServerRes('Err: 400 bad request, Bitte Eingabeparameter prüfen.');
+            setServerRes('Error 400: Wiedersprüchliche Eingabedaten. Bitte überprüfen Sie die Umfrage auf rote Kreuze und darauf, dass die Teilnahmebedingungen akzeptiert wurden.');
+            setSubmitText('umfrage einreichen');
+            setSubmitEnabled(true);
         }
     };
 
@@ -186,7 +193,7 @@ export default () => {
                     Schülerumfrage
                 </Typography>
                 
-                <DefaultCard title="Würden Sie die folgenden Produkte eher Online oder vor Ort kaufen?">
+                <DefaultCard title="Würden Sie die folgenden Produkte eher Online oder vor Ort kaufen?" status={ val[0]() ? "acc" : "den" }>
                     <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "3vh", "flexDirection": "row" }}>
                         <div style={{ "marginLeft": "auto", "height": "100%" }}>
                             <div style={{ "height": "23px" }}/>
@@ -256,7 +263,7 @@ export default () => {
                     </div>
                 </DefaultCard>
                 
-                <DefaultCard title="Haben Sie schon einmal etwas Online bestellt, wenn ja über welche Plattform?">
+                <DefaultCard title="Haben Sie schon einmal etwas Online bestellt, wenn ja über welche Plattform?" status="neutral">
                     <FormControlLabel control={<Checkbox color="primary" checked={q10} onChange={() => setq10(!q10)}/>} 
                         label="Amazon" labelPlacement="end"/>
                     <br/>
@@ -267,7 +274,7 @@ export default () => {
                         variant="outlined" value={q12} onChange={e => setq12(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Gibt es Artikel, die Sie nicht Online bestellen würden?">
+                <DefaultCard title="Gibt es Artikel, die Sie nicht Online bestellen würden?" status={ val[1]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q20} onChange={() => setq20(!q20)}/>} 
                         label="Nein" labelPlacement="end"/>
                     <br/><br/>
@@ -275,7 +282,7 @@ export default () => {
                         variant="outlined" value={q21} onChange={e => setq21(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Wie beschreiben Sie ihre Erfahrungen mit dem Onlinehandel?">
+                <DefaultCard title="Wie beschreiben Sie ihre Erfahrungen mit dem Onlinehandel?" status={ val[2]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q30} onChange={() => setq30(!q30)}/>} 
                         label="eher positiv" labelPlacement="end"/>
                     <br/>
@@ -286,7 +293,7 @@ export default () => {
                         label="neutral" labelPlacement="end"/>
                 </DefaultCard>
 
-                <DefaultCard title="Ist das Kaufangebot im schleusinger Umkreis ausreichend?">
+                <DefaultCard title="Ist das Kaufangebot im schleusinger Umkreis ausreichend?" status={ val[3]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q40} onChange={() => setq40(!q40)}/>} 
                         label="Ja" labelPlacement="end"/>
                     <br/><br/>
@@ -294,7 +301,7 @@ export default () => {
                         variant="outlined" value={q41} onChange={e => setq41(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Weichen Sie und ihre Familie beim Einkaufen aufgrund des Angebots auf andere Städte in der Umgebung aus?">
+                <DefaultCard title="Weichen Sie und ihre Familie beim Einkaufen aufgrund des Angebots auf andere Städte in der Umgebung aus?" status={ val[4]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q50} onChange={() => setq50(!q50)}/>} 
                         label="Nein" labelPlacement="end"/>
 
@@ -305,28 +312,28 @@ export default () => {
                         variant="outlined" value={q41} onChange={e => setq41(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den Onlinehandel?">
+                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den Onlinehandel?" status="neutral">
                     <br/>
 
                     <TextField id="outlined-multiline-static" label="" multiline rows={4} 
                         variant="outlined" value={q60} onChange={e => setq60(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den lokalen Handel?">
+                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den lokalen Handel?" status="neutral">
                     <br/>
 
                     <TextField id="outlined-multiline-static" label="" multiline rows={4} 
                         variant="outlined" value={q70} onChange={e => setq70(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Stärken sehen Sie bzgl. des statinären Einzelhandels im ländlichen Bereich im Vergleich zu dem in Großstädten oder dem Vertrieb Online?">
+                <DefaultCard title="Welche Stärken sehen Sie bzgl. des stationären Einzelhandels im ländlichen Bereich im Vergleich zu dem in Großstädten oder dem Vertrieb Online?" status="neutral">
                     <br/>
 
                     <TextField id="outlined-multiline-static" label="" multiline rows={4} 
                         variant="outlined" value={q121} onChange={e => setq121(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Kaufen Sie und ihre Familie Gebrauchsgegenstände (mehrfach verwendbare, z. B. Autos, Fernseher usw.) größtenteils neu oder gebraucht?">
+                <DefaultCard title="Kaufen Sie und ihre Familie Gebrauchsgegenstände (mehrfach verwendbare, z. B. Autos, Fernseher usw.) größtenteils neu oder gebraucht?" status={ val[5]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q80} onChange={() => setq80(!q80)}/>} 
                         label="meist neu" labelPlacement="end"/>
                     <br/>
@@ -334,7 +341,7 @@ export default () => {
                         label="meist gebraucht" labelPlacement="end"/>
                 </DefaultCard>
 
-                <DefaultCard title="Was ist für Sie relevanter? Der Onlinehandel oder der Einzelhandel?">
+                <DefaultCard title="Was ist für Sie relevanter? Der Onlinehandel oder der Einzelhandel?" status={ val[6]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q90} onChange={() => setq90(!q90)}/>} 
                         label="Onlinehandel" labelPlacement="end"/>
                     <br/>
@@ -342,7 +349,7 @@ export default () => {
                         label="Einzelhandel" labelPlacement="end"/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Probleme/ Komplikationen sehen sie beim Kauf von Artikeln Online?">
+                <DefaultCard title="Welche Probleme/ Komplikationen sehen sie beim Kauf von Artikeln Online?" status={ val[7]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q100} onChange={() => setq100(!q100)}/>} 
                         label="keine" labelPlacement="end"/>
 
@@ -351,7 +358,7 @@ export default () => {
                         variant="outlined" value={q101} onChange={e => setq101(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Wie schätzen sie ihre Preissensibilität ein?">
+                <DefaultCard title="Wie schätzen sie ihre Preissensibilität ein?" status={ val[8]() ? "acc" : "den" }>
                     <FormControlLabel control={<Checkbox color="primary" checked={q110} onChange={() => setq110(!q110)}/>} 
                         label="eher gering" labelPlacement="end"/>
                     <br/>
