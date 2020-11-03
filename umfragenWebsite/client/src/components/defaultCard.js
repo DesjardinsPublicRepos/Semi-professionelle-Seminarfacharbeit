@@ -22,11 +22,6 @@ export default ({ title, children, status = 'none' }) => (
                         <Den style={{ color: red[700] }}/>
                     </div>
                 }
-                { status === 'neutral' &&
-                    <div style={{ "marginLeft": "calc(100% - 30px)" }}>
-                        <Neutral style={{ color: orange[700] }}/>
-                    </div>
-                }
                 { status === 'acc' &&
                     <div style={{ "marginLeft": "calc(100% - 30px)" }}>
                         <Acc style={{ color: green[700] }}/>
