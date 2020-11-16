@@ -130,7 +130,11 @@ app.post('/submit', (req, res) => {
 		q110: req.body.q110,
 		q111: req.body.q111,
 
-		q121: req.body.q121
+		q121: req.body.q121,
+
+		q130: req.body.q130,
+
+		q140: req.body.q140
 	};
 
 	admin.firestore().collection('schuelerumfrage').add(data)

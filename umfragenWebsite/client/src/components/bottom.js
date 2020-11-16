@@ -1,6 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { AppBar, Toolbar, Typography, Grid, Button, Dialog,  DialogContent } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Typography, Button, Dialog,  DialogContent } from '@material-ui/core';
 import WrappedButton from './WrappedButton';
 
 
@@ -31,7 +30,7 @@ export default () => {
                 </WrappedButton>
 
                 <WrappedButton size="30px" onClick={() => window.open('https://redux.js.org/', '_blank')} title={"Redux"}>
-                    <img src="https://i1.wp.com/cdn-images-1.medium.com/max/1600/1*Vo5RDpNkOsfDn8sx06mthA.png?ssl=1" style={{ "width": "100%", "height": "100%" }}/>
+                    <img src="https://cdn.iconscout.com/icon/free/png-512/redux-283024.png" style={{ "width": "80%", "height": "80%" }}/>
                 </WrappedButton>
             </div>
             <div style={{ "height": "1vh"}}/>

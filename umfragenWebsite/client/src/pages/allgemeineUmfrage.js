@@ -168,19 +168,19 @@ export default () => {
                 </DefaultCard>
 
                 <DefaultCard title="Wählen sie beim Einkaufen erst einen Anbieter und suchen dann ein Produkt oder andersherum?" status={ val[1]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q1} onChange={() => setq1(!q1)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q1} onChange={() => { setq1(!q1); setq2(q1); }}/>} 
                         label="zuerst das Produkt" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q2} onChange={() => setq2(!q2)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q2} onChange={() => { setq2(!q2); setq1(q2); }}/>} 
                         label="zuerst den Anbieter" labelPlacement="end"/>
                         <br/>
                 </DefaultCard>
 
                 <DefaultCard title="Kaufen Sie online ein?" status={ val[2]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q10} onChange={() => setq10(!q10)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q10} onChange={() => { setq10(!q10); setq11(q10); }}/>} 
                         label="Ja" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q11} onChange={() => setq11(!q11)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q11} onChange={() => { setq11(!q11); setq10(q11); }}/>} 
                         label="Nein" labelPlacement="end"/>
                         <br/><br/>
 
@@ -192,29 +192,29 @@ export default () => {
                 </DefaultCard>
 
                 <DefaultCard title="Recherchieren sie manchmal vorher im Internet, bevor sie ein Produkt lokal kaufen?" status={ val[3]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q20} onChange={() => setq20(!q20)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q20} onChange={() => { setq20(!q20); setq21(q20); }}/>} 
                         label="Ja" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q21} onChange={() => setq21(!q21)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q21} onChange={() => { setq21(!q21); setq20(q21); }}/>} 
                         label="Nein" labelPlacement="end"/>
                         <br/>
                 </DefaultCard>
                 
                 <DefaultCard title="Kaufen Sie ein Produkt online lieber auf der Website des Herstellers oder auf einem Online-Marktplatz wie Amazon?" status={ val[4]() ? "acc" : "den" }>
                     <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q30} onChange={() => setq30(!q30)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q30} onChange={() => { setq30(!q30); setq31(q30) }}/>} 
                         label="lieber bei Online-Marktplätzen, die vieles anbieten" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q31} onChange={() => setq31(!q31)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q31} onChange={() => { setq31(!q31); setq30(q31) }}/>} 
                         label="lieber bei Herstellern, die sieh auf ihre Produkte spezialisiert haben" labelPlacement="end"/>
                         <br/>
                 </DefaultCard>
 
                 <DefaultCard title="Ist das Angebot in Schleusingen ausreichend?" status={ val[5]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q40} onChange={() => setq40(!q40)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q40} onChange={() => { setq40(!q40); setq41(q40); }}/>} 
                         label="Ja" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q41} onChange={() => setq41(!q41)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q41} onChange={() => { setq41(!q41); setq40(q41); }}/>} 
                         label="Nein" labelPlacement="end"/>
                         <br/><br/>
 
@@ -223,10 +223,10 @@ export default () => {
                 </DefaultCard>
 
                 <DefaultCard title="Weichen Sie oder Familienmitglieder aufgrund des geringen Angebotes auf andere Städte in der Umgebung aus?" status={ val[6]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q50} onChange={() => setq50(!q50)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q50} onChange={() => { setq50(!q50); setq51(q50); }}/>} 
                         label="Ja" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q51} onChange={() => setq51(!q51)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q51} onChange={() => { setq51(!q51); setq50(q51); }}/>} 
                         label="Nein" labelPlacement="end"/>
                         <br/>
                 </DefaultCard>
@@ -238,10 +238,10 @@ export default () => {
                 </DefaultCard>
 
                 <DefaultCard title="Denken Sie, dass der Onlinehandel den lokalen ersetzen kann?" status={ val[7]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q70} onChange={() => setq70(!q70)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q70} onChange={() => { setq70(!q70); setq71(q70); }}/>} 
                         label="Ja" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q71} onChange={() => setq71(!q71)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q71} onChange={() => { setq71(!q71); setq70(q71); }}/>} 
                         label="Nein" labelPlacement="end"/>
                         <br/>
                 </DefaultCard>
@@ -255,10 +255,10 @@ export default () => {
                 </DefaultCard>
 
                 <DefaultCard title="Sehen sie Probleme bzgl. des Onlinehandels?" status={ val[9]() ? "acc" : "den" }>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q90} onChange={() => setq90(!q90)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q90} onChange={() => { setq90(!q90); setq91(q90); }}/>} 
                         label="Nein" labelPlacement="end"/>
                         <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q91} onChange={() => setq91(!q91)}/>} 
+                    <FormControlLabel control={<Checkbox color="primary" checked={q91} onChange={() => { setq91(!q91); setq90(q91); }}/>} 
                         label="Ja" labelPlacement="end"/>
                         <br/><br/>
                     <TextField id="outlined-multiline-static" label="Ja, z. B. ..." multiline rows={4} 
