@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Button, Typography, Checkbox, FormControl, FormControlLabel, FormLabel, FormGroup, TextField } from '@material-ui/core';
+import { Button, Typography, Checkbox, FormControlLabel, TextField } from '@material-ui/core';
 import Bottom from '../components/bottom';
 import axios from 'axios';
 import DefaultCard from '../components/defaultCard';
@@ -44,7 +44,7 @@ export default () => {
     const [ submitText, setSubmitText ] = useState('Teilnahme überprüfen...');
     const [ submitEnabled, setSubmitEnabled ] = useState(false);
     const [ serverRes, setServerRes ] = useState('');
-    const teilnahmebedingungen = "Die Umfrage findet anonym statt. Bei Teilnahme werden, um mehrfache Abgaben zu verhindern, kurzfristig ipv4- und ipv6-Adressen gespeichert, jedoch ist aus diesen ohne einen bedeutend großen Mehraufwand keine Rückverfolgung möglich. Alle gesammelten Daten sind jederzeit unter https://europe-west1-semi-umfrage.cloudfunctions.net/api/getEntries2 auslesbar.\nDie erhobenen Daten werden ausschließlich schulisch und im Rahmen unserer Seminarfacharbeit verwendet und anschließend gelöscht.\nZur Teilnahme von Minderjährigen ist die Zustimmung der Erziehungsberechtigten erforderlich."
+    const teilnahmebedingungen = "Die Umfrage findet anonym statt. Bei Teilnahme werden, um mehrfache Abgaben zu verhindern, kurzfristig ipv4- und ipv6-Adressen gespeichert, jedoch ist aus diesen nicht ohne weiteres keine Rückverfolgung möglich. Alle gesammelten Daten sind jederzeit unter https://europe-west1-semi-umfrage.cloudfunctions.net/api/getEntries2 auslesbar.\nDie erhobenen Daten werden ausschließlich schulisch und im Rahmen unserer Seminarfacharbeit verwendet und anschließend gelöscht.\nZur Teilnahme von Minderjährigen ist die Zustimmung der Erziehungsberechtigten erforderlich."
     
     useEffect(() => {
         axios.post('/checkParticipation2', {})

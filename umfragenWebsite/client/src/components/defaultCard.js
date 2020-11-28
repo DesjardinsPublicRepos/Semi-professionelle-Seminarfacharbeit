@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import { HighlightOff as Den, AddCircleOutline as Neutral, CheckCircleOutline as Acc, CallReceived } from '@material-ui/icons';
-import { red, green, orange } from '@material-ui/core/colors';
+import { HighlightOff as Den, CheckCircleOutline as Acc, CallReceived } from '@material-ui/icons';
+import { red, green } from '@material-ui/core/colors';
 
 export default ({ title, children, status = 'none' }) => (
     <Fragment>

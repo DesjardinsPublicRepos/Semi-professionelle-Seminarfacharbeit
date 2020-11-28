@@ -18,14 +18,14 @@ export default () => {
 
   return (
     <div className="App">
-      <div  style={{ position: "absolute", "height": "100%", "width": "100%", "zIndex": "-10", left: "-3px", top: "-97.7px"}}>
-        <div style={{ position: "fixed", "height": "120vh", "width": "calc(120vh*2.2)", "zIndex": "-10"}}>
+      <div  style={{ "position": "absolute", "height": "100%", "width": "100%", "zIndex": "-10", "left": "-3px", "top": "-97.7px"}}>
+        <div style={{ "position": "fixed", "height": "120vh", "width": "calc(120vh*2.2)", "zIndex": "-10"}}>
           <BrowserView>
-            <div style={{ position: "fixed", top: "10px", left: "10px"}}>
+            <div style={{ "position": "fixed", "top": "10px", "left": "10px"}}>
               <Button variant="contained" color="primary" onClick={() => setAnim(1)}>
                   Animation 1
               </Button>
-                <div style={{ width: "100vw", height: "10px"}}/>
+                <div style={{ "width": "100vw", "height": "10px"}}/>
               <Button variant="contained" color="primary" onClick={() => setAnim(2)}>
                   Animation 2
               </Button>

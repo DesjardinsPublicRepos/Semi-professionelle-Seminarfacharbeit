@@ -5,6 +5,7 @@ import WrappedButton from './WrappedButton';
 
 export default () => {
     const [ impressumOpen, setImpressumOpen ] = useState(false);
+    const [ contactOpen, setContactOpen ] = useState(false);
 
     return (
         <footer>
@@ -42,11 +43,10 @@ export default () => {
 
                 <Dialog open={impressumOpen} onClose={() => setImpressumOpen(false)} fullWidth maxWidth="sm">
                     <DialogContent >
-                        <Typography variant="h6">Geile Webseiten GmbH</Typography>
+                        <Typography variant="h6">Geile Webseiten GmbH & co. KG ABC</Typography>
                         <Typography>Kevin Jeremie Pascal Schmidt</Typography>
                         <Typography>Schleusinger Straße 3</Typography>
                         <Typography>98660 Kloster Veßra OT Zollbrück</Typography>
-                        <Typography>Kontakt: desjardinslegedz@outlook.de</Typography>
                     </DialogContent>
                 </Dialog>
 
@@ -56,9 +56,15 @@ export default () => {
                     </Typography>
                 </div>
 
-                <Button color="primary">
+                <Button color="primary" onClick={() => setContactOpen(true)}>
                     Kontakt
                 </Button>
+
+                <Dialog open={contactOpen} onClose={() => setContactOpen(false)} fullWidth maxWidth="sm">
+                    <DialogContent >
+                        <Typography>desjardinslegedz@outlook.de</Typography>
+                    </DialogContent>
+                </Dialog>
             </div>        
         </footer>
     )

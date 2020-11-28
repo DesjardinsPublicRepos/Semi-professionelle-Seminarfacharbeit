@@ -293,9 +293,9 @@ export default () => {
                 </DefaultCard>
                 
                 <DefaultCard title="Haben Sie schon einmal etwas Online bestellt, wenn ja über welche Plattform?" status="neutral">
-                    <CheckLabel checked={q10} onChange={() => { setq10(!q10); setq11(q10); }} label="Amazon"/>
+                    <CheckLabel checked={q10} onChange={() => setq10(!q10) } label="Amazon"/>
 
-                    <CheckLabel checked={q11} onChange={() => { setq11(!q11); setq10(q11); }} label="Ebay"/>
+                    <CheckLabel checked={q11} onChange={() => setq11(!q11) } label="Ebay"/>
                     
                     <Edit label="Andere, z. B. ..." value={q12} onChange={e => setq12(e.target.value)}/>
                 </DefaultCard>
@@ -334,7 +334,7 @@ export default () => {
                     <Edit label="" value={q70} onChange={e => setq70(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Stärken sehen Sie bzgl. des stationären Einzelhandels im ländlichen Bereich im Vergleich zu anderen Vertriebsstrukturen?" status="neutral">
+                <DefaultCard title="Welche Stärken sehen Sie bzgl. des stationären Einzelhandels im ländlichen Bereich?" status="neutral">
                     <Edit label="" value={q121} onChange={e => setq121(e.target.value)}/>
                 </DefaultCard>
 
@@ -375,9 +375,9 @@ export default () => {
 
                     <CheckLabel checked={q140 === 1} onChange={() => setq140(1)} label="Vor 5 oder mehr Jahren"/>
 
-                    <CheckLabel checked={q140 === 2} onChange={() => setq140(2)} label="Vor 2 bis 5 Jahren"/>
+                    <CheckLabel checked={q140 === 2} onChange={() => setq140(2)} label="Vor 1 bis 5 Jahren"/>
 
-                    <CheckLabel checked={q140 === 3} onChange={() => setq140(3)} label="In der Corona-Zeit"/>
+                    <CheckLabel checked={q140 === 3} onChange={() => setq140(3)} label="Vor 1 Jahr oder später"/>
                 </DefaultCard>
 
 
