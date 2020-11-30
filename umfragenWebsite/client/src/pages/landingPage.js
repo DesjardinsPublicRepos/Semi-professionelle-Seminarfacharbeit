@@ -8,6 +8,9 @@ export default () => {
     const [ text1, setText1 ] = useState('teilnahme überprüfen...');
     const [ enabled1, setEnabled1 ] = useState(false);
 
+    const [ text2, setText2 ] = useState('teilnahme überprüfen...');
+    const [ enabled2, setEnabled2 ] = useState(false);
+
     useEffect(() => {
         checkParticipation();
     }, []);
@@ -22,6 +25,17 @@ export default () => {
             })
             .catch(e => {
                 setText1('umfrage bereits eingereicht'); 
+            });
+
+        axios.post('/checkParticipation2', {})
+            .then(res => {
+                if(res.status == 200) {
+                    setEnabled2(true);
+                    setText2('teilnehmen');
+                }
+            })
+            .catch(e => {
+                setText2('umfrage bereits eingereicht'); 
             });
     }
 
@@ -74,9 +88,15 @@ export default () => {
 
                             <div style={{ "height": "3vh" }}/>
 
-                        <Button variant="contained" color="primary" onClick={() => window.location.href = '/allgemeineUmfrage'}>
-                            Teilehmen
-                        </Button>
+                        {enabled2 ?
+                            <Button variant="contained" color="primary" onClick={() => window.location.href = '/allgemeineUmfrage'}>
+                                {text2}
+                            </Button>
+                        :
+                            <Button disabled variant="contained" color="primary" onClick={() => window.location.href = '/allgemeineUmfrage'}>
+                                {text2}
+                            </Button>
+                        }
                     </CardContent>
                 </Card>
             </div>

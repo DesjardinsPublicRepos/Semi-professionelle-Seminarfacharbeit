@@ -4,6 +4,26 @@
 \usepackage[english, ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+
+%trassktript
+\usepackage{xparse}
+\usepackage{enumitem}
+\setlist[description]{
+  font={\sffamily\bfseries},
+  labelsep=0pt,
+  labelwidth=\transcriptlen,
+  leftmargin=\transcriptlen,
+}
+\newlength{\transcriptlen}
+\NewDocumentCommand {\setspeaker} { mo } {%
+  \IfNoValueTF{#2}
+  {\expandafter\newcommand\csname#1\endcsname{\item[#1:]}}%
+  {\expandafter\newcommand\csname#1\endcsname{\item[#2:]}}%
+  \IfNoValueTF{#2}
+  {\settowidth{\transcriptlen}{#1}}%
+  {\settowidth{\transcriptlen}{#2}}%
+}
+
 %für Bilder
 \usepackage{graphicx}
 %deutsche anführungszeichen
@@ -40,7 +60,7 @@
 
 \begin{document}
     \input{exports/Deckblatt.tex}
-    \input{exports/Fabian-Eidesstattlicheerklärung.tex}
+    \input{exports/EidesstattlicheErklärung.tex}
     \input{exports/Danksagung.tex}
 
     \tableofcontents 
@@ -50,49 +70,44 @@
         \input{exports/Einleitung.tex}
         \newpage
     
+    
+    
     \section{Historie}
         \subsection{Entstehung}
-        \subsection{Entwicklung mit Blick auf Großfirmen wie PayPal}
-        \subsection{Beeinflussung der Sozialstrukturen}
+        \subsection{Entwicklung}
+        \subsection{Zusammenhang zwischen Onlinemarketing und -handel}
         \newpage
+        
+        
         
     \section{PayPal}
 		\input{exports/Toni/paypal/Einleitung.tex}
         \subsection{Entstehung und grobe Funktionsweise}
-        \subsection{Entwicklung}
+        \subsection{Negative Folgen}
         \subsection{Einfluss auf die Gesellschaft}
         \newpage
         
+        
+        
     \section{Konsumverhalten}
             \input{exports/Fabian/Konsum/Allgemein.tex}
-        \subsection{Veränderungen im Konsumverhalten über die Zeit}
+        \subsection{Konsumverhalten und dessen Veränderung bezüglich der Vertreibsstrukturen}
             \input{exports/Fabian/Konsum/ÄnderungÜberZeit.tex}
             
-        \subsection{Einfluss des Onlinehandels}% Überschneidung mit 7.2
-            \input{exports/Fabian/Konsum/EinflussDesOnlinehandels.tex}
-            
-        \subsection{Mögliche Probleme und Folgen}
+        \subsection{Einschätzung und Folgen}
             \input{exports/Fabian/Konsum/ProblemeUndFolgen.tex}
         \newpage
             
-        
-    \section{Auswirkungen des Oninehandels auf die Infrastruktur}
-        \subsection{Vergangene Änderungen und Entwicklungen}
-            \input{exports/Fabian/Infrastruktur-Vergangenheit.tex}
             
-        \subsection{Mögliche Entwicklungen in der Zukunft}
-            \input{exports/Fabian/Infrastruktur-Zukunft.tex}
             
-        \subsection{Probleme mit dem Einfluss des Onlinehandles}
-            \input{exports/Fabian/Infrastruktur-Probleme.tex}
+    \section{Wirtschaft mit Blick auf Unternehmen}
+        \subsection{Entwicklung der Wirtschaft}
+        \subsection{Auswirkungen auf Konzerne und Umwelt}
+        \subsection{Auswirkungen auf Paketdienste}
         \newpage
         
         
-    \section{Globaler Vergleich des Einflusses und der Entwicklung des Onlinehandels}
-            \input{exports/Fabian/GlobalerVergleich-EinflussUndEntwicklung.tex}
-        \newpage
-            
-    
+        
     \section{Onlineversandhändeler am Beispiel Amazon} 
         \input{exports/Fabian/Amazon/Allgemein.tex}
         \subsection{Entstehung und Entwicklung}
@@ -100,36 +115,43 @@
             
         \subsection{Einfluss auf das Konsumverhalten } %neu: das Konsumverhalten und der Einfluss des Onlinehandels
             \input{exports/Fabian/Amazon/EinflussAufKonsumverhalten.tex}
-            
-        \subsection{Onlinehändler als Konkurrenten zu lokalen Händlern}
-            \input{exports/Fabian/Amazon/OnlinehandelAlsKonkurrenz.tex}
         \newpage
             
-        
-    \section{Wirtschaft} %mit blick auf anbieter: sonst überschneidung mit konsumverhalten
-        \subsection{Entwicklung der Wirtschaft}
-        \subsection{Auswirkungen auf Konzerne und Umwelt}
-        \subsection{Auswirkungen auf Paketdienste}
-        \subsection{Folgeänderungen von Import/ Export}
+            
+            
+    \section{Globaler Vergleich des Einflusses und der Entwicklung des Onlinehandels}
+            \input{exports/Fabian/GlobalerVergleich-EinflussUndEntwicklung.tex}
         \newpage
         
-    \section{Handeln im Internet}
-        \subsection{Marketing}
-            \input{exports/Fabian/Handeln-Marketing.tex}
-        \subsection{Bezahlvorgänge}
-            \input{exports/Fabian/Handeln-Bezahlvorgänge.tex}
+        
+        
+    \section{Ergebnisse}
+        \subsection{Zusammenfassung}
+            \input{exports/Zusammenfassung.tex}
+        \subsection{Schlussfolgerungen im Bezug auf Schleusingen}
+            \input{exports/ZuBeSchleusingen.tex}
         \newpage
+        
+        
+        
     \bibliography{Literaturverzeichnis}
         \newpage
+        
     \listoffigures
         \newpage
+        
     \input{exports/Abkürzungsverzeichnis.tex}
+    
     \listoftables
+        \newpage
+    
+    \input{exports/transskript.tex}
 
 \end{document}
 
 %stichwortverzeichnis?
 
+% synonym stat. handel > offlinehandel
 
 %ergenisse: nischenwaren mit onlineversand, oder online-verbund mit anderen\ nitt 63
     %viele einzelhandelsflächen ini der stadt durch insolvenzen

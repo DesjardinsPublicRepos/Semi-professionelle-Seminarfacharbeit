@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
+import { HighlightOff as Den, CheckCircleOutline as Acc, CallReceived } from '@material-ui/icons';
+import { red, green } from '@material-ui/core/colors';
 
-export default ({ title, children }) => (
+export default ({ title, children, status = 'none' }) => (
     <Fragment>
         <Card>
             <CardContent>
@@ -12,6 +14,19 @@ export default ({ title, children }) => (
                 </Typography>
 
                 {children}
+
+                <br/>
+
+                { status === 'den' &&
+                    <div style={{ "marginLeft": "calc(100% - 30px)" }}>
+                        <Den style={{ color: red[700] }}/>
+                    </div>
+                }
+                { status === 'acc' &&
+                    <div style={{ "marginLeft": "calc(100% - 30px)" }}>
+                        <Acc style={{ color: green[700] }}/>
+                    </div>
+                }
             </CardContent>
         </Card>
 

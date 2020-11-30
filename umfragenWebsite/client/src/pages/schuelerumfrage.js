@@ -3,6 +3,8 @@ import { Button, Typography, Checkbox, FormControl, FormControlLabel, FormLabel,
 import Bottom from '../components/bottom';
 import axios from 'axios';
 import DefaultCard from '../components/defaultCard';
+import CheckLabel from '../components/CheckLabel';
+import Edit from '../components/Edit';
 
 export default () => {
     const [ q1, setq1 ] = useState(false);
@@ -56,11 +58,15 @@ export default () => {
 
     const [ q121, setq121 ] = useState('');
 
+    const [ q130, setq130 ] = useState(-1);
+
+    const [ q140, setq140 ] = useState(-1);
+
     const [ t, sett ] = useState(false);
     const [ submitText, setSubmitText ] = useState('Teilnahme überprüfen...');
     const [ submitEnabled, setSubmitEnabled ] = useState(false);
     const [ serverRes, setServerRes ] = useState('');
-    const teilnahmebedingungen = "Die Umfrage findet anonym statt. Bei Teilnahme werden, um mehrfache Abgaben zu verhindern, kurzfristig ipv4- und ipv6-Adressen gespeichert, jedoch ist aus diesen ohne einen bedeutend großen Mehraufwand keine Rückverfolgung möglich. Alle gesammelten Daten sind jederzeit unter https://europe-west1-semi-umfrage.cloudfunctions.net/api/getEntries1 auslesbar.\nDie erhobenen Daten werden ausschließlich schulisch und im Rahmen unserer Seminarfacharbeit verwendet und anschließend gelöscht.\nZur Teilnahme von Minderjährigen ist die Zustimmung der Erziehungsberechtigten erforderlich."
+    const teilnahmebedingungen = "Die Umfrage findet anonym statt. Bei Teilnahme werden, um mehrfache Abgaben zu verhindern, kurzfristig ipv4- und ipv6-Adressen gespeichert, jedoch ist aus diesen ohne weiteres keine Rückverfolgung möglich. Alle gesammelten Daten sind jederzeit unter https://europe-west1-semi-umfrage.cloudfunctions.net/api/getEntries1 auslesbar.\nDie erhobenen Daten werden ausschließlich schulisch und im Rahmen unserer Seminarfacharbeit verwendet und anschließend gelöscht.\nZur Teilnahme von Minderjährigen ist die Zustimmung der Erziehungsberechtigten erforderlich."
     
     useEffect(() => {
         axios.post('/checkParticipation1', {})
@@ -126,11 +132,15 @@ export default () => {
         q110: q110,
         q111: q111,
 
-        q121: q121
+        q121: q121,
+
+        q130: q130,
+
+        q140: q140
     };
 
-    const validate = () => {
-        if(
+    const val = [
+        () => !(
             q1 + q1b !== 1 || 
             q2 + q2b !== 1 ||
             q3 + q3b !== 1 ||
@@ -138,45 +148,64 @@ export default () => {
             q5 + q5b !== 1 ||
             q6 + q6b !== 1 ||
             q7 + q7b !== 1
-        ) return false;
+        ),
+        () => (q20 || q21.length > 0),
+        () => !(q30 + q31 + q32 !== 1),
+        () => (q40 || q41.length > 0),
+        () => (q50 || q51.length > 0),
+        () => !(q80 + q81 !== 1),
+        () => !(q90 + q91 !== 1),
+        () => !(q100 + (q101.length > 0) !== 1),
+		() => !(q110 + q111 !== 1),
+		() => q130 > -1,
+		() => q140 > -1
+    ];
 
-        if(!(q20 || q21.length > 0)) return false;
-        if(q30 + q31 + q32 !== 1) return false;
-        if(!(q40 || q41.length > 0)) return false;
-        if(!(q50 || q51.length > 0)) return false;
-        if(q80 + q81 !== 1) return false;
-        if(q90 + q91 !== 1) return false;
-        if(q100 + (q101.length > 0) !== 1) return false;
-        if(q110 + q111 !== 1) return false;
-
-        if(!t) return false;
-        return true;
-    };
+    const validate = () => !((val[0]() + val[1]() + val[2]() + val[3]() + val[4]() + val[5]() + val[6]() + val[7]() + val[8]() + t) < 10);
 
     const submit = () => {
         setServerRes('');
+        setSubmitEnabled(false);
+        setSubmitText('loading...');
+        
         if(validate()) {
             let status;
 
             axios.post('/submit', reqBody)
-            .then(res => {
-                console.error(res);
-                status = res.status;
+                .then(res => {
+                    console.error(res);
+                    status = res.status;
 
-                if(status == 200) {
-                    setSubmitText('erfolgreich teilgenommen');
-                    setSubmitEnabled(false);
-                    setServerRes(`Server response: ${status} OK -- Vielen Dank für deine Teilnahme!`);
-                }
-                status == 200 ? setSubmitText('erfolgreich teilgenommen') : setSubmitText('fehler')
-            })
-            .catch(e => {
-                console.error(e);
-                setServerRes(`Server response: Err ${status}`);
-            });
+                    if(status == 200) {
+                        setSubmitText('erfolgreich teilgenommen');
+                        setServerRes(`Server response: ${status} OK -- Vielen Dank für deine Teilnahme!`);
+                    } else {
+                        setSubmitText('fehler');
+                        setServerRes(`Server response: Err ${status}`);
+                        setSubmitEnabled(true);
+                    }
+                })
+                .catch(e => {
+                    console.error(e);
+                    setServerRes(`Server response: Err ${status}`);
+                    setSubmitText('umfrage einreichen');
+                    setSubmitEnabled(true);
+                });
         } else {
-            setServerRes('Err: 400 bad request, Bitte Eingabeparameter prüfen.');
+            setServerRes('Error 400: Wiedersprüchliche Eingabedaten. Bitte überprüfen Sie die Umfrage auf rote Kreuze und darauf, dass die Teilnahmebedingungen akzeptiert wurden.');
+            setSubmitText('umfrage einreichen');
+            setSubmitEnabled(true);
         }
+    };
+
+    const CheckView = ({ checked, onChange }) => {
+        return(
+            <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
+                <Checkbox color="primary" style={{ "width": "24px"}} checked={checked[0]} onChange={onChange[0]}/>
+                <div style={{ "width": "100%"}}/>
+                <Checkbox color="primary" style={{ "width": "24px"}} checked={checked[1]} onChange={onChange[1]}/>
+            </div>
+        );
     };
 
     return(
@@ -186,7 +215,8 @@ export default () => {
                     Schülerumfrage
                 </Typography>
                 
-                <DefaultCard title="Würden Sie die folgenden Produkte eher Online oder vor Ort kaufen?">
+
+                <DefaultCard title="Würden Sie die folgenden Produkte eher Online oder vor Ort kaufen?" status={ val[0]() ? "acc" : "den" }>
                     <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "3vh", "flexDirection": "row" }}>
                         <div style={{ "marginLeft": "auto", "height": "100%" }}>
                             <div style={{ "height": "23px" }}/>
@@ -216,151 +246,142 @@ export default () => {
                         <FormControl component="fieldset" style={{ "marginRight": "auto" }}>
                             <FormLabel component="legend">eher Online/ vor Ort</FormLabel>
                             <FormGroup>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q1} onChange={() => setq1(!q1)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q1b} onChange={() => setq1b(!q1b)}/>
-                                </div>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q2} onChange={() => setq2(!q2)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q2b} onChange={() => setq2b(!q2b)}/>
-                                </div>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q3} onChange={() => setq3(!q3)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q3b} onChange={() => setq3b(!q3b)}/>
-                                </div>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q4} onChange={() => setq4(!q4)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q4b} onChange={() => setq4b(!q4b)}/>
-                                </div>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q5} onChange={() => setq5(!q5)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q5b} onChange={() => setq5b(!q5b)}/>
-                                </div>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q6} onChange={() => setq6(!q6)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q6b} onChange={() => setq6b(!q6b)}/>
-                                </div>
-                                <div style={{ "display": "flex",  "justifyContent": "center", "alignItems": "center", "marginTop": "1vh", "flexDirection": "row" }}>                        
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q7} onChange={() => setq7(!q7)}/>
-                                    <div style={{ "width": "100%"}}/>
-                                    <Checkbox color="primary" style={{ "width": "24px"}} checked={q7b} onChange={() => setq7b(!q7b)}/>
-                                </div>
+                                <CheckView checked={[ q1, q1b ]}
+                                    onChange={[
+                                        () => { setq1(!q1); setq1b(q1); },
+                                        () => { setq1b(!q1b); setq1(q1b); }
+                                    ]}/>
+
+                                <CheckView checked={[ q2, q2b ]}
+                                    onChange={[
+                                        () => { setq2(!q2); setq2b(q2); },
+                                        () => { setq2b(!q2b); setq2(q2b); }
+                                    ]}/>
+
+                                <CheckView checked={[ q3, q3b ]}
+                                    onChange={[
+                                        () => { setq3(!q3); setq3b(q3); },
+                                        () => { setq3b(!q3b); setq3(q3b); }
+                                    ]}/>
+
+                                <CheckView checked={[ q4, q4b ]}
+                                    onChange={[
+                                        () => { setq4(!q4); setq4b(q4); },
+                                        () => { setq4b(!q4b); setq4(q4b); }
+                                    ]}/>
+
+                                <CheckView checked={[ q5, q5b ]}
+                                    onChange={[
+                                        () => { setq5(!q5); setq5b(q5); },
+                                        () => { setq5b(!q5b); setq5(q5b); }
+                                    ]}/>
+
+                                <CheckView checked={[ q6, q6b ]}
+                                    onChange={[
+                                        () => { setq6(!q6); setq6b(q6); },
+                                        () => { setq6b(!q6b); setq6(q6b); }
+                                    ]}/>
+
+                                <CheckView checked={[ q7, q7b ]}
+                                    onChange={[
+                                        () => { setq7(!q7); setq7b(q7); },
+                                        () => { setq7b(!q7b); setq7(q7b); }
+                                    ]}/>
                             </FormGroup>
                         </FormControl>
                     </div>
                 </DefaultCard>
                 
-                <DefaultCard title="Haben Sie schon einmal etwas Online bestellt, wenn ja über welche Plattform?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q10} onChange={() => setq10(!q10)}/>} 
-                        label="Amazon" labelPlacement="end"/>
-                    <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q11} onChange={() => setq11(!q11)}/>} 
-                        label="Ebay" labelPlacement="end"/>
-                    <br/><br/>
-                    <TextField id="outlined-multiline-static" label="Andere, z. B. ..." multiline rows={4} 
-                        variant="outlined" value={q12} onChange={e => setq12(e.target.value)}/>
+                <DefaultCard title="Haben Sie schon einmal etwas Online bestellt, wenn ja über welche Plattform?" status="neutral">
+                    <CheckLabel checked={q10} onChange={() => setq10(!q10) } label="Amazon"/>
+
+                    <CheckLabel checked={q11} onChange={() => setq11(!q11) } label="Ebay"/>
+                    
+                    <Edit label="Andere, z. B. ..." value={q12} onChange={e => setq12(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Gibt es Artikel, die Sie nicht Online bestellen würden?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q20} onChange={() => setq20(!q20)}/>} 
-                        label="Nein" labelPlacement="end"/>
-                    <br/><br/>
-                    <TextField id="outlined-multiline-static" label="Ja, z. B. ..." multiline rows={4} 
-                        variant="outlined" value={q21} onChange={e => setq21(e.target.value)}/>
+                <DefaultCard title="Gibt es Artikel, die Sie nicht Online bestellen würden?" status={ val[1]() ? "acc" : "den" }>
+                    <CheckLabel checked={q20} onChange={() => setq20(!q20)} label="Nein"/>
+                    
+                    <Edit label="Ja, z. B. ..." value={q21} onChange={e => setq21(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Wie beschreiben Sie ihre Erfahrungen mit dem Onlinehandel?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q30} onChange={() => setq30(!q30)}/>} 
-                        label="eher positiv" labelPlacement="end"/>
-                    <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q31} onChange={() => setq31(!q31)}/>} 
-                        label="eher negativ" labelPlacement="end"/>
-                        <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q32} onChange={() => setq32(!q32)}/>} 
-                        label="neutral" labelPlacement="end"/>
+                <DefaultCard title="Wie beschreiben Sie ihre Erfahrungen mit dem Onlinehandel?" status={ val[2]() ? "acc" : "den" }>
+                    <CheckLabel checked={q30} onChange={() => { setq30(1); setq31(0); setq32(0); }} label="eher positiv"/>
+
+                    <CheckLabel checked={q31} onChange={() => { setq30(0); setq31(1); setq32(0); }} label="eher negativ"/>
+
+                    <CheckLabel checked={q32} onChange={() => { setq30(0); setq31(0); setq32(1); }} label="neutral"/>
                 </DefaultCard>
 
-                <DefaultCard title="Ist das Kaufangebot im schleusinger Umkreis ausreichend?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q40} onChange={() => setq40(!q40)}/>} 
-                        label="Ja" labelPlacement="end"/>
-                    <br/><br/>
-                    <TextField id="outlined-multiline-static" label="Nein, es fehlt..." multiline rows={4} 
-                        variant="outlined" value={q41} onChange={e => setq41(e.target.value)}/>
+                <DefaultCard title="Ist das Kaufangebot im schleusinger Umkreis ausreichend?" status={ val[3]() ? "acc" : "den" }>
+                    <CheckLabel checked={q40} onChange={() => setq40(!q40)} label="Ja"/>
+                    
+                    <Edit label="Nein, es fehlt..." value={q41} onChange={e => setq41(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Weichen Sie und ihre Familie beim Einkaufen aufgrund des Angebots auf andere Städte in der Umgebung aus?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q50} onChange={() => setq50(!q50)}/>} 
-                        label="Nein" labelPlacement="end"/>
-
-                    <br/><br/>
-                    <TextField id="outlined-multiline-static" label="Ja, z. B. ..." multiline rows={4} style={{ "margin": "0 10px 10px 0" }}
-                        variant="outlined" value={q51} onChange={e => setq51(e.target.value)}/>
-                    <TextField id="outlined-multiline-static" label="Ja, aufgrund welcher Produkte?" multiline rows={4} style={{ "margin": "0 10px 0 0" }} 
-                        variant="outlined" value={q41} onChange={e => setq41(e.target.value)}/>
+                <DefaultCard title="Weichen Sie und ihre Familie beim Einkaufen aufgrund des Angebots auf andere Städte in der Umgebung aus?" status={ val[4]() ? "acc" : "den" }>
+                    <CheckLabel checked={q50} onChange={() => setq50(!q50)} label="Nein"/>
+                    
+                    <Edit label="Ja, z. B. nach ..." style={{ "margin": "0 10px 10px 0" }} value={q51} onChange={e => setq51(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den Onlinehandel?">
-                    <br/>
-
-                    <TextField id="outlined-multiline-static" label="" multiline rows={4} 
-                        variant="outlined" value={q60} onChange={e => setq60(e.target.value)}/>
+                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den Onlinehandel?" status="neutral">
+                    <Edit label="" value={q60} onChange={e => setq60(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den lokalen Handel?">
-                    <br/>
-
-                    <TextField id="outlined-multiline-static" label="" multiline rows={4} 
-                        variant="outlined" value={q70} onChange={e => setq70(e.target.value)}/>
+                <DefaultCard title="Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den lokalen Handel?" status="neutral">
+                    <Edit label="" value={q70} onChange={e => setq70(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Stärken sehen Sie bzgl. des statinären Einzelhandels im ländlichen Bereich im Vergleich zu dem in Großstädten oder dem Vertrieb Online?">
-                    <br/>
-
-                    <TextField id="outlined-multiline-static" label="" multiline rows={4} 
-                        variant="outlined" value={q121} onChange={e => setq121(e.target.value)}/>
+                <DefaultCard title="Welche Stärken sehen Sie bzgl. des stationären Einzelhandels im ländlichen Bereich?" status="neutral">
+                    <Edit label="" value={q121} onChange={e => setq121(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Kaufen Sie und ihre Familie Gebrauchsgegenstände (mehrfach verwendbare, z. B. Autos, Fernseher usw.) größtenteils neu oder gebraucht?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q80} onChange={() => setq80(!q80)}/>} 
-                        label="meist neu" labelPlacement="end"/>
-                    <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q81} onChange={() => setq81(!q81)}/>} 
-                        label="meist gebraucht" labelPlacement="end"/>
+                <DefaultCard title="Kaufen Sie und ihre Familie Gebrauchsgegenstände (mehrfach verwendbare, z. B. Autos, Fernseher usw.) größtenteils neu oder gebraucht?" status={ val[5]() ? "acc" : "den" }>
+                    <CheckLabel checked={q80} onChange={() => { setq80(!q80); setq81(q80); }} label="meist neu"/>
+
+                    <CheckLabel checked={q81} onChange={() => { setq81(!q81); setq80(q81); }} label="meist gebraucht"/>
                 </DefaultCard>
 
-                <DefaultCard title="Was ist für Sie relevanter? Der Onlinehandel oder der Einzelhandel?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q90} onChange={() => setq90(!q90)}/>} 
-                        label="Onlinehandel" labelPlacement="end"/>
-                    <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q91} onChange={() => setq91(!q91)}/>} 
-                        label="Einzelhandel" labelPlacement="end"/>
+                <DefaultCard title="Was ist für Sie relevanter? Der Onlinehandel oder der Einzelhandel?" status={ val[6]() ? "acc" : "den" }>
+                    <CheckLabel checked={q90} onChange={() => { setq90(!q90); setq91(q90); }} label="Onlinehandel"/>
+
+                    <CheckLabel checked={q91} onChange={() => { setq91(!q91); setq90(q91); }} label="Einzelhandel"/>
                 </DefaultCard>
 
-                <DefaultCard title="Welche Probleme/ Komplikationen sehen sie beim Kauf von Artikeln Online?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q100} onChange={() => setq100(!q100)}/>} 
-                        label="keine" labelPlacement="end"/>
+                <DefaultCard title="Welche Probleme/ Komplikationen sehen sie beim Kauf von Artikeln Online?" status={ val[7]() ? "acc" : "den" }>
+                    <CheckLabel checked={q100} onChange={() => setq100(!q100)} label="keine"/>
 
-                    <br/><br/>
-                    <TextField id="outlined-multiline-static" label="z. B. ..." multiline rows={4} 
-                        variant="outlined" value={q101} onChange={e => setq101(e.target.value)}/>
+                    <Edit label="z. B. ..." value={q101} onChange={e => setq101(e.target.value)}/>
                 </DefaultCard>
 
-                <DefaultCard title="Wie schätzen sie ihre Preissensibilität ein?">
-                    <FormControlLabel control={<Checkbox color="primary" checked={q110} onChange={() => setq110(!q110)}/>} 
-                        label="eher gering" labelPlacement="end"/>
-                    <br/>
-                    <FormControlLabel control={<Checkbox color="primary" checked={q111} onChange={() => setq111(!q111)}/>} 
-                        label="eher hoch" labelPlacement="end"/>
+                <DefaultCard title="Wie schätzen sie ihre Preissensibilität ein?" status={ val[8]() ? "acc" : "den" }>
+                    <CheckLabel checked={q110} onChange={() => { setq110(!q110); setq111(q110); }} label="eher gering"/>
+
+                    <CheckLabel checked={q111} onChange={() => { setq111(!q111); setq110(q111); }} label="eher hoch"/>
                 </DefaultCard>
 
-                <FormControlLabel control={<Checkbox color="primary" checked={t} onChange={() => sett(!t)}/>} 
-                    label="Ich stimme den Teilnahmebedingungen zu" labelPlacement="end"/>
+                <DefaultCard title="Haben sich ihre Kaufgewohnheiten während der Corona-Zeit geändert?" status={ val[9]() ? "acc" : "den" }>
+                    <CheckLabel checked={q130 === 0} onChange={() => setq130(0)} label="Nein"/>
+
+                    <CheckLabel checked={q130 === 1} onChange={() => setq130(1)} label="Ja, ich kaufe mehr stationär"/>
+
+                    <CheckLabel checked={q130 === 2} onChange={() => setq130(2)} label="Ja, ich kaufe mehr online"/>
+                </DefaultCard>
+
+                <DefaultCard title="Wann haben Sie das erste mal etwas online gekauft?" status={ val[10]() ? "acc" : "den" }>
+                    <CheckLabel checked={q140 === 0} onChange={() => setq140(0)} label="Noch nie"/>
+
+                    <CheckLabel checked={q140 === 1} onChange={() => setq140(1)} label="Vor 5 oder mehr Jahren"/>
+
+                    <CheckLabel checked={q140 === 2} onChange={() => setq140(2)} label="Vor 1 bis 5 Jahren"/>
+
+                    <CheckLabel checked={q140 === 3} onChange={() => setq140(3)} label="Vor 1 Jahr oder später"/>
+                </DefaultCard>
+
+
+				<CheckLabel checked={t} onChange={() => sett(!t)} label="Ich stimme den Teilnahmebedingungen zu"/>
 
                 <div style={{ "height": "20px"}}/>
 
