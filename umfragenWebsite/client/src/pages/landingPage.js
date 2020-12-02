@@ -1,7 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Button, Card, Typography, CardContent } from '@material-ui/core';
+import { Button, Card, Typography, CardContent, Dialog,  DialogContent } from '@material-ui/core';
 import Bottom from '../components/bottom';
 import axios from 'axios';
+
+import pdf from '../media/schuelerumfrage.pdf';
+import tex from '../media/schuelerumfrage.tex';
 
 export default () => {
 
@@ -10,6 +13,8 @@ export default () => {
 
     const [ text2, setText2 ] = useState('teilnahme überprüfen...');
     const [ enabled2, setEnabled2 ] = useState(false);
+
+    const [ auswertungOpen, setAuswertungOpen ] = useState(false);
 
     useEffect(() => {
         checkParticipation();
@@ -62,14 +67,29 @@ export default () => {
                             <div style={{ "height": "3vh" }}/>
 
                         {enabled1 ?
-                            <Button variant="contained" color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
+                            <Button color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
                                 {text1}
                             </Button>
                         :
-                            <Button disabled variant="contained" color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
+                            <Button disabled color="primary" onClick={() => window.location.href = '/schuelerumfrage'}>
                                 {text1}
                             </Button>
                         }
+                        <br/><br/>
+                        <Button color="primary" variant="contained" onClick={() => setAuswertungOpen(true)}>
+                            Auswertung
+                        </Button>
+
+                        <Dialog open={auswertungOpen} onClose={() => setAuswertungOpen(false)} fullWidth maxWidth="sm">
+                            <DialogContent >
+                                <Button variant="contained" color="primary" onClick={() => window.location.href = 'https://europe-west1-semi-umfrage.cloudfunctions.net/api/getEntries1'}>Rohdaten</Button>
+                                <br/><br/>
+                                <Button variant="contained" color="primary" onClick={() => window.open(tex)}>Auswertung.tex</Button>
+                                <br/><br/>
+                                <Button variant="contained" color="primary" onClick={() => window.open(pdf)}>Auswertung.pdf</Button>
+                                <br/><br/>
+                            </DialogContent>
+                        </Dialog>
                     </CardContent>
                 </Card>
 

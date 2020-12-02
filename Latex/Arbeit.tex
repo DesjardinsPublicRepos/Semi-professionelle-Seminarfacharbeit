@@ -52,6 +52,10 @@
 \makeatletter
 \newenvironment{folding}{\endgroup}{\begingroup \def \@currenvir{folding}\edef \@currenvline{\on@line}}
 \makeatother
+
+%für H-Bild-option
+\usepackage{float}
+
 \hyphenation{Schleu-sing-en Haupt-ein-kaufs-mö-glich-keit Nie-drig-preis-po-li-tik}
 
 \title{Seminarfacharbeit}
@@ -146,6 +150,9 @@
         \newpage
     
     \input{exports/transskript.tex}
+        \newpage
+    
+    \input{exports/schuelerumfrage.tex}
 
 \end{document}
 
