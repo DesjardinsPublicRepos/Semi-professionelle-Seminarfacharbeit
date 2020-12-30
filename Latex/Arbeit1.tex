@@ -1,0 +1,1103 @@
+\documentclass[a4paper, 12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+%direkte pdf-links
+\usepackage{hyperref}
+%trassktript
+\usepackage{xparse} 
+\usepackage{enumitem}
+\setlist[description]{
+  font={\sffamily\bfseries},
+  labelsep=0pt,
+  labelwidth=\transcriptlen,
+  leftmargin=\transcriptlen,
+}
+\newlength{\transcriptlen}
+\NewDocumentCommand {\setspeaker} { mo } {%
+  \IfNoValueTF{#2}
+  {\expandafter\newcommand\csname#1\endcsname{\item[#1:]}}%
+  {\expandafter\newcommand\csname#1\endcsname{\item[#2:]}}%
+  \IfNoValueTF{#2}
+  {\settowidth{\transcriptlen}{#1}}%
+  {\settowidth{\transcriptlen}{#2}}%
+}
+
+%für Bilder
+\usepackage{graphicx}
+%deutsche anführungszeichen
+\usepackage{csquotes}\MakeOuterQuote{"}
+%ränder
+\usepackage[left=3cm, right=4cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage[numbers, round]{natbib}
+%spacing
+\usepackage[onehalfspacing]{setspace}
+%Abkürzungsverzeichnis
+\usepackage[printonlyused, footnote]{acronym}
+%Anzeigen der restlichen Verzeichnisse
+\usepackage{tocbibind}
+%Literaturverzeichnis
+\bibliographystyle{alphadin}
+%größere Schriftgrößen als 17pt
+\usepackage{lmodern}
+%bessere umbrüche
+\usepackage{microtype}
+%Bildquellen
+\newcommand*{\bildquelle}{%
+  \footnotesize Quelle:
+}
+%römische zahlen
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}}
+\makeatletter
+\newenvironment{folding}{\endgroup}{\begingroup \def \@currenvir{folding}\edef \@currenvline{\on@line}}
+\makeatother
+
+%für H-Bild-option
+\usepackage{float}
+
+\hyphenation{Schleu-sing-en Haupt-ein-kaufs-mö-glich-keit Nie-drig-preis-po-li-tik}
+
+\title{Seminarfacharbeit}
+\author{Toni Hausdörfer, Fabian Beez}
+\date{27. Mai 2020}
+
+\begin{document}
+\begin{titlepage}
+    \newgeometry{left=2.61cm, right=2.61cm, top=2cm, bottom=2cm}
+    
+    \raggedright 
+        Hennebergisches Gymnasium "Georg Ernst"\\
+        Klosterstraße 2-4\\
+        98554 Schleusingen
+        
+    \raggedleft\vspace*{-1.9cm}
+        Jahrgang 2020/21
+            \vfill\vfill\vfill\vfill\vfill\vfill
+
+    \centering
+        \LARGE\textbf{Seminarfacharbeit} % WELCHES FACHGEBIET???
+            \vfill
+        \large Onlinehandel und dessen Einfluss auf Kleinstädte und Dörfer im ländlichen Raum\\[\baselineskip]
+        von\\
+        Fabian Beez(21En2) und Toni Hausdörfer(21En2)
+            \vfill\vfill\vfill\vfill
+
+    \raggedright
+        Betreuende Lehrkraft: \hfill Frau Karin Richter\\
+        Abgabetermin: \hfill 04. Januar 2021\\[\baselineskip]
+        \begin{tabular}[h]{|l|l|l|l|l|l|}
+            \hline
+            Bewertung & Note & Notenstufe in Worten & Punkte &  & Punkte \\
+            \hline
+            schriftliche Arbeit & & & & x3 & \\
+            \hline
+            Präsentation & & & & x1 & \\
+            \hline
+        \end{tabular}
+
+    \raggedleft\vspace*{-0.05cm}
+        \begin{tabular}[h]{|p{1.56cm}|}
+            \hline
+            \\
+            \hline
+            \\
+            \hline
+        \end{tabular}
+
+    \raggedright\vspace*{-1.4cm}
+        \hspace*{0.2cm}Summe: \hfill\\
+        \hspace*{0.2cm}Gesamtleistung nach §61(7) GSO = Summe :2 (gerundet): \hfill\\[\baselineskip]
+            \vfill\vfill\vfill
+        
+    \raggedleft
+        \begin{tabular}{@{}l@{}}\hline
+            Unterschrift des Kursleiters
+        \end{tabular}
+            \vfill\vfill
+\end{titlepage}
+
+\newpage
+
+
+
+
+\vspace*{4cm}
+\section*{Eidesstattliche Erklärung}
+\vfill
+Hiermit versichere ich, dass ich die vorliegende Arbeit
+ohne Hilfe Dritter und ohne Benutzung anderer als der angegebenen
+Hilfsmittel angefertigt habe. Alle aus fremden Quellen direkt oder
+indirekt übernommenen Gedanken sind als solche kenntlich gemacht. Diese
+Arbeit wurde bisher in gleicher oder ähnlicher Form in keiner anderen
+Prüfungsbehörde vorgelegt oder veröffentlicht.
+
+\vfill
+\noindent\dotfill\\
+\hspace{2cm} Ort, Datum \hfill Fabian Beez
+\vfill
+\vfill\vfill\vfill\vfill\vfill
+\newpage
+
+
+
+
+\vspace*{4cm}
+\section*{Eidesstattliche Erklärung}
+\vfill
+Hiermit versichere ich, dass ich die vorliegende Arbeit
+ohne Hilfe Dritter und ohne Benutzung anderer als der angegebenen
+Hilfsmittel angefertigt habe. Alle aus fremden Quellen direkt oder
+indirekt übernommenen Gedanken sind als solche kenntlich gemacht. Diese
+Arbeit wurde bisher in gleicher oder ähnlicher Form in keiner anderen
+Prüfungsbehörde vorgelegt oder veröffentlicht.
+
+\vfill
+\noindent\dotfill\\
+\hspace{2cm} Ort, Datum \hfill Toni Hausdörfer
+\vfill
+\vfill\vfill\vfill\vfill\vfill
+\newpage
+
+
+
+
+
+
+ 
+\vspace*{5cm}
+\section*{Danksagung}
+\vspace{1.7cm}
+Zuerst möchten wir uns bei all denjenigen bedanken, die uns während der Anfertigung dieser Arbeit unterstützt haben. \\\\
+Dazu zählen in erster Linie alle Teilnehmer unserer Online-Schülerumfrage. 
+Außerdem möchten wir uns bei unseren Familien bedanken, die uns bei der Anfertigung dieser Arbeit mit guten Ratschlägen halfen.
+Ein besonderer Dank möchten wir zusätzlich an Frau Richter aussprechen, die uns als betreuende Lehrkraft unterstützte.
+\newpage
+
+
+
+
+
+
+    \tableofcontents 
+        \newpage
+
+    \section{Einleitung}
+    
+    
+    
+    
+    
+    
+    Mode Beetz, ein Geschenkeladen, ein Bäcker sowie ein Fleischer am Markt - das Teehaus in der alten Burgstraße 9 - ein Zeitschriftenhandel und ein Jeansladen beim Megacenter - und viele weitere stationäre Läden schlossen in Schleusingen im Verlauf der letzten Jahre. Parallel dazu spielt der Onlinehandel eine immer größer werdende Rolle im Leben von Menschen fast aller Altersschichten. Aufgrund dieser Tatsachen haben wir uns die Frage gestellt, welche Rolle der Verkauf von Waren über das Internet in unserem Landkreis spielt und ob die zunehmenden Schließungen einiger Geschäfte auf einen durch Distanzhandel begründeten Rückgang der Nachfrage für lokale Einzelhändler zurückzuführen ist.\\
+
+\noindent Im Rahmen unserer Arbeit werden wir das Zutreffen folgender Thesen einschätzen:
+\begin{itemize}
+    \item Der Onlinehandel führt zu einem allmählichen Aussterben von stationären Händlern im ländlichen Bereich.
+    
+    \item Es gibt Waren, die nicht online gekauft werden.
+
+    \item Der Distanzhandel schafft weniger Arbeitsplätze als indirekt verringert werden.
+    
+    \item Das zunehmende Wachstum des Onlinehandels ist eine Belastung für die Umwelt.\\
+\end{itemize}
+
+\noindent Außerdem werden wir auf Basis unserer Ergebnisse ein Konzept entwickeln, auf welche Besonderheiten lokale Händler achten sollten, um eine erhöhte Nachfrage zu erfahren - und für welche stationäre Unternehmen nahezu keine gewinnbringende Zukunft mehr möglich ist.
+
+
+
+
+
+
+
+
+        \newpage
+    
+    
+    
+    \section{Historie}
+    
+    
+    
+    Aus der Historie des Onlinehandels sind wichtige Schlussfolgerungen zu ziehen, auf die Gegenwart, auf die Zukunft und auch auf unsere Region und ihre Entwicklung. Der Onlinehandel war eine Folge des digitalen Fortschritts der westlichen Länder und der Nachfrage der Allgemeinheit in diesen westlichen Ländern. Das ist der Grund für das übernatürliche Wachstum des Onlinehandels. Aus diesem Wachstum erst, konnten Riesenkonzerne wie Amazon, Ebay oder PayPal entstehen. So konnte jedoch auch jeder das Gut erwerben unabhängig von der Region, in der die Person lebt. Es hat die Türen geöffnet zur vollen Ausnutzung der Massenproduktion und gibt jeden die möglich die Qualität beim Kauf zu bekommen, wie er wünscht. Es ist die indirekte Veränderung der Familie da jeder Gegenstand leicht ersetzbar ist. In den kommenden Teilen wird weiter darüber im Detail berichtet.
+
+    
+    
+    
+        \subsection{Entstehung und Entwicklung}
+        
+        
+        Man kann als Anfang des Onlinehandels 3 Daten ansetzen. Um 1970 haben Standfort Studenten mit Studenten der Universität Massachusetts ein Geschäft auf den Internet Vorgänger Arpanet abgewickelt. Das erworbene Produkt war ein Tütchen Marihuana. Ein weiteren Zwischenschritt zur kompletten offiziellen Einführung eines online Marktplatzes war ein Pilotenprogramm, worin Jane Snowballs Fernseher mit einem System gekoppelt worden ist wodurch es der 72-jährige möglich gemacht wurde durch den Teletext bei dem lokalen Lebensmittelunternehmen Tesco Lebensmittel zu bestellen. Ihre erste Bestellung war Margarine, Eier und Cornflakes. Die erste offizielle Onlinemarkttransaktion wurde auf Netmarket beim Händler Noteworty Musics abgewickelt. Beim dem zu verkaufenden Produkt handelte es sich um eine CD der Band Sting namens "Ten Summoner´s Tales" \cite{bihler}. Durch diese Grundstrukturen hat sich ein Wirtschaftssektor gebildet der profitabelste Sektor für ein großes Unternehmen ist. Besonders durch die Einbeziehung des Onlinehandels konnte der E-Commerce erst seinen Aufstieg feiern. Jedoch ist das Potential des Sektors noch lange nicht ausgeschöpft. Durch die Entwicklung von Sprachassistenten und Künstlichen Intelligenzen wird die Zeit des Prozesses des Einkaufens bis zum minimalen verringert. Auch durch das Integrieren von Drohen wird die Allgegenwärtigkeit des Onlinehandels früher oder später offensichtlich \cite{leopold}. Die Steigerung des Kommerzes, ins besonderen in ländlichen Regionen ist überwältigend. Vom Jahr 2000 bis 2020 hat sich der Umsatz in Deutschland mehr als verfünfzigfacht. Von 1,3 Milliarden € auf 59,2 Milliarden € in nur zwanzig Jahren \cite{poleshov}. Auch zeigen die Tendenzen der Nutzer in den kommenden Jahren nur nach oben. Bis 2023 sollen 71,4 Millionen Deutsche online einkaufen.
+
+ \begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/1.png}
+        \caption{Prognose der Nutzer des E-Commerce}
+        \label{Prognose Nutzer}
+        \bildquelle  Prognose zur Anzahl der E-Commerce Nutzer in Deutschland in den Jahren 2017 bis 2023 (in Millionen) In: Parcellab (2019). https://bit.ly/2MgpATh - aufgerufen am 28. 12. 2020
+    \end{center}
+\end{figure}
+
+
+
+\noindent Jedoch hat der Onlinehandel auch durch Modernisierung und Entwicklung als auch die Verbreitung unserer Smartphones und anderen elektrischen Geräte so einen großen Umsatz erzielt. Auch In-App-Käufe tragen einen Teil bei. Ebenfalls ist es auch ein Markt dessen Potential noch nicht ausgeschöpft ist. Von 2016 zu 2018 haben die In-App-Käufe weltweit einen Zuwachs von 75\% erreicht was eine Steigerung von knapp 70 Milliarden \$ heißt.
+
+ \begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/2.png}
+        \caption{Länder beim App-Store-Kauf}
+        \label{Länder Ranking}
+        \bildquelle Top Countries by App Store Consumer Spend In: Onlinemarketing.de (2019). https://bit.ly/38F6qhm - aufgerufen am 28. 12. 2020
+    \end{center}
+\end{figure}
+
+
+\noindent Speziell in Ländern wie China oder den USA haben sich In-App-Käufe verbreitet. Besonders Spotify Sticht unter den Apps heraus mit einem Wert von 29,5 Milliarden. 
+
+ \begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/3.png}
+        \caption{Meist gekauften App-Dienste }
+        \label{App-Dienste}
+        \bildquelle Mobile Centricity in 2018´s IPOs. https://bit.ly/34QkIuw - aufgerufen am 28. 12. 2020
+    \end{center}
+\end{figure}
+
+Hingegen sind Video-Streaming-Dienste momentan im Trend da sie ihren Nutzern, durch Werbung, Echtgeld bezahlen können, dass sie bereits durch das Schalten der Werbung bei den Videos verdient haben.
+
+\begin{figure}[h]
+    \begin{center} 
+        \includegraphics[width=10cm]{media/4.png}
+        \caption{Top 5 Video Streaming Apps by Time Spent}
+        \label{stream}
+        \bildquelle Extremes Wachstum im Mobile Marketing: Nutzungszeit und Ausgaben steigen rasant. In: Onlinemarkting.de (2019). https://bit.ly/2KxUiH9. – aufgerufen am 25. 12. 2020
+    \end{center}
+\end{figure}
+  
+\noindent In Deutschland ist Youtube bereits seit Jahren der Spitzenreiter, wenn es um Video-Streaming geht. Weltweit macht das Unternehmen 6 Milliarden \$ Umsatz im Jahr 2015.
+
+
+
+
+        \subsection{Zusammenhang zwischen Onlinemarketing und -handel}
+            
+            
+            
+            Die Verknüpfung zwischen Onlinehandel und Onlinemarketing, besonders in der Wirtschaft, wird als E-Commerce bezeichnet. Der E-Commerce ist das Zusammenspiel als auch Resultat der beiden Gebiete. Schon seit an Beginn des Handels selbst ist Werbung untrennbar mit Handel verknüpft. Schon in der Antike haben römische Händler auf ihren Werken Zeichen eingraviert um die Echtheit eines Gegenstandes bewiesen zu können als auch ihren Namen oder Künstlernamen in der Welt zu verbreiten.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/5.png}
+        \caption{Werbung im alten Rom}
+        \label{werbung-rom}
+        \bildquelle So funktionierte Werbung im alten Rom. In: Welt.de (2019). https://bit.ly/3mRhblX. – aufgerufen am 25. 12. 2020
+
+    \end{center}
+\end{figure}
+
+
+
+
+        \newpage
+        
+        
+        
+    \section{PayPal}
+    
+    
+    PayPal ist eine \ac{Obm}, die besonders durch das Aufstreben anderer Onlineversandhändler, wie zum Beispiel Amazon, an Aufmerksamkeit gewann. Laut PayPals eigenen Angaben besitzen knapp 325 mio. Personen ein aktives Konto beim Anbieter. Ein weiterer Vorteil gegenüber anderen Obm ist eine Vielzahl an Währungen in denen gezahlt werden kann. Auf den Stand März 2020 liegt diese Zahl bei 100 verschiedenen Währungen, während nur 56 ausgezahlt werden können und nur 25 verschiedene Währungen als Standartwährung für das PayPal-Konto benutzt werden können \cite{PayPala}. Es ist heut-zu-Tage einer der meist genutzten \cite{poleshova} Obm in Deutschland und ist auch in unseren Hildburg Häuser Raum sehr weit verbreitet. Aus diesem Grund werden die Grundstrukturen, deren daraus entstandene Entwicklung und den daraus folgenden Einfluss analysieren und dementsprechend auswerten.
+
+    
+    
+    
+        \subsection{Entstehung und grobe Funktionsweise}
+        
+        
+        
+        
+        PayPal fungiert in einer Onlinetransaktion als Zwischenhändler. Hierbei muss der Kunde aber bereits ein eingerichtetes und verlinktes Konto haben. Um sich bei PayPal zu registrieren muss man seinen Namen, seine E-Mail und eine Bankverbindung hinterlegen. Darauf wird einige Tage später ein kleiner Centbetrag überwiesen, zusammen mit einen Zahlencode, den man nur noch auf der Website eingeben muss, worauf das Konto freigeschaltet ist. Bei einer Kreditkarte ist es ein ähnliches Prozedere, wobei einige Cents abgebucht werden, bei beiden Methoden wird der Betrag ausgeglichen. Bei einem Kauf muss man vor dem Abschluss noch seine Daten seines Kontos, alias E-Mail und Passwort, was man nach eingeben des Zahlencodes einstellen kann, eintragen, diese werden dann von PayPal geprüft und der Kauf abgeschlossen. Dabei wird nicht einfach das Geld vom Konto des Käufers auf das Konto des Verkäufers gesendet. PayPal überweist das Geld direkt an das Konto des Händlers stellt aber erst Tage später per Lastschrift die Rechnung an den Käufer. Damit garantiert PayPal die schnellstmögliche Lieferung. Bei einer Rücksendung funktioniert PayPal ähnlich. Dabei wird das Geld direkt auf den PayPal-Konto gutgeschrieben, darauf ist es möglich sich auch das Geld auf sein Bankkonto überweisen zu lassen \cite{schulz}. Auch ist es möglich Geld zu transferieren, wenn es um keinen Kauf bzw. keinen Kauf auf einer Internetseite mit PayPal geht. Durch die PayPal App wurde auch das Senden vereinfacht speziell an Nahestehende, wie Freunde und Familie. Auch hat PayPal eine Funktion namens Moneypool. Hierbei handelt es sich um eine Art extra Konto, dass für einen einzigen Zweck eingerichtet worden ist. Darauf können ausgesuchte Personen, vom Ersteller voreingestellt, zugriff haben, dabei können sie aber nur Geld zum „Pool“ hinzufügen, daher auch der Name. Dadurch können beispielsweise Geschenke oder Überraschungen finanziert werden, egal ob es sich um Familienmitglieder handelt oder Arbeitskollegen, solange jeder als Freund registriert ist vom Ersteller des Moneypools \cite{PayPal}. PayPals Ziel war es Bezahlen online sicherer zu machen. Dabei stehen drei Punkte im Vordergrund: Käuferschutz, Datensicherheit, Transaktionssicherheit. Beim Käuferschutz handelt es sich um eine Regelung wobei, wenn die Beschreibung eines Artikels inakkurat ist oder der Artikel gar nicht erst ankommt, dann die volle Summe samt Porto-Gebühren auf das Konto des Käufers zurücküberwiesen wird. Die Datensicherheit ist der Vorteil, dass man seine Bankdaten nicht mit dem ganzen Internet teilen muss, sondern nur mit PayPal die alle kommenden Geschäfte für einen Abwickeln. Ebenfalls ist jede Transaktion und E-Mail von PayPal verschlüsselt wodurch die Transaktionen so sicher wie möglich versucht gestaltet zu werden. All dies hat seine Kosten, zumindest für Händler. Jegliche Transaktion von Privatpersonen sind kostenlos, solang sie im selben Land registriert sind und keine Währungsumrechnung notwendig ist. Hingegen gelten für Händler Raten, worin sie nach höheren Transaktionsvolumen höhere Gebühren zahlen müssen.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/paypal.png}
+        \caption{Paypal's Gebühren}
+        \label{gebühren-paypal}
+        \bildquelle Paypal erhöht Gebühren für Händler. In: Sellercamp (2019). https://bit.ly/3nWdMna. – aufgerufen am 22. 12. 2020
+    \end{center}
+\end{figure}
+
+\noindent PayPal versucht eine Alternative zu herkömmlichen Bezahlungsmethoden zu sein, obwohl die Sicherheit und der Service von PayPal auch von anderen Unternehmen geleistet werden kann.
+
+
+
+
+
+        \subsection{Negative Folgen}
+        
+        
+        
+        
+        
+        Auch wenn PayPal seine Vorteile mit sich bringt hat es seine Nachteile. Speziell die weitere Nutzung der Daten, die PayPal generiert, ist fraglich. Dabei sendet PayPal Daten an das US-Heimatschutzministerium die die Daten abgleicht mit möglichen Straftätern oder Terroristen, dabei kann schon der geringste Verdacht zu einer Sperrung des Kontos führen \cite{paypal-sinn-unsinn}. Ebenfalls ist das Einfrieren von Konten auch ein großer Nachteil, da eine Vielzahl von Menschen der Geldwäsche von PayPal bezichtigt werden, aber ohne jeglichen Beweis. In beiden Fällen kann man Wiederspruch einlegen, aber man muss Nachweißen das alle Zahlungen legal waren und sich ausweisen können. Bis zu dem Zeitpunkt der Wiedereröffnung des Kontos oder Wiederaktivierung falls der Wiederspruch angenommen worden ist können einige Monate vergehen und man hat absolut keinen Zugriff auf das Geld. Dazu hat man keinen Ansprechpartner in Deutschland für einen Beschwerde, sondern muss sich an die englische Behörde wenden, wodurch auch englisches Recht gilt, dadurch ist das Unternehmen nahezu unantastbar in Deutschland. 
+
+        
+        
+        
+        
+        
+        \newpage
+        
+        
+        
+    \section{Konsumverhalten}
+    
+    
+    
+    Die Zusammensetzung der Güternachfrage hat sich in den letzten Jahrzehnten stark verändert. Insbesondere unter dem Aspekt des Onlinehandels ist es nun für Firmen wichtig, ihre Verkaufskonzepte evt. zu erweitern oder zu aktualisieren. Im folgenden Teil werde ich die Entwicklung sowie das aktuelle Kaufverhalten von Konsumenten mithilfe unserer Schülerumfrage analysieren und auf Basis der Ergebnisse mögliche Folgen formulieren.
+
+    
+    
+    
+        \subsection{Konsumverhalten und dessen Veränderung bezüglich der Vertriebsstrukturen}
+          
+          
+          
+          
+       
+\begin{folding} % Einleitung
+
+Im folgenden werde ich Vertriebe aller Art ähnlich wie im Buch "Das E-Commerce Buch: Marktanalysen - Geschäftsmodelle - Strategien" unterteilen: in Online-Marktplätze sowie -Händler, Katalogversender, stationäre Händler, Hersteller und Unternehmen der Dienstleistungsbranche \cite[S. 15ff]{Graf}. Dabei sind Online-Marktplätze eine Art Online-Vermittler zwischen Kunden und Verkäufer, Online-Händler bieten dagegen nur eigene, meist sehr spezialisierten Sortimente an. Katalogversender verhalten sich ähnlich: Sie versenden ihr Sortiment direkt an Kunden. Stationäre Händler verkaufen im Gegensatz zu den genannten Vertriebsstrukturen in Filialen und sind mit Kataloghändlern am stärksten von den Änderungen der letzten Jahrzehnten betroffen. Während sich die genannten Unternehmensarten meistens am Ende der Verkaufskette befinden, stehen Hersteller am Anfang: Sie stellen Güter her und sind dementsprechend, insofern sie nicht selber den Verkaufsprozess übernehmen, auf weitere Unternehmen für Verkauf und Vermarktung angewiesen (ebd.). %vor und -nachteile?; beispielsunternehmen
+
+\end{folding}
+
+\begin{folding} \subsubsection{Kataloghändler}
+
+Kataloghändler sind die größten Verlierer der letzten Jahrzehnte: mit der Entwicklung des Onlinehandels ist ab 2002 schon ein Rückgang der Nachfrage zu spüren – einige eröffnen eigene Online-Shops \cite[S. 24f]{Graf}, jedoch oft mit wenig Erfolg \cite[S. 38]{Graf}. 2015 sind Katalogversender fast ausschließlich verschwunden oder zu Online- und Einzelhandel konvertiert, da sie kaum einen Mehrwert im Vergleich zum klassischen Onlinehandel bieten \cite[S. 47]{Graf}. So prognostiziert beispielsweise 2012 IFH Retail Consultants einen sinkenden Anteil des Online-Umsatzes von 24.9\% zu 23.9\% in den folgenden 2 Jahren \cite[S. 20]{evilcom}. Tatsächlich fiel der Anteil aber ganze 3.6\% - knapp das vierfache des erwarteten Wertes. In den Folgejahren verhielt sich der Rückgang der Katalogdrucke linear und betrug von 2011 zu 2019 "nur" 17.2\%. \cite{statista-katalog}. Aufgrund der fehlenden Relevanz der Kataloghändler - insbesondere mit Blick auf die Zukunft - werde ich sie im Rahmen dieser Arbeit nicht weiter berücksichtigen. 
+
+\end{folding}
+
+\begin{folding} \subsubsection{Stationäre Händler}
+    % nitt S 54 these, dass einzelhandel zurückkommt
+Der stationäre Handel ist einer der wichtigsten Vertriebsbestandteile und dank seiner noch größeren Bedeutung in der Vergangenheit nahezu überall vertreten. Viele stationäre Vertriebe können gleichzeitig als Einzelhandel eingeordnet werden, diese
+\begin{quote}
+    "[...] die Produkte unterschiedlicher Hersteller zu einem Sortiment zusammenfass[en] [...] und nur an Konsumenten und nicht an gewerbliche Kunden verkauf[en]." \cite[S. 20]{Ebert}
+\end{quote}
+Jedoch gibt es auch andere, nicht unwichtige, stationäre Unternehmen, die nicht in die Kategorie des Einzelhandels fallen, wie beispielsweise den stationären Teil des Dienstleistungssektors. Im Rahmen dieser Arbeit haben wir mit dem selbstständigen Architekten Prof. Dr.-Ing. André Spindler ein Interview geführt, um Einblicke in diesartige Firmen zu erlangen. Auf diese werde ich später noch detailliert eingehen, jedoch bildet der Einzelhandel den Hauptpunkt dieser Arbeit, da er insbesondere im ländlichen Bereich deutlich stärker vorhanden ist. Zudem ist es möglich, diesen in Betracht des Verkaufsablaufes weiter einzuordnen. Dabei bilden sich vor allem folgende 3 Arten heraus: Einerseits der ambulante Einzelhandel, der an keinen festen Ort gebunden ist und sich selber zu seinen Kunden bewegt, wie z. B. Eiswagen. Diese Art von Einzelhandel stellt mittlerweile in Deutschland einen sehr geringen Teil dar und wird im Rahmen dieser Arbeit nicht berücksichtigt. Ein weiterer Vertriebskanal bildet der Distanzhandel, der hierbei größtenteils mit unter den Punkt Onlinehändler- und Marktplätze, jedoch auch z. T. unter Kataloghändler fällt. Die letzte Art ist der stationäre Einzelhandel, der im Folgenden charakterisiert wird (ebd.).
+
+Der stationäre Handel ist durch die steigende Relevanz des Onlinehandels weniger gefragt denn je und versucht mit strukturellen Änderungen dagegen anzukämpfen. Einige Einzelhändler eröffnen parallel zu ihrem Geschäft einen Online-Shop, andere bieten die Möglichkeit, Waren online in den Laden zu bestellen und diese dort abzuholen – sogenanntes "Multichannel-Marketing", das Ansprechen der Kunden über mehrere Vertriebswege \cite[S. 34f]{Graf}. Jedoch fahren die neuen Strukturen nur wenig Erfolge ein – so erhöhen sie zwar die Onlinepräsenz, bieten jedoch nur einen geringen Mehrwert im Vergleich zu den bekannten Onlineriesen wie Amazon \cite[S. 34f]{Graf}. 
+
+Heute hat der lokale Handel einige schwerwiegende Probleme: 
+Beispielsweise ist der stationäre Aspekt besonders im ländlichen Raum eher ein Hindernis: So weichen viele Familien beim Einkaufen auf Städte in der Umgebung aus. Diese Problematik hat sich in unserer Schülerumfrage am hennebergischen Gymnasium "Georg Ernst" bestätigt: 68.7\% der 147 Befragten gaben an, regelmäßig außerhalb Schleusingens einzukaufen - meistens nach Suhl oder Coburg(siehe Anhang, Frage 6).
+Auch die geringe Auswahl sowie schlechte Jugendorientierung erwähnten viele Teilnehmer als Schwäche des lokalen Handels(siehe Anhang, Frage 8). Schließlich stellt sich die Frage, welche Vorteile der stationäre Handel noch bieten kann, um die im Vergleich zum Onlinehandel deutlich höheren Preise zu rechtfertigen - denn pure Onlinehändler haben deutlich dünnere Kostenstrukturen \cite[S. 14]{evilcom}. So müssen sie etwa keine Miete für Geschäfte zahlen und kommen mit deutlich weniger Angestellten aus, folglich weniger Kosten. 
+
+Einer dieser Vorteile ist in der Theorie der soziale Aspekt des Einkaufens, der laut Nitt-Drießelmann vor allem für über-50-Jährige, die über viel Freizeit verfügen, eine immer größer werdende Rolle spielen wird \cite[S. 43f]{Nitt}:
+\begin{quote}
+"Als Mittel gegen Vereinsamung und Anonymisierung im Alltag wird die soziale Komponente beim Einkaufen [...] zunehmend an Bedeutung gewinnen." \cite[S. 43]{Nitt}
+\end{quote} 
+So soll in Zukunft der Wunsch nach Begegnungen mit bekannten Personen und Beratung zunehmen und die Zusammensetzung von sozialen Kontakten auch bei der Wahl des Vertriebsweges eine immer wichtigere Rolle spielen (ebd.).
+Außerdem müssen stationäre Einzelhändler stärker auf die geänderten Wünsche von Konsumenten eingehen. Beispielsweise legen viele Konsumenten einen großen Wert auf einen bequemen Einkauf mit langen Öffnungszeiten, eine übersichtliche Warenpräsentation sowie eine möglichst große Produktauswahl auf einer so kleinen Verkaufsfläche wie möglich \cite[S. 61]{Nitt}.
+
+Zu dem kommt, dass in Deutschland bedeutende demografische Änderungen bevorstehen: so schrumpft und altert die Gesamtbevölkerung, folglich müssen alle Bereiche des stationären Handels sich auf einen zusätzlichen Nachfragerückgang einstellen sowie die Bedürfnisse von Senioren stärker beachten - insbesondere auf dem Land, denn in Metropolen soll das Durchschnittsalter nahezu konstant bleiben \cite[S. 32ff]{Nitt}. Im Rahmen dieser Erkenntnis ist es für den Offlinehandel wichtig, mehr auf die Bedürfnisse der älteren Bevölkerungsschicht, die 2050 etwa 59\% der Kaufkraft ausmachen soll, einzugehen \cite[S. 64]{Nitt}. So kaufen Sie oft qualitativ hochwertigere in den Bereichen Gesundheit, Wohnen und Energie - jedoch eher selten langlebige Konsumgüter, da Sie diese schon besitzen; zusätzlich sehen sie kein Problem damit, für kompetente Beratung mehr zu bezahlen \cite[S. 41f]{Nitt}. Folglich muss der stationäre Handel die Produktauswahl sowie Erreichbarkeit und Übersichtlichkeit auf die alternde Bevölkerung anpassen, um die beste Kaufoption für Sie zu bleiben \cite[S. 64]{Nitt}.
+
+Obwohl in Zukunft die Bevölkerung Deutschlands schrumpfen wird, ist eine erhöhte Anzahl von Haushalten zu erwarten - durch eine "Zerstreuung" der Haushaltsstruktur. So soll es 2030 1.8 Mio. weniger Mehrpersonenhaushalte geben, dafür aber 1.4 Mio. Einpersonen- sowie 1.6 Mio. Zweipersonenhaushalte mehr als 2010 \cite[S. 35]{Nitt}, was zu einer automatischen Erhöhung der Wohnfläche pro Person führt. So werden Haushaltsprodukt- und Möbelverkäufer in den nächsten Jahren weniger von Insolvenzen betroffen sein wie Unternehmen anderer Branchen.
+
+Ein weiterer Vorteil des stationären Handels sind Produkte, die nicht oder nur schwer durch andere Vertriebswege abzudecken sind, wie etwa beratungsintensive Waren. Auch die Möglichkeit, Produkte direkt zu testen und die sofortige Verfügbarkeit sorgt für Umsätze des analogen Handels \cite[S. 2]{Maier}. Außerdem trugen im stationären Handel
+\begin{quote}
+ "sogenannte \ac{FMCG}, also schnelllebige Verbrauchsgüter wie   Drogerieartikel,   Tiernahrung   oder   Lebensmittel,   mit 42,5 Prozent mit Abstand den größten Teil zum Gesamtumsatz 2018 bei" \cite{corona-schub}.
+\end{quote}
+
+\noindent Im Rahmen unserer Online-Umfrage von Schülern des hennebergischen Gymnasiums "Georg Ernst" konnten wir dies  bestätigen - So werden insbesondere Nahrungsmittel nahezu ausschließlich stationär gekauft. Andere Güter, die nicht in die Produktgruppe der \ac{FMCG} fallen, werden dagegen oft auch online gekauft(siehe Anhang, Frage 1). Wenn man den stationären Nachfragerückgang durch den Distanzhandel betrachtet, kann man die \ac{FMCG} als "verlässliche Umsatzlieferanten" einordnen. - Sie helfen, Verkäufe kurzfristig konstant zu halten sowie langfristig den Online-Einfluss abzudämpfen. Jedoch wird durch die Corona-Krise die Nachfrage nach flexiblen und bequem zugänglichen Produkten erhöht - auch im Produktbereich der \ac{FMCG} (ebd.). Eine ausführliche Diskussion dieser Thematik findet sich in Kapitel 4.4.2.
+
+%https://de.statista.com/statistik/daten/studie/201914/umfrage/einkaufsverhalten-im-onlinehandel-vs-einzelhandel-nach-produktgruppen/
+
+%handwerker: kaum durch online ersetzbar, allerdings ist ein pur stationärer handwerkerbetrieb auch nicht zukunftsfähig.
+\end{folding}
+
+\begin{folding} \subsubsection{Dienstleistungssektor am Beispiel der Architekturbranche}
+
+Neben dem Einzelhandel sind auch andere stationäre Firmen vom Wachstum des Onlinehandels betroffen. Wie bereits angesprochen konnten wir dank unserem Interview mit Prof. Dr.-Ing. André Spindler einige Unterschiede in der Online-bedingten Entwicklung des Dienstleistungssektors im Vergleich zum Einzelhandel feststellen.
+
+Zuerst ist anzumerken, dass der stationäre Handel eine sehr variable Struktur besitzt und sich dementsprechend die Entwicklungen der letzten Jahrzehnte auf verschiedene Teilbereiche sehr unterschiedlich ausgewirkt haben. So ist beispielsweise das Einbinden der Onlinepräsentation durch Websites o. ä. in der Architekturbranche
+
+\begin{quote}
+"[...] eigentlich seit Anfang an üblich – also seit dem es dieses Medium gibt, weil die Architekten natürlich im besonderen Maße visuell werben [...]." (Spindler, André, persönliches Interview, Erfurt, 19. 09. 2020, siehe Anhang, 00:04:12)
+\end{quote} 
+Prof. Spindler verweist dabei zusätzlich darauf, dass es für den Großteil der Architekturbranche schwierig ist, allein mit Werbung durch Printmedien zu überleben und deshalb eine Online-Präsenz vonnöten ist (ebd.), jedoch treffen diese Annahmen nicht auf seine Brandschutz-Nische zu, da diese in die Kategorie "Verkauf von Wissen" fällt, auf welche man das Konzept des Onlinehandels nicht ohne Probleme anwenden kann (siehe Anhang, 00:11:05). Prof. Spindler beschrieb die Problematik folgendermaßen:
+\begin{quote}
+"[...] wir werben ja nicht mit einer schönen Fassade wie der Architekt, sondern wir werben mit einer Fachplanung, die man möglichst gar nicht sehen soll, sondern die dann wirkt, wenn es brennt und die vorher gar nicht in Erscheinung treten soll. Wir machen natürlich viel mehr in Konzeption, die sich nicht so leicht visualisieren lassen." (siehe Anhang, 00:06:37)
+\end{quote} 
+Zusätzlich lässt sich auf viele Vertriebe, wie auch das Unternehmen Spindlers, das Prinzip des klassischen Handels nicht anwenden. 
+
+\begin{quote}
+"[...] dass man sagt, da gibt's ein Angebot und das nehme ich jetzt als Kunde an. So etwas geht bei uns nicht. Und zwar nicht nur bei uns nicht, sondern ich glaube, in der ganzen Branche macht man das nicht, weil wir ja nicht ein einzelnes Produkt [...] anbieten, verkaufen, sondern eine recht komplexe Tätigkeit. Und wir brauchen, um überhaupt einen Preis zu finden, dem man dann annehmen könnte, eine ganze Reihe Informationen. [...] Deswegen, denke ich, wird es in vielen Dingen so sein, dass man erst einmal in den Austausch geraten muss." (siehe Anhang, 00:06:37)
+\end{quote} 
+Aufgrund von Problemen wie diesem blieb der Dienstleistungssektor, welcher einen nicht unrelevanten Teil seiner Arbeit ausmacht, noch weitestgehend unbeeinflusst von der Vernetzung seit der Jahrtausendwende. Durch die schwierige Präsentation, Vermarktung sowie Verkauf in Prof. Spindlers Fachgebiet spielt der Online-Aspekt für ihn eine weniger relevante Rolle. Trotzdem steigt die Nutzungszahl von Online-Elementen, wenn auch in diesem Fall etwas träge, ständig. So gibt es beispielsweise Pilot-Landkreise, die Vorgänge vollständig digital bearbeiten - Sie hatten anfangs Probleme, können trotzdem aber eine positive Zwischenbillanz ziehen (siehe Anhang, 00:20:35). Zudem ist das Vermeiden von planungsbedingten Problemen durch sogenannte \ac{BIM}-Systeme, die elektronisch eine konfliktlose Planung ermöglichen (siehe Anhang, 00:31:22). Trotzdem sind immer noch viele Fragen bzgl. der elektronischen Datenverwaltung in Unternehmen ungeklärt.
+
+\begin{quote}
+"[...] ein Kollege hat mal so aus Spaß gesagt, wir können doch nicht auf dem Bildschirm stempeln. Wie machen wir das dann? Wie machen wir ein solches Dokument als geprüftes Dokument kenntlich? Wie sichern wir diese Prüfung, dass sie niemand fälschen kann?." (siehe Anhang, 00:17:43)
+\end{quote} 
+All diese Online-Implementationen der Daten- und Prozessverwaltung werden insbesondere in der Zukunft eine bedeutende Rolle spielen - Arbeit erleichtern, sie effektiver machen - jedoch sind sie noch nicht in allen Bereichen notwendig oder sogar Stand der Technik.
+
+Auch wenn in seinem Fall noch mehr Kunden analog als digital auf ihn stoßen, gibt es trotzdem einige Online-Elemente, die in seiner Tätigkeit eine wichtige Rolle spielen. Auf die Frage, welche Rolle seine Website \emph{dr-spindler.de} im Konsumverlauf spiele, antwortete er, dass zwar vereinzelt Personen über sie auf ihn stoßen, jedoch hat sie viel mehr eine Informationsfunktion: So wird über sie sein Team kurz vorgestellt, Unterlagen wie Nachweise oder Formblätter öffentlich zur Verfügung gestellt sowie Fragen beantwortet (siehe Anhang, 00:11:05). Prof. Spindler sowie die Baustellen, zu denen er Kontakt hatte, bewerteten diese Entwicklung in erster Linie als positiv, jedoch stellten sie einen bedeutenden Nachteil fest: das Fehlen von direkter, menschlicher Interaktion. 
+
+\end{folding}
+\begin{folding} \subsubsection{Onlinehändler und -marktplätze}
+
+Die Onlinehändler und -marktplätze sind die Gewinner der letzten 20 Jahre – die Verkaufswerte wuchsen ab der Jahrtausendwende konstant an und stellen in vielen Branchen für andere Vertriebsstrukturen eine ernst zu nehmende Konkurrenz dar \cite{wolf}. Vorerst wechseln Konsumenten von Katalogen, ab 2010 auch viele Nutzer anderer Verkaufswege, da das Kaufen online fast immer einen Preisvorteil bietet \cite[S. 31]{Graf}.
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/Fabian-konsumwandel.png}
+        \caption{Kaufprozess im Vergleich – Stationär und E-Commerce}
+        \label{konsumwandel}
+        \bildquelle Björn Schäfers: Social Shopping für Mode, Wohnen und Lifestyle am Beispiel Smatch.com. In: Web-Exzellenz im E-Commerce, Gabler, S. 313 %lieber quelle e com buch???
+    \end{center}
+\end{figure} 
+Außerdem hat sich unter Nutzern des Onlinehandels ein neues Konsumverhalten entwickelt. Bis dahin war es üblich, zuerst den Anbieter, danach das zu kaufende Produkt auszuwählen; jedoch hat der ab der Jahrtausendwende immer bekannter werdende Onlinehandel dieses Verhalten invertiert\footnote{umkehren}, da das Vergleichen mehrerer Produkte im Internet um ein vielfaches einfacher ist als stationär, allein schon aufgrund des Zeitaufwands für das Besuchen von mehreren Geschäften \cite[S 22f]{Graf}. Auch die Beratung des stationären Handels spielt hier eine Rolle: Online-Käufer informieren sich oft selber und können auf Basis ihrer Recherche das optimale Produkt wählen, während beim Kauf vor Ort meist auf einen bestimmten Verkäufer und dessen Beratung vertraut wird \cite[S. 15f]{evilcom}. Infolge dessen sind Verbraucher, die bereits einmal online eingekauft haben, oft sehr preissensibel - und das auch bei Käufen vor Ort \cite[S. 60]{Nitt}. Aufgrund dessen beschweren sich immer mehr Einzelhändler über den sogenannten "Showrooming-Effekt", das Kaufen von Produkten online, nachdem Beratung eines stationären Händlers in Anspruch genommen wurde. Dass dieser Effekt aber auch umgekehrt vorhanden ist, wird meist nicht angesprochen \cite[S. 21f]{evilcom}.
+Neu unter Konsumenten ist auch das Bedürfnis nach individuellen und auf den Käufer angepassten Produkten \cite[S. 43]{Nitt}, was wahrscheinlich durch die extrem große Auswahl bei dem Online-Shopping hervorgerufen wurde. In diesem Aspekt kann der stationäre Einzelhandel schlicht nicht mithalten, da Raum für Produkte stärker begrenzt und preisintensiv ist.
+
+\end{folding}
+
+\begin{folding} \subsubsection{Hersteller}
+
+Ähnlich wie der stationäre Handel sehen Hersteller den Onlinehandel zuerst in einem negativen Licht - aufgrund von untransparenten Verkäufern und möglichen negativen Imageeffekten \cite[S. 20]{Graf}. Zudem entstehen 2002 erste, sogenannte "Powerseller", die im Großhandel Markenprodukte kaufen und deutlich unterhalb des Einzelhandels-Preisniveaus verkaufen \cite[S. 26]{Graf}. Mit der Zeit bauen Marken jedoch verzögert, aber schneller als der stationäre Handel immer mehr eigene Verkaufsportale, um ihre Güter direkt ohne eine Zwischeninstanz zu verkaufen und steigern ihren Umsatz damit bedeutend – beispielsweise verlässt Hugo Boss 2013 Zalando, um Produkte über die eigene Website hugoboss.com zu verkaufen \cite[S. 48f]{Graf}. Außerdem wird durch das direkte Feedback eine bessere Produktentwicklung und Kundensupport ermöglicht \cite[S. 39]{Graf}. So ist der Direktverkauf von Marken erfolgreicher denn je, denn sie bieten im Vergleich zu Online-Marktplätzen neben einer besseren Auswahl auf einem bestimmten Gebiet oft deutlich informativere Produktbeschreibung - sprich, bei Produkten einer Brance werden öfter Anbieter nachgefragt, die sich auf diese spezialisieren \cite[S. 18f]{evilcom}.
+
+Außerdem ist dieser Direktverkauf in fast allen Fällen weniger kostenintensiv als der Vertrieb über zusätzliche Instanzen wie den Einzelhandel. Der Rückgang des stationären Konsums ist demnach auch auf die zunehmende Implementierung\footnote{Durchführung, Nutzung} von Direktverkaufswegen zurückzuführen. Großhandel, die im Gegensatz zu dem Einzelhandel im klassischen Verkaufsprozess früher vorkommen und ihre Güter ausschließlich an gewerbliche Kunden verkaufen, teilen dieses Schicksal (ebd.).
+
+\end{folding}
+
+\begin{folding} \subsubsection{Konsumverhalten allgemein}
+
+Das Konsumverhalten hat sich auch unabhängig von der Handelsstruktur geändert: statt gleichbleibenden, rationalen Käufen und Kaufmotiven, die die Auswahl der gekauften Güter stark abhängig von der zur Verfügung stehenden Geldmenge machten \cite[S. 38]{Schramm}; herrscht heute ein deutlich dynamischeres Kaufklima:
+\begin{quote}
+"So beziehen jetzt zum Beispiel auch solvente Kunden ihre Lebensmittel aus dem Billigdiscounter, während  umgekehrt  einkommensschwächere  Schichten  zu  Luxusgütern  greifen." \cite[S. 43]{Nitt}
+\end{quote}
+Außerdem gibt es kaum noch "pure" Einzelhändler und Onlinehändler – meist sind Firmen in mehreren Bereichen vertreten, um ihre Präsenz zu steigern. So eröffnet etwa Amazon in den letzten Jahren Läden vor Ort und stationäre Händler betreiben Online-Shops \cite[S. 50]{Graf}.
+Anzumerken ist auch, dass das Konsumverhalten in Deutschland seit Jahren durch eine starke Kaufkraft geprägt ist, z. T. dank dem 0\%-igen Leitzins der \ac{EZB} \cite[S. 49]{Ebert} – auch wenn die derzeitige Corona-Situation diese leicht abgeschwächt hat \cite{BfWE}. 
+
+\end{folding}
+
+
+
+
+            
+        \subsection{Einschätzung und Folgen}
+        
+        
+        
+        
+        
+        
+        
+        %zusammenfassung
+
+%gegenseitige beeinflussung: showrooming-effekt: kauf online aufgrund von stationärere beratung -- kauf stationär nach onlinerecherche  \cite[S. 21f]{evilcom}
+
+%wie viele läden haben in schleusingen einen onlineshop?
+
+
+\begin{folding} %stationärer Handel
+
+Aufgrund der Verschiebung von Nachfrage und Bedürfnissen von Konsumenten in den letzten Jahrzehnten wird der stationäre Handel trotz Multichannel-Versuchen keine einfache Zukunft haben. So kann in vielen Fällen stattdessen direkt von Herstellern gekauft werden, die mittlerweile den Vertriebswegwechsel von \ac{B2B} zu \ac{B2C} weitestgehend hinter sich haben. 
+Insbesondere in Thüringen steht es im Vergleich zum Rest Deutschlands dank der Kombination aus schlechter Kaufkraft und niedriger Bevölkerungszahl pro Fläche schlecht um den konventionellen Einzelhandel \cite[S. 29]{Nitt}. Dazu kommen demografische Änderungen, die insbesondere in der Mitte Deutschlands Probleme verursachen: so nimmt die Bevölkerung z. B. in Hamburg, trotz Schrumpfen der Bevölkerungszahl, zu - jedoch nicht in Thüringen, eines der Bundesländer, welches am meisten Bewohner verliert \cite[S. 32f]{Nitt}. 
+Zum Glück einiger Vertriebe treffen diese schlechten Chancen nicht auf alle Branchen zu - der Lebensmittelvertrieb hat z. B. kaum Online-Konkurrenz \cite{corona-schub}. Um in den restlichen Geschäftssektoren einen maximal großen Umsatz zu erzielen, sollte der konventionelle Einzelhandel aufgrund der alternden Bevölkerung, die meist noch stationär kauft, vorerst Investitionen für die wachsende Gruppe von Senioren und dementsprechend Erreichbarkeit o. ä. nutzen.
+
+\end{folding}
+
+\begin{folding} \subsubsection{Der Umwelt-Aspekt} %Umweltverschmutzung
+
+Zudem kommt immer öfter das Argument auf, dass der Wechsel zum Onlinehandel umweltschädlich sei, da mehr Lieferfahrzeuge unterwegs sind. Jedoch haben bereits die Autoren des "Evil Commerce [...]"-Buches diese These anhand einer Modellrechnung weitestgehend widerlegt. Sie berechneten eine 89.1\%-ige Kraftstoffersparnis bei komplettem Umstieg zum Distanzhandel in Großstädten unter optimalen Bedingungen \cite[S. 25f]{evilcom}. Um genauerer Aussagen bezüglich des ländlichen Raumes zu treffen, werde ich die genannte Rechnung bzgl. Entfernung - da Einkaufszentren nicht berücksichtigt wurden - modifizieren und insofern erweitern, dass zusätzlich ein Einkauf in mehreren Geschäften nacheinander mit in Betracht gezogen wird.
+
+\begin{itemize}
+
+\item In meiner Modellrechnung kaufen 100 Bewohner eines Dorfes in einer 4km entfernten Stadt ein. Sie kaufen im Durchschnitt in 3 von 10 Einkaufsmöglichkeiten ein, die je 500m voneinander entfernt sind. Dabei gehe ich davon aus, dass alle Kunden über eine 500m lange Straße innerhalb des Dorfes zu erreichen sind.
+
+\item Wenn alle Bewohner stationär kaufen, legen sie im Durchschnitt eine Strecke von 
+
+\begin{align}(250m + 4000m + 3 \cdot 500m + 4000m + 250m) \cdot 100 = 1000000m\end{align}
+
+ zurück. Dabei nehme ich an, dass alle Bewohner denselben Ortsausgang benutzen und somit einen durchschnittlichen Weg von 250m zu diesem besitzen.
+
+\item Wenn jeder Verkäufer jedoch die Güter an seine im Durchschnitt 30 Kunden versendet, müssten alle Lieferwagen zusammen eine Strecke von gerade einmal 
+
+\begin{align}(4000m + 500m + 4000m) \cdot 10 = 85000m\end{align}
+
+zurücklegen.
+\item In dieser Darstellung hat der Distanzhandel eine ähnlich hohe Kraftstoffersparnis - 91.5\%. 
+
+\end{itemize}
+Zwar kann mithilfe dieses Modelles die These der Umweltverschmutzung auch auf dem Land im Allgemeinen wiederlegt werden, jedoch ist sie keine genaue Darstellung der Realität, da viele Faktoren, wie z. B. die Retouranzahl, die beispielsweise in der Modebranche überproportional hoch ist, nicht beachtet wurden (ebd.). Außerdem beschreibt diese Rechnung ein System der Güterbeschaffung, die ausschließlich über den Versandhandel stattfindet. Jedoch werden derzeit und in den nächsten Jahrzehnten aller Wahrscheinlichkeit nach Online- und Offlinehandel parallel benutzt werden - manche Produkte können nicht durch den Distanzhandel allein abgedeckt werden, zudem wird es immer Personen geben, die den analogen Beschaffungsweg bevorzugen und diesen somit wählen. Dementsprechend besteht trotzdem ein erhöhter Verbrauch. Bei einer annähernd vollständigen Umstellung auf den Distanzhandel  sind jedoch Kraftstoffersparnisse im Vergleich zu heute denkbar.
+
+\end{folding}
+
+\begin{folding} \subsubsection{Einfluss der Corona-Situation}
+ % amazon gestärkt - einfluss auf kleine onlinehändler kaum spürbar
+ 
+ Wie bereits in 4.1.2 angesprochen, schadet die Corona-Situation dem stationären Handel, insbesondere im Einzelhandelsbereich immens. Der Onlinehandel gewinnt aufgrund von flexibleren und bequemeren Verkaufsabläufen immer mehr Kunden, auch in Bereichen, die vom Offlinehandel dominiert werden, wie den \ac{FMCG}. 
+Diese machten 2019 ohne Corona-Einfluss 42.5\% der stationären Verkäufe, und gleichzeitig nur 8.4\% der Verkäufe mittels Distanzhandel aus. Insgesamt wurden gerade einmal 2.2\% der \ac{FMCG} nicht vor Ort gekauft - jedoch ist diese Zahl im Verlauf von 2020 stark gestiegen \cite{corona-schub}. Insbesondere bei Produkten, die mit Corona in Verbindung gebracht werden können, steigt das Online-Interesse stark, wie man an folgender Auswertung von Google-Suchanfragen erkennen kann: 
+
+ \begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/Fabian-Corona-Produkte.png}
+        \caption{Onlinehandel: Die Deutschen im Krisenmodus}
+        \label{corona-produkte}
+        \bildquelle  Engels, Barbara:   Corona: Schub für den Onlinehandel. Version: 2020. https://bit.ly/38pdoqN. Köln: Institut der deutschen Wirtschaft (IW), 2020 (29/2020). – IW-Kurzbericht
+    \end{center}
+\end{figure}
+\noindent Zudem ist es wahrscheinlich, dass
+
+\begin{quote}
+    "[...] Geschäftsschließungen und Ausgangsbeschränkungen   sowie Unsicherheiten über die Dauer der Maßnahmen zu einem  Nachfragerückgang [führen]." \cite{corona-wettbewerb}
+\end{quote}
+Des weiteren könnte die Angst, sich anzustecken ein weiterer Grund für den starken Nachfragezuwachs sein. Kunden, die vorerst ausschließlich stationär gekauft haben und nun erste Käufe online tätigen, können vor allem in Zukunft den Nachfrageumschwung von Offline- zu Onlinehandel noch verstärken \cite{corona-schub}. Dieser Trend machte sich auch bei unserer Schülerumfrage bemerkbar: 55 Schüler gaben an, dass sie mehr online kaufen als vor Corona-Zeiten - dagegen gab es nur eine Person, die mehr stationär kaufte als Anfang 2020. 92 Schülerinnen und Schüler bezeichneten ihre Kaufgewohnheiten als annähernd konstant(siehe Anhang, Frage 14).
+
+%mehr zu stationär
+
+Die immens hohe Nachfrage hat aber nicht ausschließlich positive Auswirkungen auf den Onlinehandel: eine Umfrage des Händlerbunds im März 2020 ergab, dass 52\% der befragten 412 Online-Unternehmen eine derart hohe Nachfrage erfuhren, dass diese zu Problemen führte - 15\% mussten sogar Aufträge stornieren. Als Grund sind logistische sowie personelle Probleme denkbar: So sind beispielsweise nicht immer Produktionsgüter verfügbar, da zurzeit die weltweiten Lieferketten eingeschränkt sind \cite{corona-wettbewerb}; zudem ist die Personalsituation je nach Branche und Gesetzgebung durch Corona-Regulationen eingeschränkt \cite{haendlerbund-studie}. Auch hier kann wie beim Einzelhandel das Corona-bedingte, erzwungene Schließen von (Teil-) Strukturen Kapazitätsprobleme hervorrufen. Zudem kommt die steigende Online-Nachfrage nur wenigen Distanzhandeln zu gute: so profitiert hier vor allem Amazon, da es auf dem \emph{One-Stop-Shop}-Prinzip beruht, also dass die Produktpalette alle Güterbereiche abdeckt. Amazon erhöht zudem die Attraktivität der Plattform, indem über Drittanbieter auch Nischenprodukte erworben werden können, durch verlässliche Lieferungen über einen eigenen Logistikdienstleister sowie mittels Amazon-Prime, dass verringerte Versandkosten mit kostenlosen Streamingdiensten paart. Außerdem ist es für größere Plattformen durch ihren Bekanntheitsgrad leicht, neue Kunden zu gewinnen. Kleinere Händler werden dagegen weniger wahrgenommen und haben meist eine vergleichsweise kleine Produktpalette. Falls diese nicht auf einen bestimmten Bereich spezialisiert ist, kann teilweise trotz Corona-Einfluss kaum eine steigende Nachfrage verzeichnet werden \cite{corona-amazon}.
+
+Desto länger die Einschränkungen durch die Corona-Krise andauern, desto größere Schäden nimmt der stationäre Teil der deutschen Wirtschaft - insbesondere, wenn keine Online-Einbindung vorhanden ist: 
+ 
+\begin{quote}
+    "Anbieter, die lediglich ein Ladengeschäft betreiben, [...] stehen  ohne  Einnahmen  da,  während  die  Fixkosten  dennoch  anfallen.  Händler,  die  neben  dem  stationären  Verkauf  auch  einen  Onlineshop  betreiben,  haben  gegenwärtig  die  Chance,  weiterhin  Einnahmen  zu erzielen und die Fixkosten zumindest teilweise zu decken." \cite{corona-wettbewerb}
+\end{quote}
+Die Notwendigkeit von Online-Elementen trifft hierbei insbesondere auf den Handel zu, da eine Erweiterung in diesem Bereich relativ unschwer ist. Mithilfe einer solchen Strukturrevision\footnote{Strkuturänderung} können Unternehmen leichter in der Krise bestehen bleiben sowie dank mehreren Vertriebswegen - insbesondere mit Blick auf die Zukunft - dynamischer auf unvorhergesehene Situationen reagieren (ebd.).
+ 
+\end{folding}
+
+
+
+
+
+
+
+
+        \newpage
+            
+            
+            
+    \section{Wirtschaft mit Blick auf Unternehmen}
+    
+    
+    
+    
+    
+    Der Onlinehandel hat den Verkauf, speziell von kleineren Unternehmen, revolutioniert. Nicht nur durch Onlinemarketing, sondern auch durch den Verkauf auf Seiten anderer Anbieter konnten Unternehmen ihre Kundenzahl erhöhen und ihre Profite maximieren. Auch Produkte, die durch Handarbeit hergestellt werden, konnten ihre Position im Markt finden und sich meist als Luxusgut etablieren. Das Unternehmen hat sich dabei geschichtlich als größter Profiteur des Onlinehandels herausgestellt. Es konnte seine Profite durch das Vergrößern der Kundschaft maximieren und durch das bereits angesprochene Onlinemarketing begründen. Hingegen hat auch das ganze seine Folgen, die nicht zu vernachlässigen sind. Darunter fällt die Behandlung und Arbeitsverhältnisse der Arbeiter als auch die Umwelt und der Beitrag zum Klimawandel.
+
+    
+    
+    
+    
+        \subsection{Entwicklung der Wirtschaft}
+        
+        
+        
+        
+        
+        Die Gesamteinnahmen des Onlinehandels hängt von den Einnahmen der Unternehmen untrennbar ab. Da in der Entwicklung des Onlinehandels schon auf die wirtschaftlichen Erfolge der letzten 20 Jahre eingegangen worden ist, wird dies eine Analyse über den momentanen Stand der Dinge, speziell beeinflusst durch die Pandemie.
+Seit dem 7. Januar 2020, bei der Identifizierung in der chinesischen Stadt Wuhan des damals neuartigen COVID-19-Virus, versuchten die Länder die Krankheit einzudämmen. Die Folgen waren unvorhersehbar und diese haben nicht nur die Normalität, sondern auch die Wirtschaft erschüttert \cite{who}. Am 27. Januar ist bereits der erste Deutsche infiziert, drei Tage später ruft die WHO eine Gesundheitsnotlage internationaler Tragweite aus \cite{mdr-aktuell}. Bis zum 16. März sind nahezu alle Kitas und Schulen geschlossen, darunter auch unser Schleusinger Gymnasium. 6 Tage später kommt es zum kompletten Lockdown, was als einzige Möglichkeit zum Kauf eines nicht-essenziellen Produktes nur den Onlinehandel zulässt, da alle sonstigen lokalen Läden geschlossen haben. Dies hat zu horrenden Verlusten der Geschäfte geführt, besonders Restaurants, die keine Lieferung anbieten konnten, haben das Größte negativ verzeichnet. Auch der DAX hat ein Rekordverlust gemeldet, der nur mit dem des 11. September 2001 verglichen werden kann.
+
+
+
+
+
+        \newpage
+        
+        
+        
+    \section{Onlineversandhändler am Beispiel Amazon} 
+    
+    
+    
+    
+     Amazon ist ein Onlineversandhändler, der eine breite Bekanntheit genießt und vor allem im europäischen Raum einen großen Anteil des Bereiches Onlinehandel ausmacht. 
+ Während Aliexpress und Banggood in Asien und östlichen Teilen Europas sowie Ebay im Norden der EU stark vertreten sind, ist Amazon in Zentral-, Nord- und Westeuropa die Plattform mit dem höchsten Wert von Verkäufen \cite[S. 22]{EuroCommerce}. Außerdem macht Amazon bereits seit Ende 2017 mehr als die Hälfte aller Verkäufe durch Drittanbieter aus \cite[S. 25]{Haendlerbund}. Dementsprechend werde ich in den folgenden Unterpunkten die Firma in Bezug auf ihre Entwicklung, die Auswirkungen dieser und der Konkurrenzfähigkeit zu lokalen Händlern analysieren und auf Basis der Erkenntnisse Schlussfolgerungen im Bezug auf Schleusingen und des Landkreises Hildburghausen schließen.
+
+ 
+ 
+ 
+ 
+        \subsection{Entstehung und Entwicklung}
+        
+        
+        
+        
+        
+        
+        Als Amazon, anfangs noch \emph{cadabra.com}, am 5. Juli 1994 von Jeff Bezos und seiner Frau McKenzie gegründet wurde, hatte wahrscheinlich niemand die Vision eines marktführendem Online-Unternehmens im Kopf - im Gegensatz, Amazon war ursprünglich ein Online-Buchhandel für bestimmte, seltene Bücher \cite[S. 17]{Graf}. Trotz der kleinen Zielgruppe wuchs das Unternehmen in den folgenden Jahren bedeutend: schon zwei Jahre später wurden Aktien angeboten, außerdem wurde anfangs noch fast der komplette Gewinn reinvestiert \cite{Rosoff}, was das Aufkaufen ganzer Unternehmen schon 4 Jahre nach der Gründung ermöglichte, bespielsweise von \emph{pets.com} und \emph{overstock.com} \cite{ChannelAdvisor}. Mit der Zeit expandierte die Firma in viele weitere Gebiete: Cloud Computing mit \ac{AWS} 2002 sowie Musik mit einem Online-Musik-Store und Lebensmittel mit AmazonFresh im Jahr 2007 \cite{Sherman, ChannelAdvisor}. Auch bezüglich des Onlinehandels breitete Amazon ab 2000 nach und nach die Produktauswahl aus, wodurch sich der damalige Buchhandel zu dem heutigen Onlineversandhandel für fast alle Produktbereiche entwickelte. Ein wichtiger Schritt zu diesem Ziel war das Ermöglichen von Drittanbieter-Verkäufen ab dem 30. September 1999, was die Bekanntheit und Anzahl der Verkäufe erheblich steigerte \cite{Sherman}. Zudem ermöglich es der Firma, ein breiteres Produktsegment anzubieten sowie Provisionen zu erhalten, während Probleme wie Kapitalbildung und Lagerplätze an dritte Händler ausgelagert werden \cite[S. 50]{evilcom}. Außerdem wurden weitere Technologien wie Amazon Prime und AmazonBasics entwickelt, die den Onlinehandel und -versand unterstützen \cite{ChannelAdvisor}, aber auch alleinstehende Projekte, wie Kindles, das Fire Phone oder Smart-Home-Geräte \cite{Sherman}.
+Die derzeitige Strategie bezüglich des Onlinehandels beschrieb Bezos, als "Virtuos Cycle" betitelt, schon 2001  mit folgender Zeichnung \cite{zentail}:
+
+%IST NICHT IMMER DA WO ES SOLL WENN ES ZB NICHT AUF DIE SEITE PASST
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=8cm]{media/Fabian-vicious-cycle.png}
+        \caption{Amazon's Vicious Cycle}
+        \label{vicious-cycle}
+        \bildquelle Learn from the Bezos Virtuous Cycle: Leverage and Invest in Infra-
+structure. In: Zentail (2019). https://bit.ly/3liNkBZ. – aufgerufen am 22. 08. 2020
+
+    \end{center}
+\end{figure} 
+
+\noindent Dabei schafft breit gefächerte Produktsegment(Selection) eine positive Kundenerfahrung(Customer Experience), die weitere Verkäufe und Verbreitung durch z. B. Empfehlungen(Traffic) hervorruft. Durch diese hohe Kundenanzahl ist die Plattform wiederum attraktiver für Drittanbieter und Herstellern(Sellers), die weitere Produkte anbieten und so das Produktsegment erweitern. Dieser Teil ist an sich nicht wirklich außergewöhnlich, da viele andere Onlineanbieter eine ähnliche Strategie verfolgen. Jedoch hebt sich Amazon damit ab, ungewöhnlich hohe Summen zu investieren, um Kosten(Lower cost structure) und somit auch Produktpreise(Lower prices) zu senken \cite[S. 26f]{Graf}. Amazon schaffte so auch ein neues Konsumverhalten, das "Amazon Commerce" - Graf und Schneider beschreiben es in ihrem Buch als ein
+
+\begin{quote}
+    "[...] komplett neues Kaufverhalten, das sich nicht mehr an Anbietern oder konkreten Produkten orientiert, sondern allein am Zweck [...], den das gewünschte Produkt erfüllen soll." \cite[S. 42]{Graf}
+\end{quote}
+Die genannten Punkte ermöglichten es Amazon, sich als weltweit bekannten und benutzten Onlineversandhandel zu etablieren - jedoch haben sie auch einige Probleme hervorgerufen. Beispielsweise führte die konstante Niedrigpreispolitik \cite[Abb. 5]{Desjardins} zum Einsparen von Ausgaben in fast allen Gebieten - auch im Bezug auf Angestellte \cite[S. 6]{Apicella}. So werden insbesondere in der Weihnachtszeit Leiharbeiter eingestellt. In der ARD-Reportage "Ausgeliefert! Leiharbeiter bei Amazon" wird 2013 gezeigt, wie deren Arbeitsalltag aussah: Zu siebt wird in einer Ferienwohnung übernachtet, oft bekommen die Angestellten nur wenige Stunden Schlaf. Jeden Tag aufs neue ist es unsicher, ob man gebraucht wird - wenn nicht, gibt es keinen Lohn. Mitarbeiter der Dienstleistungsgewerkschaft Ver.di und Amazons erklären, dass 2013 in Koblenz circa 3100 von 3300 Arbeitern befristet angestellt waren \cite{Ausgeliefert}.
+Außerdem existiert ein hoher Grad an Überwachung und Kontrollen, wie Apicella in ihrer Studie anhand der Stadt Leipzig beschreibt:
+
+\begin{quote}
+    "Die Verkaufsarbeit durchläuft dabei einen Prozess der [...] vollständige[n] Überwachung und Disziplinierung der Beschäftigten[...]. \cite[S. 29]{Apicella}"
+\end{quote}
+Dementsprechend sind Arbeitseinstellungen bei Amazon keine Seltenheit: Beispielsweise streikten Angestellte in Deutschland zwei Monate nach der besagten Reportage unter dem Motto "Wir sind keine Roboter" gegen niedrige Löhne, befristete und allgemein schlechte Arbeitsverhältnisse sowie die starke Digitalisierung der Arbeit \cite[S. 6]{Apicella}. Amazon reagierte in den folgenden Jahren mit mehreren Lohnerhöhungen, jedoch exestieren noch vereinzelt Streiks, da die Arbeitsbedingungen anscheinend immer noch problematisch sind \cite{JGraf}. So schrieb Amazon z. B. 175000 neue Stellen in Folge der Corona-Krise und einem 32\%-igem Verkaufszuwachs aus - nicht nur, weil mehr Arbeiter als vorher gebraucht werden, sondern auch weil einige Angestellte aufgrund von "unsicheren Bedingungen" sich weigerten, zu ihrem Arbeitsplatz zu erscheinen \cite{Theweek}.
+
+Innerhalb der letzten 26 Jahre hat Amazon sich von einem Online-Buchhandel zu einem weltweiten Onlinehändler fast alle Produktklassen entwickelt. Außerdem bietet die Firma heute auch andere Dienste an, wie z. B. Cloud Computing mit \ac{AWS}. Jedoch steht das Unternehmen bezüglich der Arbeitsbedingungen seit fast einem Jahrzehnt in der Kritik.
+
+
+
+
+
+
+            
+        \subsection{Einfluss auf das Konsumverhalten }
+        
+        
+        
+        
+        
+        
+        Der Ablauf von Kaufprozessen hat sich in den letzten Jahrzehnten unter Einfluss des Onlinehandels stark geändert. Insbesondere Amazon hat sich als Händler mit niedrigen Preisen und einer sehr großen Auswahl von neuen sowie gebrauchten Produkten weltweit als Verkaufsplattform etabliert. Mithilfe dieser Kombination kann Amazon, im Gegensatz zu anderen Plattformen wie Ebay als Haupteinkaufsmöglichkeit benutzt werden, was wiederum anderer Online-Konkurrenz und dem stationären Einzelhandel schadet. Dass Amazon insbesondere bei jungen Personen beliebt ist, konnten wir auch durch unsere Schülerumfrage am hennebergischen Gymnasium "Georg Ernst" feststellen: hier gaben 139 von 147 Teilnehmern an, bereits etwas auf Amazon gekauft zu haben(siehe Anhang, Frage 2).
+
+Der Hauptgrund für diesen Wandel ist wahrscheinlich, dass bei den meisten Verbrauchsgütern die in Kapitel 4.1.2 beschriebenen Vorteile des stationären Handels, hauptsächlich die Beratung und das direkte Betrachten des Produktes, nur wenig Nutzen finden \cite[S. 2]{Maier}. So ist z. B. beim wiederholten Kaufen von Shampoo, Rasierklingen o. ä. das Produkt schon bekannt und kann problemlos Online bestellt werden. 
+
+Dementsprechend führt die seit Jahrzehnten steigende Relevanz des Onlinehandels zu einem Rückgang der Nachfrage im stationären Vertrieb \cite{Shankar}, die durch die derzeitige Corona-Situation noch etwas verstärkt wird - mehr dazu in Kapitel 4.2.2 und 5.
+
+        \newpage
+            
+            
+        
+    \section{Globaler Vergleich des Einflusses und der Entwicklung des Onlinehandels}
+    
+    
+    
+    
+    
+Deutschland ist weltweit eines der Länder mit dem größten technischen Fortschritt und ist deshalb auch im Bereich Onlinehandel und -versand mit 63,9 mio. Onlineeinkäufern in 2019 vergleichsweise stark vertreten \cite[S. 8]{esworld}. Doch in welchen Punkten unterscheidet sich die Struktur dessen in einem internationalen Vergleich?
+
+In einer globalen Rangliste von \emph{eshopworld} belegte Deutschland 2019 im allgemeinen Vergleich Platz 5 von 30, nach den USA, China und weiteren \cite[S. 3]{esworld}. Jedoch war Deutschland in vielen Unterpunkten kaum vertreten - bis auf die Kategorie Logistik. Hier belegte es in weiteren 3 Unterkategorien 2 mal den 1. Platz \cite[S. 10ff]{esworld}. Diese Unterkategorien waren einerseits Zölle sowie Logistik allgemein und sind durch die Existenz der Europäischen Union erklärbar. Denn ähnlich wie in den USA \cite[S. 4]{esworld} sind Verkäufe, die Landesgrenzen übergreifen, hier nur mit einem geringen Aufwand möglich - z. B. dank niedriger Zölle innerhalb der EU.
+
+Zusätzlich ist Deutschland nach Austritt der UK der größte Onlinemarktpatz Europas und durch Grenzen an 9 Nachbarländern sowie der relativ fortschrittlichen Infrastruktur besonders attraktiv für Onlineanbieter. Vor allem neue Verkäufer können daraus einen großen Vorteil ziehen, da Markteintrittsbarrieren\footnote{Hindernisse, die Unternehmen daran hindern, sich am Markt zu etablieren} so deutlich niedriger sind \cite[S. 8]{esworld}.
+
+Deutschland hat sich in den letzten Jahrzehnten dank seiner Lage und progressiven\footnote{fortschrittlich} Infrastruktur trotz einigen Hindernissen zu einem der größten Onlinemarktplätzen weltweit entwickelt. Besagte Hindernisse sind z. B. die vergleichsweise kleine Landfläche und das 14-tägige Rückgaberecht von Artikeln ohne Angabe eines Grundes, die online bestellt werden(§355 BGB). Letzteres ist ein besonders schwerwiegendes Problem vor allem für kleinere Unternehmen, da jede Rücknahme einen verhältnismäßig hohen Verlust darstellt \cite{retourwahnsinn}.
+
+
+
+
+
+        \newpage
+        
+        
+        
+    \section{Ergebnisse}
+        \subsection{Zusammenfassung}
+        
+        
+        
+        
+        
+        \subsubsection{Konsumentenperspektive}
+Aus Konsumentenperspektive hat der stationäre Handel kaum Vorteile gegenüber dem Distanzhandel, wodurch die stationäre Nachfrage nach Gütern, die parallel online erhältlich sind über die nächsten Jahre - insbesondere unter Einfluss der Corona-Pandemie\footnote{eine Krankheit, die sich weltweit verbreitet} - weiterhin in großen Ausmaß fallen wird. Insbesondere infolge des Wegfallens des Weihnachtsgeschäftes in Deutschland sind weitere Insolvenzen kaum vermeidbar.
+
+Bestehende Händler und Hersteller können jedoch mit Veränderungen der Verkaufsstruktur dagegen ankämpfen und die Änderungen vollbringen, die schon vor Jahren hätten umgesetzt werden müssen: Einerseits brauchen nun viele stationäre Händler zwingend weitere, potente\footnote{stark, mächtig} Vertriebswege, wobei sich der Distanzhandel anbietet - insbesondere wenn das Unternehmen Produkte außerhalb des Güterbereiches der \ac{FMCG} vertreibt. Bzgl. des Onlinehandels beitet sich ein Verbund mehrerer Unternehmen auf einer Verkaufsseite für eine erhöhte Wahrnehmbarkeit und Relevanz an. Hersteller sollten dagegen - zumindest die, die es bereits noch nicht getan haben - schnellstmöglich von dem \ac{B2B}- zu dem \ac{B2C}-Vertriebsmodell wechseln, da der Direktverkauf große Ersparnisse mit sich bringt und heutzutage durch die zunehmende Digitalisierung nahezu problemlos möglich ist.
+
+Außerdem sollten bereits bestehende Unternehmen mehr auf die geänderten Bedürfnisse vieler Konsumenten achten und je nach Unternehmensart mehr die Zielgruppe der älteren Personen in Betracht ziehen, die am meisten stationär kaufen - genaueres in Kapitel 4.1.2.
+
+Für Firmen, die neu am Markt sind, bietet sich der Distanzhandel auch als primärer oder sekundärer Vertriebsweg an - so kann er genutzt werden, um mögliche stationäre Verluste in der Zukunft auszugleichen oder um die Gesamtgewinne zu steigern, da eine größere Kundenmenge angesprochen wird. Ein pur stationärer Vertrieb ist zurzeit insbesondere unter Corona-Einfluss meist keine gewinnversprechende Vertriebsform, vor allem, wenn die besagte Firma noch neu am Markt ist.
+
+Auch je nachdem, was Unternehmen verkaufen, unterscheiden sich Zukunftschancen stark: Ein weiterer Drogerieladen in einer Kleinstadt wird wenig Anklang finden; ein Geschäft mit Nischenorientierung dagegen eher - hier kann die geringe Nachfrage mit einem parallel exestierenden Distanzhandel erhöht werden. %beispiel held der steine als vorzeigebeispiel, natürlich nicht jedem möglich eine nische zu finden, schlussendlich gilt:
+Abschließend gilt: Solange es wenig bis keine ähnliche Läden gibt und eine ausreichend hohe Nachfrage vorherrscht, können neue Unternehmen bestehen.
+
+Im Gesamtbild ist zu beobachten, dass der stationäre Einzelhandel einen Gewinnrückgang erlebt - und demzufolge einige Händler insolvent wurden. Jedoch ist das Aussterben von Innenstädten nicht ausschließlich durch den Onlinehandel begründbar: Der Distanzhandel senkt zwar die Flächenproduktivität, jedoch weichen nun oft stationäre Händler unabhängig von Nachfragerückgängen auf neu erschlossene Gebiete außerhalb von Städten aus, da Mieten billiger sind \cite[S. 30]{evilcom}. Demnach verringert sind die Firmendichte in Städten auch unabhängig vom Distanzhandel. Die wenigen, die schließen müssen, stellen nur einen kleinen Teil des Einzelhandels dar - der wiederum nur ein Bruchteil aller Unternehmen ausmacht. Der Dienstleistungssektor blieb beispielsweise relativ unbeeinflusst vom Onlinewandel, hauptsächlich weil keine klare Verkaufsstruktur wie im Handel - das Verkaufen eines bestimmten Produktes für einen bestimmten Preis - definierbar ist. Genaueres zu dieser Thematik findet sich in Kapitel 4.1.3.
+
+
+    
+    
+    
+    
+    
+    
+     
+\subsubsection{Einschätzung der Thesen}
+
+Die Existenz des Distanzhandels verringert bereits seit seiner Entstehung die Nachfrage des stationären Handels in fast allen Produktgruppen, und führt damit zu stationären Umsatzeinbußen. Infolgedessen haben stationäre Händler - insbesondere im ländlichen Bereich, da hier aufgrund einer niedrigeren Bevölkerung pro Vertrieb eine allgemein geringere Nachfrage vorherrscht - deutlich schlechtere Chancen, ihr Geschäft Umsätze erzielen zu lassen, insbesondere falls Güter außerhalb der Produktgruppe der \ac{FMCG} verkauft werden. Dementsprechend können derzeit deutlich mehr Insolvenzen stationärer Vertriebe beobachtet werden und die These "Der Onlinehandel führt zu einem allmählichen Aussterben von stationären Händlern im ländlichen Bereich." verifiziert werden.
+
+Jedoch muss dabei auch bzgl. der Gütergruppen differenziert werden - zwar können alle Güter mit mehr oder weniger Nachteilen online gekauft werden, jedoch ist der Aufwand und weitere negative Einflüsse des Onlinehandels bei einigen Produkten so relevant, dass diese fast ausschließlich stationär gekauft werden, wie beispielsweise Nahrungsmittel. Dementsprechend kann auch die These, dass es Waren gibt, die nicht online gekauft werden, bis auf einige Ausnahmefälle bestätigt werden.
+
+Bei Betrachtung der Arbeitsverhältnisse ist eine eindeutige Einordnung der These, dass durch den Onlinehandel weniger Arbeitsplätze geschaffen werden als indirekt verringert werden, kaum möglich. Einerseits verlieren stationäre Händler an Relevanz und können folglich weniger Arbeitnehmer beschäftigen, jedoch werden, um die Funktionalität des Distanzhandels zu gewährleisten, auch mehr Arbeiter gesucht - insbesondere für Lager- und Transportverwaltung. Außerdem ist das Aussterben von Innenstädten nicht ausschließlich durch den Onlinehandel begründbar, sondern zu einem großen Teil auch durch eine 
+\begin{quote}
+"grundsätzliche Verschiebung in den Handelsmodellen" \cite[S. 24]{evilcom}.
+\end{quote}
+Demnach kann die genannte These weder falsifiziert noch verifiziert werden.
+
+Die vierte These, die im Rahmen dieser Arbeit untersucht wird, beschreibt dass durch den Onlinehandel eine zunehmende Umweltbelastung entsteht. Dies ist in erster Linie anhand einem erhöhtem Verkehrsaufkommen durch dass parallele Nutzen von Online- und Offlinehandel problemlos verifizierbar - jedoch könnte in einer fernen Zukunft, in der nahezu ausschließlich der Vertriebsweg des Distanzhandels genutzt wird, sogar eine Kraftstoffersparnis, die in Kapitel 4.1.2 beschrieben wird, erreicht werden.
+
+
+
+
+
+
+
+        \subsection{Schlussfolgerungen im Bezug auf Schleusingen}
+        
+        
+        
+        
+        
+        
+        Die bereits genannten Ergebnisse können nahezu ausschließlich auf die Kleinstadt Schleusingen übernommen werden, jedoch bestehen bzgl. der Verkaufsgebiete auch einige Besonderheiten.
+
+Schleusingen bildet im Vergleich zu vielen Städten ähnlicher Größe einen Sonderfall: durch das Einkaufszentrum "Megacenter Schleusingen GmbH" in der Suhler Straße ist hier eine Güterbeschaffung auch für Bewohner der Dörfer um Schleusingen mit vergleichsweise hoher Auswahl möglich - was dem stationären Einzelhandel zugute kommt. Händler können hier auf Kosten von höheren Ausgaben besser wahrgenommen werden und eine erhöhte Nachfrage erfahren. 
+
+Auch das Gebiet in der Nähe des hennebergischen Gymnasiums "Georg Ernst" und um den Markt haben eine nachfragetechnische Besonderheit: Schüler des Gymnasiums - insbesondere die der oberen Klassen - kaufen hier nach der Schule oder in Pausen oft ein. Für neue Geschäfte empfehlen sich besonders Frisch- und Fertingnahrungsmittelverkäufer, die den Verkaufsraum von heute nicht mehr vorhandenen Geschäften wie Mode Beetz nutzen können. Jedoch ist darauf zu achten, dass sich das Verkaufsangebot nicht mit dem bereits vorhandenen überschneidet: Fleischer und Bäcker sind zu genüge vorhanden, jedoch nicht etwa ausgefalleneres wie Fischspezialitäten. Auch jugendorientierte Unternehmen könnten hier einen stationären Vertrieb gewinnbringend betreiben - vorausgesetzt, die nötige Nachfrage ist vorhanden.
+
+Eine weitere Besonderheit bildet das Gebiet um die staatliche Grund- und Regelschule "Gerhart Hauptmann": Hier können Händler ähnlich wie Verkäufer in der Nähe des Gymnasiums einen nachfragetechnischen Vorteil erlangen, jedoch ist hier nur schwierig eine mögliche Fläche zu erhalten.
+
+Abschließend ist anzumerken, dass die Standortwahl eines stationären Unternehmens von unzähligen Faktoren abhängt - so können beispielsweise durch den Onlinewandel nur noch wenige stationäre Vertriebe bestehen. Wir können im Rahmen dieser Arbeit zwar auf solche Besonderheiten hinweisen, jedoch keine Entscheidung abnehmen. 
+
+
+
+
+
+
+
+
+        \newpage
+        
+        
+        
+    \bibliography{Literaturverzeichnis}
+        \newpage
+        
+    \listoffigures
+        \newpage
+        
+        
+        
+        
+        
+        \addsec{Abkürzungsverzeichnis}
+\label{sec:abkuerzungsverzeichnis}
+
+\begin{acronym}[XXXXX]
+    \acro{AWS}{Amazon Web Services}
+    \acro{B2B}{Bussiness-to-Bussiness}
+    \acro{B2C}{Bussiness-to-Consumer}
+    \acro{EZB}{Europäische Zentralbank}
+    \acro{Obm}{Onlinebezahlmethode}
+    \acro{BIM}{Building Information Modelling}
+    \acro{FMCG}{Fast Moving Consumer Goods}
+\end{acronym}
+\newpage
+
+    
+    \addsec{Materialanhang}
+        \newpage
+    
+    
+    
+    
+    
+    
+    \addsec{Auswertung der Schülerumfrage}
+\normalsize
+Im Zeitraum vom 17. 11. 2020 bis 26. 11. 2020 führte unsere Seminarfachgruppe eine anonyme Online-Umfrage für Schüler des hennebergischen Gymnasiums "Georg Ernst" durch. Jegliche erhobenen Daten wurden ausschließlich im Rahmen dieser Arbeit benutzt und nach der entsprechenden Auswertung gelöscht. Zum Zeitpunkt der Auswertung haben insgesamt 147 Schüler teilgenommen.\\\\
+Wenn mehrere Antworten angegeben wurden, zählt jede je nach Frage entweder als eine Stimme(*) oder eine Stimme wird anteilmäßig auf die genannten Antwortmöglickeiten verteilt(**).\\\\\\\\\\\\\\\\
+
+
+
+Würden Sie die folgenden Produkte eher Online oder vor Ort kaufen? (1)\\\\
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12.5cm]{media/schuelerumfrage/1.png}
+    \end{center}
+\end{figure} 
+
+
+
+\newpage\noindent Haben Sie schon einmal etwas Online bestellt, wenn ja über welche Plattform? (2)\\
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=11.5cm]{media/schuelerumfrage/2.png} 
+    \end{center}
+\end{figure}
+
+\noindent weitere genannte Plattformen:
+\begin{itemize}
+ \item Zaful (3)
+ \item H\&M (2)
+ \item EMP (2)
+ \item Intersport (2)
+ \item Bershka (1)
+ \item Shein (1)
+ \item Maciag Offroad (1)
+ \item Reifendirekt (1)
+ \item Böttcher AG (1)
+ \item Globetrotter (1)
+\end{itemize}
+
+
+
+\newpage\noindent Weichen Sie und ihre Familie beim Einkaufen aufgrund des Angebots auf andere Städte in der Umgebung aus? (6)\\
+\vfill
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12cm]{media/schuelerumfrage/6.1.png}
+    \end{center}
+\end{figure}
+\vfill
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12cm]{media/schuelerumfrage/6.2.png}
+    \end{center}
+\end{figure}
+\vfill
+
+
+
+\newpage\noindent Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den Onlinehandel? (7)\\\\
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12cm]{media/schuelerumfrage/7.png} 
+    \end{center}
+\end{figure}
+\vfill\vfill
+\noindent Auffälligkeiten:
+\begin{itemize}
+ \item Paypal ist als Zahlungsweg am meisten gefragt
+ \item Aufpreis für Rückversand, um Umweltbelastung zu verringern
+ \item oft online-spezifisches und geringe Schnittmenge mit Frage 8
+ \end{itemize}
+\vfill\vfill\vfill\vfill
+
+
+
+\newpage\noindent Welche Produkte/ Änderungen im Verkaufsprozess wünschen Sie sich für den lokalen Handel? (8)\\
+\vfill
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12cm]{media/schuelerumfrage/8.png}
+    \end{center} 
+\end{figure}
+\vfill\vfill
+\noindent Auffälligkeiten:
+\begin{itemize}
+ \item sehr oft "keine Ahnung"
+ \item ausschließlich eine größere Auswahl wird oft genannt
+ \item wenig bis keine Überschneidung mit Antworten aus Frage 7
+ \end{itemize}
+\vfill\vfill\vfill\vfill
+
+
+
+
+\newpage\noindent Haben sich ihre Kaufgewohnheiten während der Corona-Zeit geändert? (14)\\\\\\
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12cm]{media/schuelerumfrage/14.png}
+    \end{center}
+\end{figure}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\addsec{Experteninterview}
+Interviewpartner: \hfill Prof. Dr.-Ing. André Spindler\\
+Interviewdatum: \hfill 19. 09. 2020\\
+Ort des Interviews: \hfill Erfurt\\
+\vspace{0.4cm}
+00:00:00 - 00:40:19\\
+\vspace{0.4cm}
+
+\footnotesize
+\setspeaker{Andre}[Prof. Spindler]
+\setspeaker{Fabian}[Fabian Beez]
+\setspeaker{Toni}[Toni Hausdörfer]
+\addtolength{\transcriptlen}{1em}
+
+\begin{description}
+
+\Fabian Wir führen jetzt ein Interview mit André Spindler. Er ist selbständiger Architekt und leitet sein eigenes Architekturbüro mit Spezialisierung auf Brandschutz. Möchten Sie hierzu noch etwas ergänzen? \#00:00:26\#
+
+\Andre Ja, vielleicht zu meiner Person. Ich bin über die 60 weg und habe eine fast 40 jährige Berufserfahrung und hab als Bauingenieur studiert, bin jetzt Architekt seit vielen Jahren und habe mich in das Nischendasein eines Brandschutzfachingenieurs hineingearbeitet. Prüfe dort auch das, was andere machen im Auftrag der Landratsämter und berate sehr viel auf dem Gebiet und hab daneben noch eine Professur an der Fachhochschule Erfurt für Baukonstruktion. \#00:01:05\#
+
+\Fabian Denken Sie, dass die Spezialisierung auf ein Gebiet im Bereich Architektur effektiver ist als sein Wissen breit zu fächern? \#00:01:17\#
+
+\Andre Oh, das ist eine ganz interessante Frage, denn ich kann mich noch gut erinnern an meinen Professor, der gesagt hat "Spindler, gehen Sie erst mal in die Breite. Gucken Sie auf allen Gebieten, was es da gibt. Und wenn Sie das spüren in sich nach einigen Jahren, dann gehen Sie in die Tiefe. Nehmen Sie also ein Spezialgebiet und werden Sie auf dem Gut". Und ob ich das nun bewusst gemacht habe, weiß ich nicht. Aber zumindest ist es bei mir so passiert, dass ich auf eine Vielzahl ganz unterschiedlicher Fachgebiete zurückgreifen kann, in meiner Spezialtätigkeit, und da sich dieses System, überall ein Stück zu wissen, aber auf einem Gebiet sehr viel zu wissen für mich als sehr gut herausgestellt hat. \#00:02:01\#
+
+\Fabian Wie sieht Ihr durchschnittlicher Arbeitsalltag aus? \#00:02:11\#
+
+\Andre Das ist eine ganz schlimme Frage, weil in der Arbeitsbelastung ist man allgemein als Selbstständiger sehr hoch belastet. Und bei mir durch diese mehreren Standbeine und Tätigkeiten ist es deutlich höher als im Durchschnitt. Ich habe also zwei Tage die Woche, in denen ich an der Hochschule tätig bin, mich mit Vorlesungen, Seminaren beschäftige, studentische Fragen beantworte und mehrere Tage die Woche, wo ich mich um mein Büro kümmere und auf Baustellen unterwegs bin. Und oftmals ist es eben das Wochenende, wo ich mich dann um Abrechnungen kümmere, um spezielle Aufgaben, die man als Büroleiter von zehn Beschäftigten hat, am Monatsende Abrechnungen zu machen und ähnlichem. Also der Arbeitstag ist mehr als voll - etwas, was ich am Anfang dieser ganzen Tätigkeiten auch nicht so geahnt habe, dass es so viel Arbeit ist. Ich kann dir aber nicht abwählen, die ist nun mal da. Sie macht mir aber auch Spaß und ich habe zum Glück eine Familie, die das akzeptiert, dass ich lange und abends im Büro bin und auch mal am Samstag mich dort beschäftige. \#00:03:25\#
+
+\Fabian Wir haben ja schon voerherein herausgefunden, dass Sie eine eigene Website haben. Dieses Interview führen wir zu einem großen Teil unter dem Aspekt Onlinehandel bzw. -präsentation - deshalb spielt ihre Wesite aus unserer Sicht eine bedeutende Rolle. Deshalb haben wir auch ein paar Fragen in diese Richtung. Erst einmal ganz allgemein: Seit wann haben Sie ihre Website und seit wann ist es in Ihrer Branche üblich, sich online zu präsentieren? \#00:04:12\#
+
+\Andre In der Branche ist es eigentlich seit Anfang an üblich – also seit dem es dieses Medium gibt, weil die Architekten natürlich im besonderen Maße visuell werben, also mit ihrem Werk zeigen, was sie gebaut haben, sie zeigen vielleicht auch die einzelnen Phasen der Planung und der Fertigstellung. Mit Fotos, mit Videos, mit Drohnenüberflügen und ähnlichem. Das wirbt quasi für die Qualität des Architekten und zeigt auch dem potentiellem Bauherrn, was schon in welcher Qualität geleistet wurde. Das Internet ist also ein ganz wichtiges Medium. Ich weiß auch, dass vorallem die großen Büros viel Wert darauf legen, aktuelle Projekte vorzustellen und sich damit interessant zu machen. \#00:05:01\#
+
+\Toni Würden Sie demnach sagen, dass die Onlinepräsentation wesentlich wichtiger ist als die Eigenpräsentation durch Printmedien? \#00:05:12\#
+
+\Andre Ja, das denke ich schon. Das hat extrem zugenommen, denn bevor es Onlinepräsentationen gab, war eigentlich nur die Möglichkeit der Veröffentlichung in Zeitschriften an den potentiellen Bauherrn heranzutreten oder über das eigentlich gebaute Werk, also jemand der ein Haus gebaut hat, der hatte Bekannte die auch ein Haus bauen wollten. Da hat man den gefragt, wer war denn da Architekt? Wer hat denn für dich geplant? Und wenn man zufrieden war mit dem Architekten, dann hat man den empfohlen. Und das ist schwierig, mit einer solchen Art und Weise der Werbung, zu überleben.
+
+Außerdem werden auch Wettbewerbe ausgeschrieben, außerdem auch online, mittlerweile in fast allen Fällen. Man beteiligt sich an einem Wettbewerb, und wenn man da gut ist, bekommt man einerseits für die Bearbeitung ein wenig Geld, aber wenn man den Auftrag tatsächlich bekommt, dann ist das auch sehr wirtschaftlich. Aber es kann eben bei 50 Teilnehmern nur einer gewinnen – also ist die Chance nicht sehr hoch. \#00:06:20\#
+
+\Fabian Sie hatten ja auch vorhin erwähnt, dass Sie Bauprojekte online stellen, um diese zu präsentieren. Ich habe jetzt auf Ihrer Webseite leider keins gefunden. Wo würde das denn üblich hochgeladen werden? \#00:06:37\#
+
+\Andre Ja, wir sind kein gutes Beispiel für eine gepflegte Website. Ich will das jetzt auch nicht groß entschuldigen, weil für uns diese Dinge, die ich eben gerade über Architekten gesagt habe, nicht ganz zutreffen. Wir bilden ja so eine Teilleistung des Architekten oder Ingenieurdaseins ab - Wir beraten, wir haben spezielle Aufgaben bei der Planung am Bau und die lassen sich nicht so gut darstellen wie das fertige Werk. Wir würden, das ist immer noch so in der Planung und teilweise in der Vorbereitung spezielle Planung vorstellen. Natürlich, die fertigen Häuser auch. Aber wir werben ja nicht mit einer schönen Fassade wie der Architekt, sondern wir werben mit einer Fachplanung, die man möglichst gar nicht sehen soll, sondern die dann wirkt, wenn es brennt und die vorher gar nicht in Erscheinung treten soll. Sie alle kennen sicherlich die die Feuerlöscher, die grünen Männchen über den Türen und solche Dinge, die man eben wahrnimmt. Wir machen natürlich viel mehr in Konzeption, die sich nicht so leicht visualisieren lassen. Also das ist die fachliche Ausrede für das, was wir nicht leisten. Und eine andere Ausrede ist einfach, dass wir ganz wenig Zeit haben und dass wir zwar viel leisten auf diesem Gebiet, aber uns nicht gut verkaufen. Und auch das hat wieder den Grund, dass wir eher durch Empfehlungen - also gar nicht so sehr über online, sondern durch unsere Leistung seit Jahren immer wieder Kundschaft bekommen, vor allen Dingen Architekten, spezielle Bauherrengruppen, auch größere institutionelle Bauherren, die sagen, Ihr habt das gut gemacht, seit Jahren, wir würden euch gern wieder mit fürs nächste Projekt nehmen. Die schauen eben nicht ins Netz, weil die sagen naja, die haben jetzt ein neues Bildchen. Aber eigentlich wollen wir ja die Leistung haben. \#00:08:41\#
+
+\Fabian Also würden Sie sagen, dass mehr Kunden analog als online auf Sie stoßen? \#00:08:49\#
+
+\Andre In unserem Fall ja. Wir kriegen natürlich übers Netz Projektphasen zugesandt. Also Vorplanung, Ideen. Das ist natürlich heute üblich über online und nicht als Papierstapel. Und wir geben Angebote natürlich übers Internet ab. Alles digital. Wir bearbeiten. Jeder hat also mindestens einen Computer an seinem Arbeitsplatz, mehrere Bildschirme. Wir arbeiten nur digital. Aber das Herantreten, das erfolgt, wenn man so will, Analog. \#00:09:24\#
+
+\Toni Gibt es einen grossen Unterschied im Vergleich, als Sie eine Webseite gemacht haben bezüglich der Nachfrage vorher und danach? \#00:09:39\#
+
+\Andre Es gibt einen Unterschied, aber der ist nicht signifikant für die wirtschaftliche Ausbeute, um das mal so zu sagen. Also es gibt eine Reihe von Anfragen über die Website, weil wir dort auch ein Kontaktfeld haben und wir schätzen aber ein, dass das eher zufällige Dinge sind. Wenn das Wort Architekt googelt findet man uns natürlich auch und hat aber, wenn man näher hinschaut, dann eigentlich nicht den Architekten, der in Einfamilienhäusern plant und baut oder eine kleine Sanierung macht. Da haben wir auch Anfragen, die sich speziell auf meine Person beziehen, weil ich eben eine Menge Erfahrung auf dem Gebiet habe, im Denkmalbereich und in Altbausanierung. Aber die meisten speziellen Anfragen zum Brandschutz, zur Planung, die kommen also unabhängig von der Website. \#00:10:42\#
+
+\Toni Noch eine Frage wäre beispielsweise, wie der Online-Aspekt, also diese Webseiten und die mediale Repräsentation, wie die sich auswirken können, vielleicht auf ihr berufliches Umfeld und auch auf die konkurrierenden Firmen. \#00:11:05\#
+
+\Andre Also wir nutzen unsere Homepage nicht nur für Werbung oder Verkauf, in Anführungsstrichen. Wir verkaufen ja Wissen und das können wir nur sagen, dass dies der Fall ist. Aber wir verkaufen es nicht online wie Online-Handel. Wo wir gute Erfahrungen gemacht haben, ist die Nutzung dieser Online-Möglichkeit, bei der Information von nachgelagerten Personen. Das will ich kurz erläutern: Wir haben also ein Teil unserer Website mit Formblättern, mit Beantwortung von Fragen dieses "FAQ", z.B. was viele Firmen haben gefüllt. Das heißt, ich verlange in meiner Prüftätigkeit am Abschluss eines Bauvorhabens bestimmte Unterlagen, Nachweise, Unterschriften, Fotos und ähnliches. Das haben wir alles auf unserer Homepage dargestellt. In welcher Form wir das wollen; was, was wir unter bestimmten Begriffen verstehen, unter bestimmten Nachweisen fordern müssen. Und der Bauleiter, der Architekt, auch der Bauherr kann dort nachschauen und kann sich diese Informationen online herunterziehen und ist damit natürlich nicht mehr eine Belastung für uns. Wir müssen nicht alles am Telefon erklären oder ihn einladen, dass wir ihn schulen. Sondern er kann dieses Medium nutzen und sich dort die Formblätter zum Ausfüllen herunterladen, damit arbeiten. Das halte ich für einen ganz großen Gewinn. Das wird auch reflektiert von den Baustellen, dass man sagt ja, das ist gut. Wir können doch abends um 10 uns etwas runterziehen, das durchlesen und morgen um 8 verlangen wir diese Dinge auf der Baustelle. Zu den Mitbewerbern war so ein bischen eine Frage. Da muss ich sagen, auf dem Niveau, auf dem wir arbeiten, haben das viele. Ich denke, die Mehrzahl der Büros unterstützen damit die ihnen nachgelagerten Baustellen. \#00:13:08\#
+
+\Fabian Noch eine Frage, die Sie eigentlich schon beantwortet haben - Spielt die Onlinepräsenz in ihrer Branche eine bedeutende Rolle? \#00:13:20\# %(doppelt?)
+
+\Andre Bei Architekten ja, bei unserem Spezialgebiet eher weniger. \#00:13:27\#
+
+\Fabian Welche Rolle spielt ihre Website in dem Konsumverlauf – Werden Kunden über die Seite auf Sie Aufmerksam oder hat sie eher eine Informationsfunktion? \#00:13:40\#
+
+\Andre Ich denke, es ist mehr die Informationsfunktion. Natürlich gibt es auch zufällige Kunden, die das Wort Architektur oder Brandschutz eingeben, auf uns stoßen. [...] Unsere Webite enthält die technischen Informationen und die Gesichter der Mitarbeiter, was ich übrigens auch für wichtig halte – mit wem man vielleicht ein Jahr zu tun haben wird, oder wer immer wieder die Fragen beantwortet oder die Unterlagen anfordert, dass man da mal ein Gesicht sieht – diese menschliche Basis. Dass man unsere Leistung mehr konsumiert, dass kann man nicht erwarten. Die Leute kommen ja nicht zu uns, um eine Handtasche zu kaufen, sondern um eine spezielle Dienstleistung von uns erledigen zu lasssen. Dort sind wir sicherlich auch immer wieder im Wettstreit mit Mitbewerbern, die das ählich anbieten, vielleicht auch einmal etwas kostengünstiger, oder die andere Vorteile haben, weil sie etwa in der Nähe des Vorhabens ihren Bürositz haben und damit schneller verfügbar sind, oder ähnliche Dinge. \#00:14:51\#
+
+\Fabian Inwiefern ist die Menschliche Komponente im Onlinebereich, die Sie soeben angesprochen haben, wichtig für Sie? \#00:14:58\#
+
+\Andre Ich habe ja schon erwähnt, dass die Mitarbeiter dort vorgestellt werden, natürlich mit deren Einverständnis - Wir filmen jetzt niemand heimlich und stellen ihn ins Netz. Wir hatten da eine Fotografin, die auch darauf geachtet hat, dass wir da gut rüber kommen und uns ordentlich präsentieren. Auf der Website wird ganz kurz eingeschätzt, natürlich neben dem Namen, welche Qualifikationen der Mitarbeiter oder die Mitarbeiterin haben, wofür sie zuständig sind, und das ist auch sehr geschickt gemacht. Man sieht immer das gesamte Team, und wenn man auf den Mitarbeiter mit der Maus geht, wird er farbig und seine Daten erscheinen. Ich halte das für sehr angenehm und das führt schon dazu, dass man ein persöhnlicheres Verhältnis zueinander hat. Ich sehe das auch in meiner Seminartätigkeit, mit der ich in Deutschland unterwegs bin. Die meisten kennen mich, weil man mich irgendwann mal gegoogelt hat und dan weiß, wie ich aussehe. Dann begrüßt man mich ganz freundlich, dann sage ich, ich kenne Sie ja leider gar nicht, weil mir das Gesicht eben nicht eingängig ist, aber manche kennen mich weil ich schon einmal irgendwo bekannt geworden bin, über solche Medien. \#00:16:17\#
+
+\Fabian Wir haben auch auf Ihrer Webseite gesehen, dass Sie Mustervorlagen für Erklärungen zur Verfügung stellen. Sie haben schon gesagt, das ist ein für das Bauwesen an sich. Haben diese doch einen anderen Nutzen? \#00:16:31\#
+
+\Andre Ja, manche Dinge sind ja auch nur, um aufklärend zu wirken. Also was steckt hinter bestimmten Begriffen? Ich sag mal ein Beispiel wenn ein Handwerker eine Feuerschutztür einbaut, dann wollen wir wissen von welcher Firma? Was kann dieses Produkt, diese Tür? Und wir wollen andererseits wissen hat es der Handwerker auch richtig eingebaut, hat er ja die Montageanleitung gelesen und verstanden und auch die richtigen Schrauben, die richtigen Dübel genommen. Und es wird kurz erläutert dort der erfahrene Handwerker wird zur sagen, ja, das kann ich schon, das weiß ich, das muss ich gar nicht lesen. Aber am Ende ist es schon gut, dass wir die gleiche Sprache sprechen und eben quasi auch ein, ich will sie jetzt nicht Weiterbildung nennen, aber zumindest eine Konformität mit dem Wissen und Können der Handwerker erzeugen, sodass wir es am Ende leicht haben, die Leistung zu akzeptieren. \#00:17:28\#
+
+\Toni Wie hat denn die Modernisierung Einfluss darauf genommen, wie Sie beispielsweise Unternehmen wählen, die sie dann beauftragen? \#00:17:43\#
+
+\Andre Ja, wir beauftragen selber nicht, sondern das machen dann die Architekten und die Bauherren, aber ich will ein anderes Beispiel erzählen, wo die Reise hingehen wird. Und da sind wir gerade dabei. Das wird also von Papier weitestgehend in der ganzen Genehmigungsphase, im Umgang mit den Bauämtern und den Prüfingenieuren wie mir, auf Elektronik umgestellt werden. Die nächsten zwei, drei Jahre. Das heißt, wir werden kein Papierbündel mehr bekommen zum Durchsehen und Abstempeln, sondern nur noch Dateien. Und das klingt so einfach. Ist es gar kein Problem Dateien zu versenden. Das machen wir ja seit vielen Jahren. Aber die Frage ist, wie werden die gespeichert? Über 30 oder 50 Jahre, weil es ja Dokumente sind. Wenn also in 20 Jahren ein Kindergarten brennt, wird man mich versuchen aufzusuchen mit meinem Wissen, mit meinen Dokumentationen. Es hat dort richtig gemacht worden? Und das muss man auch in elektronischer Form und auch der Austausch übers Internet sichern und handlebar machen. Da sind viele Fragen noch ungeklärt. Auch die Ämter, auch die zuständigen Ministerien wissen noch nicht genau, wo eben die Reise hingeht. Und es muss für jeden handhabbar sein, auch für den kleinen Planer auf dem Dorf, der vielleicht ein oder zwei Einfamilienhäuser macht. Auch der muss sich diesen elektronischen Gangarten unterwerfen. Und das wird spannend die nächsten Jahre. Ich mache zum Beispiel auf jede Zeichnung einen grünen Stempel und sage ja, die wurde von mir geprüft. Da unterschreibe ich den Stempel, trage eine Nummer ein und das Datum. Und ein Kollege hat mal so aus Spaß gesagt, wir können doch nicht auf dem Bildschirm stempeln. Wie machen wir das dann? Wie machen wir ein solches Dokument als geprüftes Dokument kenntlich? Wie sichern wir diese Prüfung, dass sie niemand fälschen kann? Sie wissen sicherlich besser sogar als ich, wie schnell man Elektronik auch missbrauchen kann. Und in Papierform ist das schwieriger möglich, ist auch möglich, aber in der Elektronik viel leichter. Und wie erfährt zum Beispiel auch der dänische Eisenflechter, der mit einem französischen Fahrer unterwegs ist, auf einer belgischen Baustelle? Welches ist jetzt der letzte Stand der Zeichnung? Was hat Spindler geprüft? Was ist dort zulässig oder nicht? Also spannende Fragen, die wir noch nicht geklärt haben, die die nächsten Jahre kommen werden. \#00:20:23\#
+
+\Fabian Denken Sie, von dem organisatorischen Aspekt abgesehen, dass es schon möglich wäre, diesen Bereich auf das Internet umzustellen? \#00:20:35\#
+
+\Andre Also es gibt einen Landkreis aus Thüringen, die als Pilot-Landkreis arbeiten damit und die einen gewissen Teil der einfachen Vorgänge - Einfamilienhäuser, etwas größere Wohnhäuser, voll digital bearbeiten. Und ich habe mit Kollegen da gesprochen, die sagen, wir hatten anfänglich Schwierigkeiten und wir mussten noch ein bisschen geschoben werden, um das alles zu machen. Heute sind wir sehr zufrieden damit. Es geht rascher, es geht mit weniger Aufwand. Wir haben die Technik soweit im Griff. Und dann wurde mir aber gesagt, bedauerlich ist, dass wir nicht mehr so viel persönlichen Kontakt haben. Die Architekten kommen gar nicht mehr, sondern sie schicken nur noch etwas. Früher haben wir mal eine Tasse Kaffee getrunken und über ein Problem geredet. Heute wird nur noch gechattet und das wird eher bedauernd gesehen, aber insgesamt eine positive Bilanz, Zwischenbilanz gezogen. Es wird also noch viel weiter gehen. \#00:21:35\#
+
+\Fabian Außerdem haben wir bemerkt, dass sie auf Ihrer Webseite Stellenngebote online gestellt haben, zurzeit eins. Welche Erfahrungen haben Sie diesbezüglich gemacht? \#00:21:50\#
+
+\Andre Nun ja, der Markt auf unserem Spezialgebiet ist leer. Also die guten Leute sind alle angestellt oder selbstständig. Und es gibt nicht die Resonanz, die wir uns wünschen würden. Also wir haben dort immer mal Anfragen, vor allen Dingen wenn die Studienabgänge zu Ende sind. Sind Leute ihren Master oder Bachelor haben, dann suchen die ja frische Anstellungen. Jetzt werden wir wieder jemanden einstellen im Herbst, der in Magdeburg studiert hat, aber das jetzt wie in der Massenpersonalvermittlung Sekretärin gesucht werden oder Sachbearbeiter, das haben wir dort ja nicht. Diese Stellen, die wir auch ab und zu brauchen, die werden wir also auf anderem Wege finden. Und dort ist es so, dass wir quasi immer wieder suchen, weil wir gut zu tun haben und Aufträge kommen. Aber für diese Spezialgebiete, für diplomierte oder mit Master ausgestatteten Fachleute ist der Markt sehr dünn. Da braucht man eigentlich eher ein Headhunter als eine Online-Seite. \#00:23:06\#
+
+\Fabian Hat Ihre Webseite noch andere Funktionen, die wir noch nicht angesprochen haben? \#00:23:13\#
+
+\Andre Ja, das, was ich am Anfang sagte, was etwas hinkt, das würden wir gerne in nächster Zeit verbessern. Einfach das, was wir geleistet haben, auch mal in Bild oder Zeichnung oder Kommentar zu präsentieren, weil das auch für den Mitarbeiter so ein Stück selbstwerterhöhende Reflexion ist. Also die sehen dann ja, guck, da haben wir mit gemacht. Und ich merke das bei unseren jüngeren Mitarbeitern, wenn wir machen weiter so durch die Stadt gehen oder radeln, einen Termin haben. Da gucken die schon immer nach den Häusern, die sie bearbeitet haben. Und das ist für sie auch ein stolzes Gefühl, wo wir überall mitgearbeitet haben und das eben ins Netz zu stellen, "Guckt her, das haben wir geleistet" - Da sind wir schwach. Aber das hab ich mir vorgenommen, das unbedingt noch zu machen. \#00:24:04\#
+
+\Fabian Im Blick auf andere Bereiche, wie z.B. die Einstellung als Dozent, welche Rolle spielen die Anbindung ans Internet in diesen, speziell auf Sie bezogen? \#00:24:22\#
+
+\Andre Also da spreche ich jetzt mal nicht von unser Büro Homepage, die hat ja auch einen Hinweis, dass ich dort tätig bin. Aber wir haben natürlich an der Hochschule eine hervorragende Website mit ganz vielen Funktionen, die für meine Tätigkeit und für die Studenten wichtig sind. Ich habe, als ich angefangen habe, sofort mit digitalen Unterlagen begonnen. Also vor 15 Jahren war das schon durchaus üblich, aber mein Vorgänger hat das nicht gemacht und ich hab das bei Null aufgebaut und alle Vorlesungen sind digitalisiert. Alle Skripte können sich die Studenten herunterladen und ergänzen. Während der Vorlesung werden das Seminare. Wir haben so eine Art Rohlinge, die wir den Studenten zur Verfügung stehen, die dann im Seminar sitzen, auch mit Laptops und dort weiter zeichnen. Also während wir das erläutern, auf was es ankommt, dann die Zeichnungen ergänzen, abspeichern und damit auch später mal im Beruf sich erinnern können, was sie da studiert haben, dazu kommennatürlich auch die Bibliothek und alles Mögliche, was wir nutzen, auch im Büro nutzen dürfen, um Normen anzusehen, um uns zu informieren, wie der Stand der Technik ist. Das läuft also alles über das Internet und ist ein hervorragendes Mittel. Auch Dinge, die wir früher eben im Buch nachgeschlagen haben, können wir jetzt eben online oder eben auch über andere Medien ansehen und dort auch z.B. mal ein Bild mit benutzen, um meinen Gedanken zu erläutern, können das raubkopierern. Dafür haben wir Lizenzen - dafür bezahlen wir Geld. Und das ist ein hervorragendes Medium, was gerade von jungen Leuten gerne genutzt wird. \#00:26:11\#
+
+\Fabian Noch in Bezug auf die Corona-Zeiten der letzten paar Monate, währe der Unterricht ohne Online-Konferenzen oder ähnliches analog überhaupt möglich gewesen? \#00:26:26\#
+
+\Andre Nein, also die Hochschulleitung und die gesamten Ministerien haben ja entschieden, dass die Hörsäle zubleiben, um eine Ansteckung der Studenten untereinander zu vermeiden. Auch deshalb, weil im Gegensatz zu einer Schule die Studierenden ja von überall herkommen. Wir haben einen Anteil von über 40 Prozent von Studierenden, die nicht aus Thüringen kommen und davon nochmal auch einen gewissen Ausländeranteil. Und da hat man einfach keine Kontrolle. Und das verstehen wir auch. Deswegen wurde dann entschieden Das Sommersemester, das jetzt zu Ende geht, online durchzuführen. Wir haben spezielle Übertragungsprogramme, die die Studenten auch haben und ich hatte meine Seminare, Übungen, Vorlesungen bis zu den Semesterferien online gemacht, mit anfänglichen Schwierigkeiten, haben alle Studenten ein schnelles Internet oder komme ich da nur ruckelig rüber oder ähnliches auch mit dem vorsichtigen Versuch, auch in den Dialog zu geraten. Mal Fragen zu beantworten und ähnliches. Im Moment sind wir damit aber sehr zufrieden. Wir haben viel dazugelernt. Wir zeigen also auch Zwischenergebnisse an alle Studierenden. Wir diskutieren darüber gemeinsam, sofort. Also nicht auf Band und alle haben etwas davon. Können also lernen aus den Fehlern der anderen oder aus den positiven Ergebnissen der anderen. Und insgesamt bin ich also mit den Leistungen der Studenten zufrieden. Wir haben das Niveau nicht verloren. Das sehe ich an den Prüfungen, die wir aber präsent gemacht haben, also nicht online. Und wir werden das kommende Semester auch wieder online machen. Was fehlt und was von den Studenten noch mal wieder kritisiert wird, ist wirklich der persönliche Kontakt. Auch mal Kontakt im Biergarten, um mal so ungezwungen miteinander zu reden. Wir machen das gerne. Wir haben da ein lockeres Verhältnis zu den Studenten und das fehlt natürlich. \#00:28:36\#
+
+\Fabian Sie haben schon gemeint, dass es Anfangsschwierigkeiten gab. Insbesondere, da Thüringen ein sehr intensives Internetz hat. Und wenn ja, wie sah diese Anfangsschwierigkeiten sonst aus? \#00:28:54\#
+
+\Andre Also wir haben am Anfang auch keine guten Programme gehabt. Wir haben also mehrere Programme ausprobiert und unser Hochschul-Rechenzentrum hat dann eines ausgewählt, was gut ist, was viele Möglichkeiten hat. Auch in der Tiefe zum Beispiel, Gruppen zu bilden, Aufgaben zu stellen, die dann eingelagert werden, die Lösung eingelagert werden, mit denen man dann individuell beraten kann. Sind die Lösungen gut, musst du dort noch weiter arbeiten und ähnliches. Das waren also Dinge, wo halt auch niemand darauf eingestellt war in den Fachkreisen. Wie kann man also eine Vorlesung mit 120 oder 80 Studierenden machen, dass die alle was davon haben? Dann muss ich aber auch sagen, dass wir menschlich darauf nicht eingestellt waren, dass man natürlich weiß, ich gehe eine Vorlesung, ich hab auch ein Stück Kreide dabei und kann das, was ich als mit dem Computer an die Wand werfe, mit dem Beamer auch ergänzen. Nochmal durch eine kleine Skizze. Das gab es dann nicht. Ein Kollege hat dann sein Handy auf ein Gestell gezwackt, sodass es wie eine kleine Kamera ihn beobachtet hat, wenn er eine Skizze dort fertigt. Und dann auch die Frage - Wo arbeiten wir eigentlich? Ich bin anfangs an die Hochschule gefahren, weil wir dort ein Giga-Netz haben und konnte da sehr gut meine Vorlesung machen. Und als mein Büro dann auch 115-MB-Netz hatte, dann bin ich wieder ins Büro gegangen, weil ich da alle meine Unterlagen habe und habe von dort aus Vorlesungen gehalten. Also Dinge, die ich auch niemandem vorwerfen möchte. Das sind einfach so Kinderkrankheiten. Und wenn man von heute auf morgen sich umstellen muss, dann ist das erst mal ganz normal. Studenten haben da auch locker reagiert, wie auch auf Probleme, die man uns angezeigt hat. Wir hören euch nicht. Dann muss man dafür Verständnis haben. Mittlerweile, so dass ich oder meine Vorlesungen mitschneiden und ins Netz stelle, sodass auch ein Student, der nicht kann, der Laborversuch gerade macht und nicht zu dieser Vorlesung kommen kann, sich das später ansehen kann. \#00:31:08\#
+
+\Fabian Um noch einmal auf den Bereich Architektur zurückzukommen - Wie denken Sie, wird sich der Online-Aspekt in Zukunft entwickeln? Stimmen Sie der klassischen Annahme, dass es wichtiger wird, in Bezug auf ihre Branche zu? \#00:31:22\#
+
+\Andre Ja, also wir sind jetzt in dieser BIM-Phase. Habt ihr schon gehört? BIM? [...] Das ist natürlich ein Fachgebiet aus der Baubranche - Building Information Modelling. Also wir haben jetzt seit Jahren mit Computern gezeichnet, in 2D und in 3D und mit dem BIM Systemen, die jetzt gerade bei den Großprojekten angewendet werden sollen und müssen, wird eben der Aspekt der konfliktlosen Planungen in den Mittelpunkt gestellt. Wenn wir also als Architekten einen Entwurf gemacht haben, der Statiker dann die Dicke der Stützen bestimmt und der Haustechniker eine Leitung durchs Haus gelegt, hat man gemerkt, ja, da wo jetzt eine Leitung liegt, müsste eigentlich Bewährung einer Stütze sein. Und wenn man das erst so bei der End-Planung merkt, ist das natürlich schlimm. Da muss man alles wieder von vorne beginnen. Und so werden quasi über solche BIM-Schnittstellen, die natürlich online verlaufen müssen, solche Konflikte sehr viel früher erkannt. Und das Zweite ist, dass wir den Bauteilen einer Wand, einer Tür, einem Teppichboden, einem Heizkörper Eigenschaften zuordnen. Diese Eigenschaften bleiben dann an dem Bauteil ein Leben lang haften. Wenn also ein Facility Manager in 20 Jahren sagt, oh, der Heizkörper tropft, dann kann er feststellen, was ist das für ein Fabrikat oder wer hat das eingebaut? Werden die überhaupt noch hergestellt? Was hat er für eine Heizleistung? Wo kriege ich den her? Und wir haben das über Jahrzehnte erlebt. Man macht eine Dokumentation zu Ende und dann landet ihr am Dachboden und niemand weiß, wie gehe ich damit um? Wir fangen eigentlich immer wieder von vorne an und das will man mit solchen Vernetzungen, elektronischen Vernetzungen vermeiden. Und da sind auch viele Großprojekte mittlerweile so als Pilotprojekte auf dem Weg dahin. Und wir werden da nicht drum herum kommen. Wir werden uns da anschließen, weil unsere Dinge - eine Feuerschutz Tür natürlich genauso mit eingebunden werden muss wie die Statik oder die Gestaltung des Gebäudes. \#00:33:37\#
+
+\Fabian Denken Sie, dass die Online-Präsentation in Zukunft auch auf weitere Bereiche wie zum Beispiel 3D-Animationen auf Ihrer Website oder ähnliches sich erweitern wird? Und wenn ja, welche Bereiche? \#00:33:52\#
+
+\Andre Da würde ich jetzt mal sagen, das überlasse ich meinen jüngeren Mitarbeitern, die das vielleicht mal weiterführenden, das Büro. Ich denke, dass wir mit 3D, mit dem wir ja arbeiten, also viele Projekte bekommen wir als 3D-Dateien und arbeiten dann auch damit, dass die eine Rolle des Informationsaustausches mit anderen an Bedeutung gewinnen werden. Also wir sind da soweit - wir können das eigentlich seit Jahren, geben das die Zeichenprogramme schon her, nicht so sehr jetzt im Sinne der Werbung oder sowas, sondern einfach als Austauschmedium für die tägliche Arbeit. Und da bin ich ganz optimistisch. Aber ich muss zugeben, ich habe ja am Anfang mein Alter angedeutet, dass es vielleicht doch besser ist, wenn die nächste Generation - ich habe insgesamt ein sehr junges Büro, viele noch unter 30. Dass die sich dem annehmen und sich dann wirklich mit ihrem frischen Wissen und auch mit dem Wissen, dass sie das brauchen werden, dort engagieren. \#00:34:55\#
+
+\Toni Wie denken Sie, wie nützlich eine Erweiterung Ihrer Website auf andere Sprachen wäre? Das heißt, eine Webseite kreieren, wo auch anderen Netzen ihr Unternehmen gezeigt werden könnte? \#00:35:21\#
+
+\Andre Also andere Sprachen, also Englisch oder so etwas meinen Sie jetzt? \#00:35:27\#
+
+\Toni Bespielsweise. \#00:35:29\#
+
+\Andre Also da haben wir keine Erfahrung, muss ich zugeben. Der deutsche Markt ist groß genug im Moment, um vielen, die so ingenieurmäßig oder als Architekten, tätig sind, Lohn und Brot zu bieten. Ich weiß aber, dass eine ganze Reihe der größeren Büros eben auch versuchen, international tätig zu sein und sich dort an Wettbewerben beteiligen und ähnlichem. Die haben einfach einen Button, drückt man drauf, ist die ganze Website in Englisch und das ist für die selbstverständlich. Wir haben das nicht, muss ich zugeben. Im Moment sehe ich da auch keinen unmittelbaren Bedarf. Obwohl ich auch immer mal auch im Ausland bin. Mit meiner Hochschul-Tätigkeit, wir werden da gut ausgerüstet. Also wir könnten das sicherlich. Aber wir brauchen es momentan nicht, weil wir eher regional, also in Thüringen, auch in den Nachbarländern tätig sind, und da wird immer noch Deutsch gesprochen. \#00:36:25\#
+
+\Toni Was denken Sie, würde sich eventuell eine Einbindung einer Art Auftragsform in Ihrer Webseite sich positiv oder negativ auswirken, würden Sie das auch machen? \#00:36:42\#
+
+\Andre Auftragsform oder Auftragsformular oder was meinen Sie? \#00:36:46\#
+
+\Toni Praktisch eine Form, die man online ausfüllen kann, damit Sie dann direkt eine Nachricht darauf bekommen? \#00:36:57\#
+
+\Andre Das haben wir. Wir haben also Kontaktformular, mit denen man also seine Adresse oder eine Frage abgeben kann. Aber das war vielleicht nicht der Inhalt. \#00:37:07\#
+
+\Fabian Ich denke, dass er meint, dass ein Auftrag direkt an Sie gesendet wird. \#00:37:12\#
+
+\Toni Ja. \#00:37:13\#
+
+\Andre Nun ja, wir kriegen natürlich über über das Internet Aufträge. Das hat aber jetzt mit der Homepage nichts zu tun. Also wir geben ja Angebote ab und auch teilweise ohne Angebote werden wir beauftragt über öffentliche Stellen und das geht zu einem gewissen Teil online. Aber das ist nur das Transportmedium, und das was Sie sicherlich meinen ist, dass man, vielleicht beim Handel, dass man sagt, da gibt's ein Angebot und das nehme ich jetzt als Kunde an. Sowas geht bei uns nicht. Und zwar nicht nur bei uns nicht, sondern ich glaube, in der ganzen Branche macht man das nicht, weil wir ja nicht ein einzelnes Produkt, ein Paar Schuhe oder ein Fahrrad anbieten, verkaufen, sondern eine recht komplexe Tätigkeit. Und wir brauchen, um überhaupt einen Preis zu finden, dem man dann annehmen könnte, bräuchte man eine ganze Reihe Informationen. Ich kann mir so etwas vorstellen, dass man sagt, wir würden z.B. Flucht und Rettungspläne machen. Habt ihr schon gesehen, wo an der Wand hängen muss? Wo man vorbei geht, wenn man ein Gebäude verlässt, und da könnte man sagen ein Stück kostet 80 Euro. Und das birgt das Risiko, dass wir gar nicht wissen, wie kompliziert ist das Gebäude. Und dann haben wir einen viel zu geringen Preis dort hineingesetzt. Oder wir müssen den Preis hochtreiben, um alle Unwägbarkeiten aufzufangen, dass der Bauherr sagt, das ist ja viel zu teuer. Deswegen, denke ich, wird es in vielen Dingen so sein, dass man erst einmal in den Austausch geraten muss. Also erst einmal sich über den Gegenstand unterhält und dann natürlich auch einen Preis abgibt. Und dann kann man dann online auch bestätigen. \#00:39:08\#
+
+\Toni Als nächstes würde ich Sie einfach nach Ihrer Meinung zu Online-Marktplätz als auch Online-Bezahldiensten fragen. \#00:39:18\#
+
+\Andre Also die Marktplätze werden von uns wahrgenommen und Bezahldienste auch. Das macht also mein Mitarbeiterstab. Wir haben also pfiffige Leute, die gucken, wenn wir spezielle Dinge brauchen in der Elektronik. Jetzt hat ein Kollege sich beispielsweise einen sehr stabilen Laptop bestellt, für die Baustelle, dass der auch mal runterfallen kann; Schutzausrüstung für bestimmte Zwecke, und da gucken die nach und dann bezahlen wir das über verschiedene Medien und haben da bis jetzt immer gute Erfahrungen gemacht, dass das klappt. \#00:40:01\#
+
+\Fabian Okay, das waren unsere Fragen. Wir bedanken uns herzlich für das Interview. \#00:40:11\#
+
+\Andre Ja, gerne. Alles Gute wünsche ich euch. \#00:40:16\#
+
+[...]
+
+\end{description}
+
+\normalsize
+
+
+
+
+
+
+
+
+
+        \newpage
+        
+        
+        
+        
+\section*{Einverständniserklärung}
+\vfill\raggedright
+Titel der Arbeit:\\ 
+\raggedleft\vspace*{-0.63cm} "Onlinehandel und dessen Einfluss auf Kleinstädte\\
+und Dörfer im ländlichen Raum"\\
+Name der Schule: \hfill Hennebergisches Gymnasium "Georg Ernst"\\
+Interviewter: \hfill Prof. Dr.-Ing. André Spindler\\
+Interviewer: \hfill Toni Hausdörfer, Fabian Beez\\
+Interviewdatum: \hfill 19. 09. 2020\\
+\vfill\raggedright
+Hiermit erkläre mich dazu bereit, im Rahmen der genannten Arbeit  an einem Interview teilzunehmen. Ich wurde sowohl über das Ziel als auch den Verlauf des Projektes informiert.
+
+Ich bin damit einverstanden, dass das Interview mithilfe eines Aufnahmegerät aufgezeichnet und anschließend in Schriftform gebracht wird. Ich bin damit einverstanden, dass einzelne Sätze aus dem angefertigtem Transkript im Rahmen der o. g. Arbeit genutzt werden können. Meine Teilnahme sowie meine Zustimmung zur Verwendung der Daten, wie oben beschrieben, ist freiwillig. Ich habe jederzeit die Möglichkeit, meine Zustimmung zu widerrufen. Ich habe das Recht auf Auskunft, Berichtigung sowie Löschung der durch das Interview erhobenen Daten. Unter diesen Bedingungen erkläre ich mich bereit, an dem Interview teilzunehmen und bin damit einverstanden, dass es aufgezeichnet, transkribiert und ausgewertet wird.
+\vfill
+\hbox{\hspace{-0.95em} \includegraphics[scale=0.337]{media/unterschrift.png}}
+\vfill
+\vfill
+\newpage
+
+        
+        
+\end{document}
