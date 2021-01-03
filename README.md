@@ -1,5 +1,2 @@
 # Semi-professionelle-Seminarfacharbeit
-
-Pdf-Datei: Latex/Arbeit.pdf
-
-Literaturverzeichnis: Latex/Literaturverzeichnis.bib
+Unsere Seminachfacharbeit. Semi-professionell beschreibt den Zustand ganz gut.
